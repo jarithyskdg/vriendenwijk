@@ -1,0 +1,29 @@
+section {
+    position: relative;
+
+    .section-divider {
+        position: absolute;
+        bottom: -35px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+
+        &--black {
+            svg {
+                path {
+                    fill: $black;
+                }
+            }
+        }
+
+        &--pink {
+            svg {
+                path {
+                    fill: $primary;
+                }
+            }
+        } 
+    }
+}

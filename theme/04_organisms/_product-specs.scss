@@ -1,0 +1,106 @@
+.product-specs {
+    width: 100%;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        &__title {
+            margin: 0 0 16px 42px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+
+            thead {
+                width: 100%;
+                visibility: collapse;
+            }
+
+            tbody {
+                width: 100%;
+
+                tr {
+                    width: 100%;
+                    color: $black;
+
+                    &:nth-child(even) {
+                        background-color: $secondary;
+                        color: $white;
+                    }
+                    
+                    td {
+                        vertical-align: top;
+                        padding: 16px 0 16px 40px;
+                        width: 50%;
+                        @extend .text--md;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Desktop
+
+@media screen and (min-width: 1000px) {
+    .product-specs {
+        background-image: url('../img/church-background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        min-height: 90vh;
+    
+        &__content {
+            width: 40%;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-color: $white;
+            padding: 28px 42px 42px;
+            border-radius: 0 0px 35px 35px;
+            margin: 0 0 75px 50px;
+    
+            &__title {
+                margin-bottom: 16px;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+    
+                thead {
+                    width: 100%;
+                    visibility: collapse;
+                }
+    
+                tbody {
+                    width: 100%;
+    
+                    tr {
+                        width: 100%;
+                        color: $black;
+    
+                        &:nth-child(even) {
+                            background-color: $secondary;
+                            color: $white;
+                        }
+                        
+                        td {
+                            vertical-align: top;
+                            padding: 16px 0 16px 40px;
+                            width: 50%;
+                            @extend .text--md;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

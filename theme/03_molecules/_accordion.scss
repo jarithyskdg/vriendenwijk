@@ -1,0 +1,67 @@
+.accordion {
+    margin-bottom: 64px;
+    &__item {
+        border-bottom: 2px solid $black;
+        transition: all 0.3s ease;
+
+        &__title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+
+            h3 {
+                @extend .text--xl;
+                @extend .text;
+            }
+
+            .dropdown-arrow {
+                width: 25px;
+                height: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: rotate(90deg);
+
+                svg {
+                    width: 12px;
+                    height: 22px;
+
+                    path {
+                        fill: $primary;
+                    }
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 16px;
+            @extend .text--md;
+            max-height: 0 !important;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        &--open {
+
+            .dropdown-arrow {
+                transform: rotate(-90deg);
+            }
+
+            .accordion__item__content {
+                max-height: initial !important;
+                overflow: hidden;
+                margin: 8px 0 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.terms {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__page-title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: center;
+        margin: 56px 0 64px;
+    }
+
+    &__container {
+        width: 87.5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        .terms__download {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 24px;
+
+            &__link {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 12px;
+                font-size: $sm;
+                color: $secondary;
+
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .terms__conditions {
+            h2 {
+                margin-bottom: 24px;
+            }
+        }
+    }
+}

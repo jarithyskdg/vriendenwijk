@@ -1,0 +1,93 @@
+.events {
+    width: 100%;
+    height: auto;
+    background-image: none;
+
+    &__content {
+        width: 100%;
+        min-height: initial;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 75px 65px;
+        border-radius: 0;
+        margin-left: auto;
+        text-align: center;
+        background-color: $lightGrey;
+
+        &__title {
+            margin-bottom: 16px;
+        }
+
+        &__info {
+
+            &__name {
+                margin-bottom: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            &__date {
+                @extend .text--btn;
+                color: $primary;
+                margin-bottom: 14px;
+            }
+
+            &__text {
+                @extend .text--md;
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+//Desktop
+
+@media screen and (min-width: 1050px) {
+    .events {
+        background-image: url('../img/events-map.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+
+        &__content {
+            width: 40%;
+            min-height: 40vh;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 28px 42px 42px;
+            border-radius: 0 0px 35px 35px;
+            margin-left: 50px;
+            text-align: left;
+            background-color: $white;
+
+            &__title {
+                margin-bottom: 32px;
+            }
+
+            &__info {
+
+                &__name {
+                    margin-bottom: 24px;
+                    align-items: flex-start;
+                }
+
+                &__date {
+                    @extend .text--btn;
+                    color: $primary;
+                    margin-bottom: 14px;
+                }
+
+                &__text {
+                    @extend .text--md;
+                    margin-bottom: 24px;
+                }
+            }
+        }
+    }
+}

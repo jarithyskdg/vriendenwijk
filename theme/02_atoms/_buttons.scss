@@ -1,0 +1,78 @@
+.btn {
+    display: flex;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    @extend .text--btn;
+
+    &--green {
+        color: $white;
+        background-color: $secondary;
+        border: 1px solid $secondary;
+        border-radius: 30px;
+        padding: 10px 20px;
+
+        &:hover {
+            background-color: $secondary-hover;
+            border: 1px solid $secondary-hover;
+        }
+    }
+
+    &--primary {
+        color: $white;
+        background-color: $primary;
+        border: 1px solid $primary;
+        border-radius: 30px;
+        padding: 10px 20px;
+    }
+
+    &--white {
+        color: $black;
+        background-color: $white;
+        border: 2px solid $white;
+        border-radius: 30px;
+        padding: 10px 20px;
+
+        &:hover {
+            background-color: $grey;
+            border: 2px solid $grey;
+        }
+    }
+
+    &--inactive {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    &--spotlight-controls {
+        border: none;
+        background-color: transparent;
+        z-index: 3;
+
+        &:hover {
+            svg {
+                path {
+                    fill: $primary;
+                }
+            }
+        }
+    }
+
+    &--arrow-green {
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $secondary;
+        border-radius: 50%;
+        padding: 9px;
+
+        svg {
+            width: 30px;
+            height: 30px;
+
+            path {
+                fill: $white;
+            }
+        }
+    }
+}

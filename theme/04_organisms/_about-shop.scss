@@ -1,0 +1,78 @@
+.about-shop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 72px 0;
+
+    &__title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 48px;
+    }
+
+    &__container {
+        width: 90%;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 32px;
+
+        .about-shop__item {
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+
+            &__icon {
+                width: 70px;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                background-color: $primary;
+                
+                svg {
+                    path {
+                        fill: $white;
+                    }
+                }
+            }
+
+            &__content {
+                @extend .text--md;
+            }
+        }
+    }
+
+}
+
+@media screen and (min-width: 769px) {
+    .about-shop {
+        &__title {
+            margin-bottom: 72px;
+        }
+
+        &__container {
+            flex-direction: row;
+            gap: 0;
+            padding: 0 30px;
+
+            .about-shop__item {
+                width: 30%;
+                gap: 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+.crumbs {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+    &__container {
+        width: 95%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 30px;
+        margin-top: 16px;
+
+        &__item {
+            text-decoration: none;
+            color: $black;
+        }
+
+        &__seperator {
+            width: 2px;
+            height: 20px;
+            background-color: $black;
+            margin: 0 8px;
+        }
+    }
+}

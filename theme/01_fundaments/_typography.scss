@@ -1,0 +1,50 @@
+.text {
+    font-family: $ff-body;
+    font-weight: normal;
+
+    //body text
+    &--sm {
+        font-size: $sm;
+        text-transform: lowercase;
+    }
+
+    &--md {
+        font-size: $md;
+        line-height: 168%; // 28px;
+    }
+
+    &--lg {
+        font-size: $lg;
+        line-height: 168%; // 28px;
+    }
+
+    &--xl {
+        font-size: $xl;
+        line-height: 168%; // 28px;
+    }
+
+    &--xxl {
+        font-size: $xxl;
+        line-height: 168%; // 28px;
+    }
+
+    //breadcrumbs
+    &--crumbs {
+        font-size: $sm;
+        text-transform: capitalize;
+    }
+
+    //navigation
+    &--nav {
+        font-size: $sm;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+    }
+
+    //button
+    &--btn {
+        font-size: $lg;
+        letter-spacing: 0.9px;
+        text-transform: uppercase;
+    }
+}

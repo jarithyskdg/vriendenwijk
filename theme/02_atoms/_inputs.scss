@@ -1,0 +1,132 @@
+input[type="checkbox"].checkbox {
+    appearance: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: 2px solid $grey;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &::before {
+        content: "";
+        width: 30px;
+        height: 30px;
+        transform: scale(0);
+        background-color: $white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        background-color: $lightGrey;
+        border: 2px solid $darkGrey;
+    }
+
+    &:checked {
+        border: 2px solid $secondary;
+        background-color: $secondary;
+
+        &::before {
+            transform: scale(0.5);
+        }
+    }
+}
+
+.form__select {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    border-radius: 16px;
+    padding-right: 24px;
+    background-color: $lightGrey;
+    cursor: pointer;
+    border: 1px solid $lightGrey;
+
+
+
+    &::after {
+        content: "";
+        background-image: url(../img/lines/arrow-icon-right.svg);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        transform: rotate(90deg);
+        width: 12px;
+        height: 22px;
+    }
+
+    select {
+        width: 100%;
+        appearance: none;
+        outline: none;
+        border: none;
+        margin: 0;
+        padding: 16px 24px 16px 16px;
+        color: $black;
+        background-color: transparent;
+        @extend .text--md;
+        cursor: pointer;
+
+        option {
+            @extend .text--md;
+            color: $black;
+        }
+    }
+}
+
+.search {
+    width: 330px;
+    max-height: 37px;
+    padding: 5px 20px;
+    border: 2px solid $primary;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+
+    color: $darkGrey;
+    background-color: $white;
+
+    &__input {
+        width: 100%;
+        padding: 0;
+        border: none;
+        outline: none;
+        font-size: $md;
+        color: $darkGrey;
+    }
+
+    &__icon {
+        color: $primary;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 20px;
+        height: 20px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+
+            path {
+                fill: $primary;
+            }
+        }
+    }
+
+    &--filters {
+        width: 95%;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .form__select {
+        width: 72.5%;
+    }
+}
