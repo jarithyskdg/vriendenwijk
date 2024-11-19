@@ -1,7 +1,10 @@
 //colors
-$primary: #B5325D;
-$secondary: #006D3A;
-$secondary-hover: #004525;
+$yellow: #FFEBAE;
+$lightBlue: #A7B5FE;
+$green: #339551;
+$darkYellow: #FEB737;
+$darkBlue: #0A05E9;
+$orange: #FF5B22;
 
 //neutrals
 $white: #FFFFFF;
@@ -22,5 +25,3 @@ $xl: 1.25rem; // 20px;
 $xxl: 1.5rem; // 24px;
 
 //gradiants
-$grad-hero: linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.00) 20%), url('../img/vineyard-img.jpg'), lightgray -41px -312.134px / 105.691% 145.928% no-repeat;
-$grad-hero-mobile: linear-gradient(rgba(0, 0, 0, 0.20), rgba(0, 0, 0, 0.00)), url('../img/vineyard-img.jpg');

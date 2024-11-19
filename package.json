@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jarithyskdg/vriendenwijk#readme",
   "dependencies": {
     "browser-sync": "^2.29.3",
+    "gsap": "^3.12.5",
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^5.1.0",
