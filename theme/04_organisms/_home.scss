@@ -1,0 +1,53 @@
+@use "../00_common/variables";
+
+.home {
+    width: 100%;
+    background-image: url("../img/home-background-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 35vh;
+
+        &__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+            
+            .logo {
+                width: 100%;
+                
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .scroll-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            cursor: pointer;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

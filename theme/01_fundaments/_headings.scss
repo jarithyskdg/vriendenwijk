@@ -1,5 +1,7 @@
+@use "../00_common/variables";
+
 h1, h2, h3, h4 {
-    font-family: $ff-heading;
+    font-family: variables.$ff-heading;
     font-weight: normal;
 }
 

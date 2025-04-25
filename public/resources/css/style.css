@@ -1,0 +1,118 @@
+h1, h2, h3, h4 {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+.text {
+  font-family: "Helvetica", sans-serif;
+  font-weight: normal;
+}
+.text--sm {
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+.text--md {
+  font-size: 1.063rem;
+  line-height: 168%;
+}
+.text--lg {
+  font-size: 1.125rem;
+  line-height: 168%;
+}
+.text--xl {
+  font-size: 1.25rem;
+  line-height: 168%;
+}
+.text--xxl {
+  font-size: 1.5rem;
+  line-height: 168%;
+}
+
+.text-subtitle {
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #FFEBAE;
+}
+
+.home {
+  width: 100%;
+  background-image: url("../img/home-background-mobile.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home__container {
+  width: 70%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 35vh;
+}
+.home__container__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.home__container__content .logo {
+  width: 100%;
+}
+.home__container__content .logo img {
+  width: 100%;
+}
+.home__container .scroll-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.home__container .scroll-arrow img {
+  width: 24px;
+  height: 24px;
+}
+
+section {
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Helvetica", sans-serif;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+body {
+  background-color: #F0EEE8;
+}

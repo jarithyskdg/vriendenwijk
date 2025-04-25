@@ -1,30 +1,41 @@
+@use "../00_common/variables";
+
 .text {
-    font-family: $ff-body;
+    font-family: variables.$ff-body;
     font-weight: normal;
 
     //body text
     &--sm {
-        font-size: $sm;
+        font-size: variables.$sm;
         text-transform: lowercase;
     }
 
     &--md {
-        font-size: $md;
+        font-size: variables.$md;
         line-height: 168%; // 28px;
     }
 
     &--lg {
-        font-size: $lg;
+        font-size: variables.$lg;
         line-height: 168%; // 28px;
     }
 
     &--xl {
-        font-size: $xl;
+        font-size: variables.$xl;
         line-height: 168%; // 28px;
     }
 
     &--xxl {
-        font-size: $xxl;
+        font-size: variables.$xxl;
         line-height: 168%; // 28px;
     }
+}
+
+.text-subtitle {
+    font-family: variables.$ff-heading;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-size: 1.25rem; // 20px;
+    font-style: italic;
+    color: variables.$yellow;
 }

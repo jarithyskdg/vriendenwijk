@@ -1,9 +1,9 @@
 //00_common
-@import "../../theme/00_common/_variables.scss";
+@use "../../theme/00_common/_variables.scss";
 
 //01_fundaments
-@import "../../theme/01_fundaments/_headings.scss";
-@import "../../theme/01_fundaments/_typography.scss";
+@use "../../theme/01_fundaments/_headings.scss";
+@use "../../theme/01_fundaments/_typography.scss";
 
 //02_atoms
 
@@ -12,10 +12,10 @@
 
 
 //04_organisms
-
+@use "../../theme/04_organisms/_home.scss";
 
 //05_layouts
-@import "../../theme/05_layouts/_section.scss";
+@use "../../theme/05_layouts/_section.scss";
 
 //06_pages
-@import "../../theme/06_pages/_general.scss";
+@use "../../theme/06_pages/_general.scss";
