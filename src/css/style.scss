@@ -9,10 +9,12 @@
 
 
 //03_molecules
+@use "../../theme/03_molecules/_buttons.scss";
 
 
 //04_organisms
 @use "../../theme/04_organisms/_home.scss";
+@use "../../theme/04_organisms/_cohousing.scss";
 
 //05_layouts
 @use "../../theme/05_layouts/_section.scss";

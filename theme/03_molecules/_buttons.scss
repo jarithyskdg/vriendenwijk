@@ -1,0 +1,41 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+
+.button {
+    @extend .text--md;
+    width: 148px;
+    height: 48px;
+    letter-spacing: 0.8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+
+    &--primary {
+        background-color: variables.$green;
+        color: variables.$yellow;
+        border: 1px solid variables.$yellow;
+    }
+
+    &--lila {
+        background-color: variables.$lila;
+        color: variables.$darkGreen;
+        border: 1px solid variables.$yellow;
+    }
+
+    &--yellow {
+        background-color: variables.$yellow;
+        color: variables.$darkGreen;
+        border: 1px solid variables.$green;
+    }
+
+    &--darkGreen {
+        background-color: variables.$darkGreen;
+        color: variables.$yellow;
+        border: 1px solid variables.$green;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
