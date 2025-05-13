@@ -1,39 +1,40 @@
 @use "../00_common/variables";
 @use "../01_fundaments/_typography";
 
-.cohousing {
+.our-story {
     width: 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    background-color: variables.$darkGreen;
+    color: white;
 
     &__container {
-        width: 70%;
-        margin-top: 35%;
+        width: 85%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
 
-        .cohousing__title {
+        .our-story__title {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 48px;
-
-            h2 {
-                width: 70%;
-            }
-        }
-
-        .cohousing__content {
-            width: 100%;
+            margin: 8px 0 40px;
             text-align: center;
-            @extend .text--lg;
-            margin-bottom: 64px;
+            font-weight: bold;
         }
 
+        .our-story__content {
+            width: 100%;
+            @extend .text--md;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
     }
 }

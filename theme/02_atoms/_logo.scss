@@ -1,0 +1,9 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+
+.logo {
+    &--small {
+        width: 86px;
+        height: auto;
+    }
+}

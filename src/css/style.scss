@@ -6,7 +6,7 @@
 @use "../../theme/01_fundaments/_typography.scss";
 
 //02_atoms
-
+@use "../../theme/02_atoms/_logo.scss";
 
 //03_molecules
 @use "../../theme/03_molecules/_buttons.scss";
@@ -16,6 +16,7 @@
 @use "../../theme/04_organisms/_home.scss";
 @use "../../theme/04_organisms/_cohousing.scss";
 @use "../../theme/04_organisms/_about-us.scss";
+@use "../../theme/04_organisms/_our-story.scss";
 
 //05_layouts
 @use "../../theme/05_layouts/_section.scss";
