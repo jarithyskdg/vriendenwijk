@@ -7,7 +7,7 @@
     //body text
     &--sm {
         font-size: variables.$sm;
-        text-transform: lowercase;
+        line-height: 168%; // 28px;
     }
 
     &--md {
