@@ -2,6 +2,18 @@
 @use "../01_fundaments/_typography";
 
 .card {
+    &--lila {
+        background-color: variables.$lila;
+    }
+
+    &--green {
+        background-color: variables.$green;
+    }
+
+    &--orange {
+        background-color: variables.$orange;
+    }
+
     &--practical {
         background-color: variables.$yellow;
         border: 1px solid variables.$green;
@@ -22,6 +34,20 @@
         &__name {
             @extend .text--md;
             font-weight: normal;
+        }
+    }
+
+    &--insights {
+        width: 90%;
+        min-height: 400px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+
+        &__content {
+            @extend .text--md;
         }
     }
 }
