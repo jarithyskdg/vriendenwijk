@@ -1,0 +1,27 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+
+.card {
+    &--practical {
+        background-color: variables.$yellow;
+        border: 1px solid variables.$green;
+        border-radius: 6px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+
+        &__info {
+            @extend .text--xl;
+            font-weight: bold;
+        }
+
+        &__name {
+            @extend .text--md;
+            font-weight: normal;
+        }
+    }
+}
