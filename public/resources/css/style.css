@@ -1,12 +1,12 @@
-h1, h2, h3, h4 {
+h1, .portal__container .portal__content__title h2, h2, h3, h4 {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
 }
-h1 span.bold, h2 span.bold, h3 span.bold, h4 span.bold {
+h1 span.bold, .portal__container .portal__content__title h2 span.bold, h2 span.bold, h3 span.bold, h4 span.bold {
   font-weight: bold;
 }
 
-h1 {
+h1, .portal__container .portal__content__title h2 {
   font-size: 3rem;
 }
 
@@ -420,6 +420,38 @@ h4 {
 }
 .insights__container .insights__content__title h2 {
   font-weight: bold;
+}
+
+.portal {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #374729;
+}
+.portal__container {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40%;
+}
+.portal__container .portal__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.portal__container .portal__content__title {
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 86px;
+}
+.portal__container .portal__content__title h2 {
+  color: #FFEBAE;
 }
 
 section {
