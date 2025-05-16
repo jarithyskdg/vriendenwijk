@@ -1,0 +1,123 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+@use "../01_fundaments/_headings";
+
+footer.footer {
+    width: 100%;
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: variables.$lightGreen;
+
+    .footer__container {
+        width: 80%;
+        padding: 15% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .footer__content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .footer__logo {
+                margin-bottom: 48px;
+            }
+
+            .footer__links {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 16px;
+                margin-bottom: 64px;
+
+
+                a {
+                    @extend h3;
+                    text-decoration: none;
+                    color: variables.$darkGreen;
+
+                    &:hover {
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 32px;
+                margin-bottom: 64px;
+
+                &__title {
+                    // margin-bottom: 32px;
+
+                    h2 {
+                        font-weight: bold;
+                        color: variables.$darkGreen;
+                    }
+                }
+
+                &__details {
+                    // width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    gap: 24px;
+                    color: variables.$darkGreen;
+                    @extend .text--md;
+
+                    a {
+                        @extend .text--md;
+                        color: variables.$darkGreen;
+                        text-decoration: underline;
+
+                        &:hover {
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .socials {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 24px;
+
+                &__title {
+                    h2 {
+                        font-weight: bold;
+                        color: variables.$darkGreen;
+                    }
+                }
+
+                &__links {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 24px;
+
+                    a {
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

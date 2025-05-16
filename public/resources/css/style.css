@@ -1,8 +1,8 @@
-h1, .portal__container .portal__content__title h2, h2, h3, h4 {
+h1, .portal__container .portal__content__title h2, h2, h3, footer.footer .footer__container .footer__content .footer__links a, h4 {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
 }
-h1 span.bold, .portal__container .portal__content__title h2 span.bold, h2 span.bold, h3 span.bold, h4 span.bold {
+h1 span.bold, .portal__container .portal__content__title h2 span.bold, h2 span.bold, h3 span.bold, footer.footer .footer__container .footer__content .footer__links a span.bold, h4 span.bold {
   font-weight: bold;
 }
 
@@ -14,7 +14,7 @@ h2 {
   font-size: 2.5rem;
 }
 
-h3 {
+h3, footer.footer .footer__container .footer__content .footer__links a {
   font-size: 1.75rem;
 }
 
@@ -30,7 +30,7 @@ h4 {
   font-size: 0.875rem;
   line-height: 168%;
 }
-.text--md, .practical__container .practical__content__body, .faciliteiten__container .faciliteiten__content__body, .our-story__container .our-story__content, .card--practical__name, .card--insights__content, .button {
+.text--md, footer.footer .footer__container .footer__content .contact-info__details, footer.footer .footer__container .footer__content .contact-info__details a, .practical__container .practical__content__body, .faciliteiten__container .faciliteiten__content__body, .our-story__container .our-story__content, .card--practical__name, .card--insights__content, .button {
   font-size: 1.125rem;
   line-height: 168%;
 }
@@ -54,6 +54,14 @@ h4 {
 
 .logo--small {
   width: 86px;
+  height: auto;
+}
+.logo--footer {
+  width: 175px;
+  height: auto;
+}
+.logo--footer img {
+  width: 100%;
   height: auto;
 }
 
@@ -452,6 +460,98 @@ h4 {
 }
 .portal__container .portal__content__title h2 {
   color: #FFEBAE;
+}
+
+footer.footer {
+  width: 100%;
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #C6BD56;
+}
+footer.footer .footer__container {
+  width: 80%;
+  padding: 15% 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+footer.footer .footer__container .footer__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+footer.footer .footer__container .footer__content .footer__logo {
+  margin-bottom: 48px;
+}
+footer.footer .footer__container .footer__content .footer__links {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 64px;
+}
+footer.footer .footer__container .footer__content .footer__links a {
+  text-decoration: none;
+  color: #374729;
+}
+footer.footer .footer__container .footer__content .footer__links a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+footer.footer .footer__container .footer__content .contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+footer.footer .footer__container .footer__content .contact-info__title h2 {
+  font-weight: bold;
+  color: #374729;
+}
+footer.footer .footer__container .footer__content .contact-info__details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  color: #374729;
+}
+footer.footer .footer__container .footer__content .contact-info__details a {
+  color: #374729;
+  text-decoration: underline;
+}
+footer.footer .footer__container .footer__content .contact-info__details a:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+footer.footer .footer__container .footer__content .socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+footer.footer .footer__container .footer__content .socials__title h2 {
+  font-weight: bold;
+  color: #374729;
+}
+footer.footer .footer__container .footer__content .socials__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+footer.footer .footer__container .footer__content .socials__links a:hover {
+  cursor: pointer;
 }
 
 section {
