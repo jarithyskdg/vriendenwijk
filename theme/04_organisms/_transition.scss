@@ -1,0 +1,71 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+
+.transition {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    &__container {
+        position: relative;
+        width: 85%;
+        margin: 20% 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        .transition__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                border-radius: 40px;
+                z-index: -1;
+
+            }
+        }
+
+        .transition__content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+
+            .transition__grid {
+                width: 80%;
+                height: 95%;
+                position: absolute;
+                bottom: 1%;
+                right: 0;
+                z-index: -1;
+
+                &__img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            .transition__art-wrapper {
+                .transition__art {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+}
