@@ -1,8 +1,8 @@
-h1, .portal__container .portal__content__title h2, h2, h3, footer.footer .footer__container .footer__content .footer__links a, h4 {
+h1, .portal__container .portal__content__title h2, h2, .quote__container .quote__content__text p, h3, footer.footer .footer__container .footer__content .footer__links a, h4 {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
 }
-h1 span.bold, .portal__container .portal__content__title h2 span.bold, h2 span.bold, h3 span.bold, footer.footer .footer__container .footer__content .footer__links a span.bold, h4 span.bold {
+h1 span.bold, .portal__container .portal__content__title h2 span.bold, h2 span.bold, .quote__container .quote__content__text p span.bold, h3 span.bold, footer.footer .footer__container .footer__content .footer__links a span.bold, h4 span.bold {
   font-weight: bold;
 }
 
@@ -10,7 +10,7 @@ h1, .portal__container .portal__content__title h2 {
   font-size: 3rem;
 }
 
-h2 {
+h2, .quote__container .quote__content__text p {
   font-size: 2.5rem;
 }
 
@@ -610,6 +610,42 @@ footer.footer .footer__container .footer__content .socials__links a:hover {
   object-fit: cover;
   object-position: center;
   z-index: 1;
+}
+
+.quote {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/quote-background.jpg");
+}
+.quote__container {
+  position: relative;
+  width: 80%;
+  padding: 0 7%;
+  min-height: 80vh;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
+  text-align: center;
+  background-color: #FFF;
+}
+.quote__container .quote__content {
+  width: 100%;
+}
+.quote__container .quote__mark {
+  display: flex;
+}
+.quote__container .quote__mark--top {
+  justify-content: flex-start;
+  margin-top: -20px;
+}
+.quote__container .quote__mark--bottom {
+  justify-content: flex-end;
+  margin-bottom: -20px;
 }
 
 section {

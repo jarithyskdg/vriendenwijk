@@ -1,0 +1,55 @@
+@use "../00_common/variables";
+@use "../01_fundaments/_typography";
+@use "../01_fundaments/_headings";
+
+.quote {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/quote-background.jpg");
+
+    &__container {
+        position: relative;
+        width: 80%;
+        padding: 0 7%;
+        min-height: 80vh;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: space-between;
+        text-align: center;
+        background-color: variables.$white;
+
+        .quote__content {
+            width: 100%;
+
+            &__text {
+                p {
+                    @extend h2;
+                }
+            }
+
+            // .quote__author {
+            //     @extend .text--sm;
+            //     font-weight: normal;
+            // }
+        }
+
+        .quote__mark {
+            display: flex;
+
+            &--top {
+                justify-content: flex-start;
+                margin-top: -20px;
+            }
+
+            &--bottom {
+                justify-content: flex-end;
+                margin-bottom: -20px;
+            }
+        }
+    }
+}
