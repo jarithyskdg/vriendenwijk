@@ -51,6 +51,16 @@ h4 {
   font-style: italic;
   color: #374729;
 }
+@media (min-width: 768px) {
+  .text-subtitle {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .text-subtitle {
+    font-size: 1.75rem;
+  }
+}
 
 .logo--small {
   width: 86px;
@@ -178,6 +188,44 @@ h4 {
 .home__container .scroll-arrow img {
   width: 24px;
   height: 24px;
+}
+@media (min-width: 768px) {
+  .home {
+    background-image: url("../img/home-background.jpg");
+  }
+  .home__container {
+    width: 60%;
+    padding-top: 30vh;
+  }
+  .home__container__content {
+    gap: 16px;
+  }
+  .home__container__content .logo img {
+    width: 90%;
+  }
+  .home__container .scroll-arrow img {
+    width: 28px;
+    height: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  .home {
+    background-image: url("../img/home-background.jpg");
+  }
+  .home__container {
+    width: 50%;
+    padding-top: 25vh;
+  }
+  .home__container__content {
+    gap: 20px;
+  }
+  .home__container__content .logo img {
+    width: 90%;
+  }
+  .home__container .scroll-arrow img {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .cohousing {
@@ -660,6 +708,10 @@ section {
   text-decoration: none;
   list-style: none;
   transition: all 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

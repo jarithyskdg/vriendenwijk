@@ -1,4 +1,6 @@
 @use "../00_common/variables";
+@use "../00_common/mixins" as *; // allows direct use of @include respond-to(...)
+
 
 .text {
     font-family: variables.$ff-body;
@@ -33,4 +35,12 @@
     font-size: 1.25rem; // 20px;
     font-style: italic;
     color: variables.$darkGreen;
+
+    @include respond-to(tablet) {
+        font-size: 1.5rem; // 24px;
+    }
+
+    @include respond-to(desktop) {
+        font-size: 1.75rem; // 28px;
+    }
 }
