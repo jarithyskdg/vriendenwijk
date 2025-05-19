@@ -1,4 +1,4 @@
-@use "../00_common/variables";
+@use "../00_common/variables" as *;
 @use "../00_common/mixins" as *; // allows direct use of @include respond-to(...)
 
 .home {

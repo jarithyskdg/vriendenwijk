@@ -1,5 +1,5 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
 
 .transition {
     width: 100%;

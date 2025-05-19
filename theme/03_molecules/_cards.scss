@@ -1,22 +1,22 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
 
 .card {
     &--lila {
-        background-color: variables.$lila;
+        background-color: $lila;
     }
 
     &--green {
-        background-color: variables.$green;
+        background-color: $green;
     }
 
     &--orange {
-        background-color: variables.$orange;
+        background-color: $orange;
     }
 
     &--practical {
-        background-color: variables.$yellow;
-        border: 1px solid variables.$green;
+        background-color: $yellow;
+        border: 1px solid $green;
         border-radius: 6px;
         padding: 16px;
         display: flex;
@@ -27,12 +27,12 @@
         text-align: center;
 
         &__info {
-            @extend .text--xl;
+            @include text--xl;
             font-weight: bold;
         }
 
         &__name {
-            @extend .text--md;
+            @include text--md;
             font-weight: normal;
         }
     }
@@ -47,7 +47,7 @@
         gap: 32px;
 
         &__content {
-            @extend .text--md;
+            @include text--md;
         }
     }
 }

@@ -1,5 +1,5 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
 @use "../00_common/mixins" as *;
 
 .cohousing {
@@ -33,7 +33,7 @@
             }
 
             &__text {
-                @extend .text--lg;
+                @include text--lg;
             }
         }
 

@@ -1,8 +1,8 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
 
 .button {
-    @extend .text--md;
+    @include text--md;
     width: 148px;
     height: 48px;
     letter-spacing: 0.8px;
@@ -12,27 +12,27 @@
     border-radius: 6px;
 
     &--primary {
-        background-color: variables.$lightGreen;
-        color: variables.$darkGreen;
-        border: 1px solid variables.$green;
+        background-color: $lightGreen;
+        color: $darkGreen;
+        border: 1px solid $green;
     }
 
     &--lila {
-        background-color: variables.$lila;
-        color: variables.$darkGreen;
-        border: 1px solid variables.$yellow;
+        background-color: $lila;
+        color: $darkGreen;
+        border: 1px solid $yellow;
     }
 
     &--yellow {
-        background-color: variables.$yellow;
-        color: variables.$darkGreen;
-        border: 1px solid variables.$green;
+        background-color: $yellow;
+        color: $darkGreen;
+        border: 1px solid $green;
     }
 
     &--darkGreen {
-        background-color: variables.$darkGreen;
-        color: variables.$yellow;
-        border: 1px solid variables.$green;
+        background-color: $darkGreen;
+        color: $yellow;
+        border: 1px solid $green;
     }
 
     &:hover {

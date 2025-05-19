@@ -1,6 +1,6 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
-@use "../01_fundaments/_headings";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
+@use "../01_fundaments/_headings" as *;
 
 
 .portal {
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: variables.$darkGreen;
+    background-color: $darkGreen;
 
     &__container {
         width: 85%;
@@ -32,8 +32,8 @@
                 margin-bottom: 86px;
 
                 h2 {
-                    @extend h1;
-                    color: variables.$yellow;
+                    @include heading-h1;
+                    color: $yellow;
                 }
             }
         }

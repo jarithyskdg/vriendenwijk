@@ -1,6 +1,6 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
-@use "../01_fundaments/_headings";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
+@use "../01_fundaments/_headings" as *;
 
 .quote {
     width: 100%;
@@ -21,19 +21,19 @@
         justify-content: space-between;
         align-items: space-between;
         text-align: center;
-        background-color: variables.$white;
+        background-color: $white;
 
         .quote__content {
             width: 100%;
 
             &__text {
                 p {
-                    @extend h2;
+                    @include heading-h2;
                 }
             }
 
             // .quote__author {
-            //     @extend .text--sm;
+            //     @include text--sm;
             //     font-weight: normal;
             // }
         }

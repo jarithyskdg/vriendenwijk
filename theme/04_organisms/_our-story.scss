@@ -1,5 +1,5 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_typography" as *;
 
 .our-story {
     width: 100%;
@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: variables.$darkGreen;
+    background-color: $darkGreen;
     color: white;
 
     &__container {
@@ -29,7 +29,7 @@
 
         .our-story__content {
             width: 100%;
-            @extend .text--md;
+            @include text--md;
             display: flex;
             flex-direction: column;
             justify-content: center;

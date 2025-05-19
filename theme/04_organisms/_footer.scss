@@ -1,6 +1,7 @@
-@use "../00_common/variables";
-@use "../01_fundaments/_typography";
-@use "../01_fundaments/_headings";
+@use "../00_common/variables" as *; // allows direct use of variables.$ff-body, variables.$sm, etc.
+@use "../01_fundaments/_typography" as *;
+@use "../01_fundaments/_headings" as *;
+@use "../00_common/mixins" as *;
 
 footer.footer {
     width: 100%;
@@ -8,7 +9,7 @@ footer.footer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: variables.$lightGreen;
+    background-color: $lightGreen;
 
     .footer__container {
         width: 80%;
@@ -39,9 +40,9 @@ footer.footer {
 
 
                 a {
-                    @extend h3;
+                    @include heading-h3;
                     text-decoration: none;
-                    color: variables.$darkGreen;
+                    color: $darkGreen;
 
                     &:hover {
                         text-decoration: underline;
@@ -63,7 +64,7 @@ footer.footer {
 
                     h2 {
                         font-weight: bold;
-                        color: variables.$darkGreen;
+                        color: $darkGreen;
                     }
                 }
 
@@ -74,12 +75,12 @@ footer.footer {
                     justify-content: flex-start;
                     align-items: flex-start;
                     gap: 24px;
-                    color: variables.$darkGreen;
-                    @extend .text--md;
+                    color: $darkGreen;
+                    @include text--md;
 
                     a {
-                        @extend .text--md;
-                        color: variables.$darkGreen;
+                        @include text--md;
+                        color: $darkGreen;
                         text-decoration: underline;
 
                         &:hover {
@@ -100,7 +101,7 @@ footer.footer {
                 &__title {
                     h2 {
                         font-weight: bold;
-                        color: variables.$darkGreen;
+                        color: $darkGreen;
                     }
                 }
 

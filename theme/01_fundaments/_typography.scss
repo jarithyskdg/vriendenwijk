@@ -1,40 +1,41 @@
-@use "../00_common/variables";
+@use "../00_common/variables" as *; // allows direct use of variables.$ff-body, variables.$sm, etc.
 @use "../00_common/mixins" as *; // allows direct use of @include respond-to(...)
 
+@mixin text--sm {
+  font-family: $ff-body;
+  font-weight: normal;
+  font-size: $sm;
+  line-height: 168%; // 28px;
+}
 
-.text {
-    font-family: variables.$ff-body;
-    font-weight: normal;
+@mixin text--md {
+  font-family: $ff-body;
+  font-weight: normal;
+  font-size: $md;
+  line-height: 168%; // 28px;
+}
 
-    //body text
-    &--sm {
-        font-size: variables.$sm;
-        line-height: 168%; // 28px;
-    }
+@mixin text--lg {
+  font-family: $ff-body;
+  font-weight: normal;
+  font-size: $lg;
+  line-height: 168%; // 28px;
+}
 
-    &--md {
-        font-size: variables.$md;
-        line-height: 168%; // 28px;
-    }
-
-    &--lg {
-        font-size: variables.$lg;
-        line-height: 168%; // 28px;
-    }
-
-    &--xl {
-        font-size: variables.$xl;
-        line-height: 168%; // 28px;
-    }
+@mixin text--xl {
+  font-family: $ff-body;
+  font-weight: normal;
+  font-size: $xl;
+  line-height: 168%; // 28px;
 }
 
 .text-subtitle {
-    font-family: variables.$ff-heading;
+    font-family: $ff-heading;
     font-weight: 600;
     letter-spacing: 0.5px;
     font-size: 1.25rem; // 20px;
     font-style: italic;
-    color: variables.$darkGreen;
+    color: $darkGreen;
 
     @include respond-to(tablet) {
         font-size: 1.5rem; // 24px;

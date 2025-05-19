@@ -1,26 +1,52 @@
-@use "../00_common/variables";
+@use "../00_common/variables" as *;
 
-h1, h2, h3, h4 {
-    font-family: variables.$ff-heading;
-    font-weight: normal;
-
+// Mixin for bold span inside headings
+@mixin heading-bold-span {
     span.bold {
         font-weight: bold;
     }
 }
 
-h1 {
+// Base heading mixin to apply font family + base weight
+@mixin heading-base {
+    font-family: $ff-heading;
+    font-weight: normal;
+    @include heading-bold-span;
+}
+
+// Individual heading sizes
+@mixin heading-h1 {
+    @include heading-base;
     font-size: 3rem; // 48px;
 }
 
-h2 {
-    font-size: 2.50rem; // 40px;
+@mixin heading-h2 {
+    @include heading-base;
+    font-size: 2.5rem; // 40px;
 }
 
-h3 {
+@mixin heading-h3 {
+    @include heading-base;
     font-size: 1.75rem; // 28px;
 }
 
-h4 {
+@mixin heading-h4 {
+    @include heading-base;
     font-size: 1.5rem; // 24px;
+}
+
+h1 {
+    @include heading-h1;
+}
+
+h2 {
+    @include heading-h2;
+}
+
+h3 {
+    @include heading-h3;
+}
+
+h4 {
+    @include heading-h4;
 }

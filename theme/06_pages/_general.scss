@@ -1,8 +1,8 @@
-@use "../00_common/variables";
+@use "../00_common/variables" as *;
 
 * {
     box-sizing: border-box;
-    font-family: variables.$ff-body;
+    font-family: $ff-body;
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -15,5 +15,5 @@ html {
 }
 
 body {
-    background-color: variables.$beige;
+    background-color: $beige;
 }
