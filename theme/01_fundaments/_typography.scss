@@ -44,3 +44,11 @@
         font-size: 1.75rem; // 28px;
     }
 }
+
+.mobile-br {
+    display: inline;
+
+    @include respond-to(tablet) {
+        display: none;
+    }
+}

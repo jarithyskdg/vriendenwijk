@@ -62,6 +62,15 @@ h4 {
   }
 }
 
+.mobile-br {
+  display: inline;
+}
+@media (min-width: 768px) {
+  .mobile-br {
+    display: none;
+  }
+}
+
 .logo--small {
   width: 86px;
   height: auto;
@@ -219,9 +228,6 @@ h4 {
   .home__container__content {
     gap: 20px;
   }
-  .home__container__content .logo img {
-    width: 90%;
-  }
   .home__container .scroll-arrow img {
     width: 32px;
     height: 32px;
@@ -257,6 +263,38 @@ h4 {
   margin-bottom: 48px;
   text-align: initial;
 }
+.cohousing__container .cohousing__cta {
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .cohousing__container {
+    width: 70%;
+    margin-top: 25%;
+  }
+  .cohousing__container .cohousing__content__title {
+    margin-bottom: 56px;
+  }
+  .cohousing__container .cohousing__content__text {
+    max-width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .cohousing__container {
+    width: 60%;
+    margin-top: 15%;
+  }
+  .cohousing__container .cohousing__content__title {
+    margin-bottom: 64px;
+  }
+  .cohousing__container .cohousing__content__text {
+    max-width: 60%;
+  }
+  .cohousing__container .cohousing__cta {
+    width: 100%;
+  }
+}
+
 .about-us {
   width: 100%;
   height: 100vh;
