@@ -67,7 +67,7 @@
         padding: 80px 0;
 
         &__container {
-            width: 90%;
+            // width: 90%;
 
             .about-us__items {
                 flex-direction: row;
@@ -75,11 +75,11 @@
                 justify-content: space-between;
                 align-items: stretch;
                 row-gap: 48px;
-                column-gap: 32px;
+                column-gap: 48px;
 
                 .about-us__item {
                     height: 100%;
-                    width: calc(50% - 16px); // 2 per row, accounting for column gap
+                    width: calc(50% - 24px); // 2 per row, accounting for column gap
 
                     &__icon {
                         width: 36px;
@@ -106,7 +106,7 @@
 
             .about-us__items {
                 flex-wrap: nowrap;
-                gap: 48px;
+                gap: 86px;
 
                 .about-us__item {
                     width: calc(25% - 24px); // 4 per row, accounting for column gap
