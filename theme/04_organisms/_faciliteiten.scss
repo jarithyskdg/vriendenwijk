@@ -68,7 +68,7 @@
         }
     }
 
-    @include respond-to(tablet) {
+    @media screen and (min-width: 1100px) {
         align-items: stretch; // Important to stretch both columns full height
 
         &__container {
@@ -81,6 +81,7 @@
             .faciliteiten__img {
                 width: 40%;
                 height: 100%; // Full height of the container
+                max-height: 100vh; // Prevent overflow
 
                 img {
                     width: 100%;
@@ -95,18 +96,6 @@
                 padding: 5% 5%;
                 align-items: flex-start;
                 justify-content: center;
-            }
-        }
-    }
-
-    @include respond-to(desktop) {
-        &__container {
-            .faciliteiten__img {
-                width: 33.3333%;
-            }
-
-            .faciliteiten__content {
-                width: 66.6667%;
             }
         }
     }

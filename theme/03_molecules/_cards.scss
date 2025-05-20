@@ -1,5 +1,6 @@
 @use "../00_common/variables" as *;
 @use "../01_fundaments/_typography" as *;
+@use "../00_common/mixins" as *;
 
 .card {
     &--lila {
@@ -32,7 +33,7 @@
         }
 
         &__name {
-            @include text--md;
+            @include text--sm;
             font-weight: normal;
         }
     }
@@ -48,6 +49,14 @@
 
         &__content {
             @include text--md;
+        }
+    }
+
+    @media screen and (min-width: 1100px) {
+        &--practical {
+            &__name {
+                @include text--sm;
+            }
         }
     }
 }
