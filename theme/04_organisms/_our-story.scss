@@ -1,4 +1,5 @@
 @use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
 @use "../01_fundaments/_typography" as *;
 
 .our-story {
@@ -18,10 +19,6 @@
         align-items: center;
 
         .our-story__title {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin: 8px 0 40px;
             text-align: center;
             font-weight: bold;
@@ -35,6 +32,33 @@
             justify-content: center;
             align-items: center;
             gap: 32px;
+
+            &__col {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 32px;
+            }
+        }
+    }
+
+    @include respond-to(desktop) {
+        &__container {
+            align-items: flex-start;
+            width: 60%;
+
+            .our-story__content {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 86px;
+
+                &__col {
+                    width: 50%;
+                    align-items: flex-start;
+                }
+            }
         }
     }
 }
