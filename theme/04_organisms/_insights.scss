@@ -1,5 +1,6 @@
 @use "../00_common/variables" as *;
 @use "../01_fundaments/_typography" as *;
+@use "../00_common/mixins" as *;
 
 .insights {
     width: 100%;
@@ -45,6 +46,54 @@
                     font-weight: bold;
                 }
             }
+        }
+    }
+
+    @include respond-to(tablet) {
+        &__container {
+            width: 75%;
+        }
+    }
+
+    @include respond-to(desktop) {
+        &__container {
+            width: 80%;
+
+            .insights__content {
+                gap: 128px;
+
+                &__body {
+                    margin-bottom: 0;
+
+                    .insights__cards {
+                        flex-direction: row;
+                        align-items: stretch;
+                        gap: 32px;
+                    }
+                }
+
+                &__title {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1400px) {
+        &__container {
+            .insights__content {
+                &__body {
+                    .insights__cards {
+                        gap: 48px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1600px) {
+        &__container {
+            width: 70%;
         }
     }
 }

@@ -690,6 +690,40 @@ h4 span.bold {
 .insights__container .insights__content__title h2 {
   font-weight: bold;
 }
+@media (min-width: 768px) {
+  .insights__container {
+    width: 75%;
+  }
+}
+@media (min-width: 1024px) {
+  .insights__container {
+    width: 80%;
+  }
+  .insights__container .insights__content {
+    gap: 128px;
+  }
+  .insights__container .insights__content__body {
+    margin-bottom: 0;
+  }
+  .insights__container .insights__content__body .insights__cards {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 32px;
+  }
+  .insights__container .insights__content__title {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .insights__container .insights__content__body .insights__cards {
+    gap: 48px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .insights__container {
+    width: 70%;
+  }
+}
 
 .portal {
   width: 100%;
