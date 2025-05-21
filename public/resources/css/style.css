@@ -730,16 +730,16 @@ h4 span.bold {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   background-color: #374729;
 }
 .portal__container {
-  width: 85%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 40%;
+  margin-bottom: 256px;
 }
 .portal__container .portal__content {
   width: 100%;
@@ -761,6 +761,19 @@ h4 span.bold {
 }
 .portal__container .portal__content__title h2 span.bold {
   font-weight: bold;
+}
+@media (min-width: 768px) {
+  .portal__container {
+    width: 70%;
+  }
+  .portal__container .portal__content__title h2 {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .portal__container {
+    width: 60%;
+  }
 }
 
 footer.footer {
