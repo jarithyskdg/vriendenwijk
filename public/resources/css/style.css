@@ -933,12 +933,15 @@ footer.footer .footer__container .footer__content .socials__links a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../img/quote-background.jpg");
+  background-image: url("../img/quote-background.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .quote__container {
   position: relative;
   width: 80%;
-  padding: 0 7%;
+  padding: 0 48px;
   min-height: 80vh;
   border-radius: 40px;
   display: flex;
@@ -962,13 +965,37 @@ footer.footer .footer__container .footer__content .socials__links a:hover {
 .quote__container .quote__mark {
   display: flex;
 }
+.quote__container .quote__mark__img {
+  width: 64px;
+}
 .quote__container .quote__mark--top {
   justify-content: flex-start;
-  margin-top: -20px;
+  margin-top: -24px;
 }
 .quote__container .quote__mark--bottom {
   justify-content: flex-end;
-  margin-bottom: -20px;
+  margin-bottom: -24px;
+}
+@media (min-width: 768px) {
+  .quote__container {
+    padding: 0 64px;
+    min-height: 70vh;
+  }
+  .quote__container .quote__mark__img {
+    width: 86px;
+  }
+  .quote__container .quote__mark--top {
+    margin-top: -32px;
+  }
+  .quote__container .quote__mark--bottom {
+    margin-bottom: -32px;
+  }
+}
+@media (min-width: 1024px) {
+  .quote__container {
+    padding: 0 86px;
+    min-height: 60vh;
+  }
 }
 
 section {

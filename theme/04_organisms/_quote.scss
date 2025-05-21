@@ -1,6 +1,7 @@
 @use "../00_common/variables" as *;
 @use "../01_fundaments/_typography" as *;
 @use "../01_fundaments/_headings" as *;
+@use "../00_common/mixins" as *;
 
 .quote {
     width: 100%;
@@ -8,12 +9,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../img/quote-background.jpg");
+    background-image: url("../img/quote-background.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     &__container {
         position: relative;
         width: 80%;
-        padding: 0 7%;
+        padding: 0 48px;
         min-height: 80vh;
         border-radius: 40px;
         display: flex;
@@ -41,15 +45,47 @@
         .quote__mark {
             display: flex;
 
+            &__img {
+                width: 64px;
+            }
+
             &--top {
                 justify-content: flex-start;
-                margin-top: -20px;
+                margin-top: -24px;
             }
 
             &--bottom {
                 justify-content: flex-end;
-                margin-bottom: -20px;
+                margin-bottom: -24px;
             }
+        }
+    }
+
+    @include respond-to(tablet) {
+        &__container {
+            padding: 0 64px;
+            min-height: 70vh;
+
+            .quote__mark {
+                &__img {
+                    width: 86px;
+                }
+
+                &--top {
+                    margin-top: -32px;
+                }
+
+                &--bottom {
+                    margin-bottom: -32px;
+                }
+            }
+        }
+    }
+
+    @include respond-to(desktop) {
+        &__container {
+            padding: 0 86px;
+            min-height: 60vh;
         }
     }
 }
