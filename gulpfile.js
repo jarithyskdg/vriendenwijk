@@ -3,6 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
+const { exec } = require('child_process');
 
 function styles() {
     return gulp.src('./src/css/*.scss')
@@ -11,10 +12,12 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
-function scripts() {
-    return gulp.src('./src/js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('./public/resources/js'));
+function scripts(cb) {
+    exec("npx webpack --mode production", (err, stdout, stderr) => {
+        console.log(stdout);
+        console.error(stderr);
+        cb(err);
+    });
 }
 
 function images() {

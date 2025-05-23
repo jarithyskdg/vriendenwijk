@@ -4,7 +4,8 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,7 @@
   "homepage": "https://github.com/jarithyskdg/vriendenwijk#readme",
   "dependencies": {
     "browser-sync": "^2.29.3",
-    "gsap": "^3.12.5",
+    "gsap": "^3.13.0",
     "gulp": "^4.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-sass": "^5.1.0",
@@ -27,8 +28,13 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
     "autoprefixer": "^10.4.16",
+    "babel-loader": "^10.0.0",
     "cssnano": "^6.0.1",
-    "gulp-postcss": "^9.0.1"
+    "gulp-postcss": "^9.0.1",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
   }
 }
