@@ -1099,4 +1099,16 @@ html {
 
 body {
   background-color: #F0EEE8;
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#smooth-wrapper {
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
 }
