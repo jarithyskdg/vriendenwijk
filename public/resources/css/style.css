@@ -71,6 +71,25 @@ h4 span.bold {
   height: auto;
 }
 
+.logo-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scroll-indicator .indicator {
+  width: 28px;
+  height: 16px;
+}
+
 .button {
   font-family: "Helvetica", sans-serif;
   font-weight: normal;
@@ -201,16 +220,18 @@ h4 span.bold {
 .home__container__content .logo img {
   width: 100%;
 }
+.home__container__content .home__subtitle {
+  display: inline-block;
+}
+.home__container__content .home__subtitle span {
+  display: inline-block;
+}
 .home__container .scroll-arrow {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
   cursor: pointer;
-}
-.home__container .scroll-arrow img {
-  width: 24px;
-  height: 24px;
 }
 @media (min-width: 768px) {
   .home {
@@ -226,10 +247,6 @@ h4 span.bold {
   .home__container__content .logo img {
     width: 90%;
   }
-  .home__container .scroll-arrow img {
-    width: 28px;
-    height: 28px;
-  }
 }
 @media (min-width: 1024px) {
   .home {
@@ -241,10 +258,6 @@ h4 span.bold {
   }
   .home__container__content {
     gap: 20px;
-  }
-  .home__container .scroll-arrow img {
-    width: 32px;
-    height: 32px;
   }
 }
 
@@ -1090,11 +1103,6 @@ section {
   margin: 0;
   text-decoration: none;
   list-style: none;
-  transition: all 0.3s ease;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {

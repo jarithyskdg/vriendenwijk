@@ -36,6 +36,14 @@
                     width: 100%;
                 }
             }
+
+            .home__subtitle {
+                display: inline-block;
+
+                span {
+                    display: inline-block;
+                }
+            }
         }
 
         .scroll-arrow {
@@ -45,10 +53,10 @@
             margin-top: 40px;
             cursor: pointer;
 
-            img {
-                width: 24px;
-                height: 24px;
-            }
+            // img {
+            //     width: 24px;
+            //     height: 24px;
+            // }
         }
     }
 
@@ -70,12 +78,12 @@
                 }
             }
 
-            .scroll-arrow {
-                img {
-                    width: 28px;
-                    height: 28px;
-                }
-            }
+            // .scroll-arrow {
+            //     img {
+            //         width: 28px;
+            //         height: 28px;
+            //     }
+            // }
         }
     }
 
@@ -91,12 +99,12 @@
                 gap: 20px;
             }
 
-            .scroll-arrow {
-                img {
-                    width: 32px;
-                    height: 32px;
-                }
-            }
+            // .scroll-arrow {
+            //     img {
+            //         width: 32px;
+            //         height: 32px;
+            //     }
+            // }
         }
     }
 }

@@ -1,0 +1,13 @@
+@use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
+
+.scroll-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .indicator {
+        width: 28px;
+        height: 16px;
+    }
+}
