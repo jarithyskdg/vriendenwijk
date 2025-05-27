@@ -1,0 +1,12 @@
+@use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
+
+.dot {
+    position: absolute;
+    background-color: #0ae448;
+    width: 1vw;
+    height: 1vw;
+    border-radius: 50%;
+    will-change: transform, opacity;
+    pointer-events: none;
+}

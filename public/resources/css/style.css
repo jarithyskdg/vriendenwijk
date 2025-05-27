@@ -90,6 +90,16 @@ h4 span.bold {
   height: 16px;
 }
 
+.dot {
+  position: absolute;
+  background-color: #0ae448;
+  width: 1vw;
+  height: 1vw;
+  border-radius: 50%;
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
 .button {
   font-family: "Helvetica", sans-serif;
   font-weight: normal;
