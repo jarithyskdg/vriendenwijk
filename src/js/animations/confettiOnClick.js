@@ -4,6 +4,12 @@ import { Physics2DPlugin } from "gsap/Physics2DPlugin";
 gsap.registerPlugin(Physics2DPlugin);
 
 export function initClickConfetti() {
+    let isMobile = window.matchMedia("(pointer: coarse)").matches;
+
+    if (isMobile) return; // Disable confetti on mobile devices
+
+    console.log(isMobile ? "Mobile device detected, confetti disabled." : "Confetti enabled for desktop.");
+
     document.addEventListener("click", (event) => {
         const dotCount = gsap.utils.random(15, 30, 1);
         const colors = ["#0ae448", "#abff84", "#fffce1"];
@@ -16,8 +22,8 @@ export function initClickConfetti() {
 
             gsap.set(dot, {
                 backgroundColor: gsap.utils.random(colors),
-                top: event.clientY,
-                left: event.clientX,
+                top: event.pageY,
+                left: event.pageX,
                 scale: 0,
             });
 

@@ -25,7 +25,6 @@ export function animateHome() {
                     ease: "back",
                     stagger: 0.15,
                     autoAlpha: 0,
-                    smartWrap: true,
                     // onComplete: () => self.revert()
                 });
             }
