@@ -11,6 +11,8 @@ export function initClickConfetti() {
     console.log(isMobile ? "Mobile device detected, confetti disabled." : "Confetti enabled for desktop.");
 
     document.addEventListener("click", (event) => {
+        if (event.target.closest("a, button, input, textarea")) return; // Ignore clicks on interactive elements
+        
         const dotCount = gsap.utils.random(15, 30, 1);
         const colors = ["#0ae448", "#abff84", "#fffce1"];
 
