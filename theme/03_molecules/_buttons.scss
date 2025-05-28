@@ -3,7 +3,7 @@
 
 .button {
     @include text--md;
-    width: 148px;
+    min-width: 160px;
     height: 48px;
     letter-spacing: 0.8px;
     display: flex;
