@@ -112,6 +112,7 @@ h4 span.bold {
   justify-content: center;
   align-items: center;
   border-radius: 6px;
+  overflow: hidden;
 }
 .button--primary {
   background-color: #C6BD56;
@@ -135,6 +136,14 @@ h4 span.bold {
 }
 .button:hover {
   cursor: pointer;
+}
+
+.button-char {
+  display: inline-block;
+  will-change: transform;
+}
+.button-char--bold {
+  font-weight: bold;
 }
 
 .card--lila {

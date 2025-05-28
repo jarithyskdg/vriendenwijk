@@ -3,6 +3,7 @@ import { animateScrollIndicator } from "./animations/scrollIndicator.js";
 import { animateHome } from "./animations/home.js";
 import { initScrollToLinks } from "./animations/scrollTo.js";
 import { initClickConfetti } from "./animations/confettiOnClick.js";
+import { initButtonWaveEffect } from "./animations/buttonWaveEffect.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     animateHome();
@@ -10,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateScrollIndicator();
     initScrollToLinks();
     initClickConfetti();
+    initButtonWaveEffect();
 });
