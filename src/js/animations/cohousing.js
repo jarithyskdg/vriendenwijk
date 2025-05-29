@@ -17,7 +17,7 @@ export function animateCohousing() {
 
         // Create animation timeline tied to ScrollTrigger
         gsap.from(split.words, {
-            y: -100,
+            y: -50,
             rotation: "random(-80, 80)",
             duration: 1,
             ease: "power4.inOut",

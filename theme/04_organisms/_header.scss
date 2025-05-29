@@ -1,0 +1,72 @@
+@use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
+
+.header {
+    width: 100%;
+    position: relative;
+
+    &__navbar {
+        position: fixed;
+        top: 32px;
+        right: 32px;
+        width: 25%;
+        // height: 150px;
+        // background: $green;
+        background-image: url("../img/home-background-mobile.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        // backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 20;
+        padding: 1rem 2rem;
+        border-radius: 30px;
+    }
+
+    &__menu-toggle {
+        // position: fixed;
+        // top: 2rem;
+        // right: 2rem;
+        background: none;
+        border: none;
+        z-index: 20;
+
+        #theBurger {
+            cursor: pointer;
+            // margin-bottom: 30px;
+            opacity: 0;
+        }
+    }
+
+    &__menu {
+        position: fixed; // Position relative to .header
+        top: calc(32px + 110px); // 32px offset from top + estimated navbar height
+        right: 32px; // Match navbar’s left
+        width: 25%; // Match navbar’s width
+        background-image: url("../img/home-background-mobile.svg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 30px; // Match navbar’s border radius
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        height: 0; // Start with height 0
+        z-index: 10;
+        // padding: 1rem 2rem;
+
+        ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin: 1rem 0;
+                opacity: 0; // Start with opacity 0
+            }
+        }
+    }
+}

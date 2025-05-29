@@ -6,6 +6,8 @@ import { initClickConfetti } from "./animations/confettiOnClick.js";
 import { initButtonWaveEffect } from "./animations/buttonWaveEffect.js";
 import { initCursorTrail } from "./animations/cursorTrail.js";
 import { animateCohousing } from "./animations/cohousing.js";
+import { initBurgerAnimation } from "./animations/burger.js";
+import { initMenuSlideToggle } from "./animations/menu.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     animateHome();
@@ -16,4 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     initButtonWaveEffect();
     initCursorTrail();
     animateCohousing();
+    initBurgerAnimation();
+    initMenuSlideToggle();
 });

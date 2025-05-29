@@ -4,30 +4,63 @@ import { SplitText } from "gsap/SplitText";
 gsap.registerPlugin(SplitText);
 
 export function animateHome() {
-    let tl = gsap.timeline();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    //logo animation
-    tl.from(".home__logo", {
-        y: -165,
-        duration: 0.7,
-        ease: "power1.out",
-    });
+    const tl = gsap.timeline();
 
-    //subtitle animation
-    document.fonts.ready.then(() => {
-        let split = SplitText.create(".home__subtitle", {
-            type: "words",
-            onSplit: (self) => {
-                tl.from(self.words, {
-                    y: -100,
-                    rotation: "random(-80, 80)",
-                    duration: 0.7,
-                    ease: "back",
-                    stagger: 0.15,
-                    autoAlpha: 0,
-                    // onComplete: () => self.revert()
-                });
-            }
+    if (prefersReducedMotion) {
+        // Simplified animations: fade in + slide down
+        tl.from(".home__logo", {
+            y: -100,
+            autoAlpha: 0,
+            duration: 0.7,
+            ease: "power1.out"
         });
-    })
+
+        tl.from(".home__subtitle", {
+            y: -100,
+            autoAlpha: 0,
+            duration: 0.7,
+            ease: "power1.out"
+        }, "-=0.3");
+
+        tl.from(".scroll-arrow", {
+            y: -50,
+            autoAlpha: 0,
+            duration: 0.7,
+            ease: "power1.out"
+        }, "-=0.3");
+
+    } else {
+        // Full motion animation
+        tl.from(".home__logo", {
+            y: -165,
+            duration: 0.7,
+            ease: "power1.out"
+        });
+
+        document.fonts.ready.then(() => {
+            const split = SplitText.create(".home__subtitle", {
+                type: "words",
+                onSplit: (self) => {
+                    // Animate subtitle
+                    tl.from(self.words, {
+                        y: -100,
+                        rotation: "random(-80, 80)",
+                        duration: 0.7,
+                        ease: "back",
+                        stagger: 0.15,
+                        autoAlpha: 0
+                    });
+
+                    tl.from(".scroll-arrow", {
+                        y: -50,
+                        autoAlpha: 0,
+                        duration: 0.7,
+                        ease: "power1.out"
+                    }, "-=0.4");
+                }
+            });
+        });
+    }
 }

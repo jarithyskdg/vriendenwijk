@@ -71,8 +71,7 @@ svg.cursor-trail {
   width: 100%;
   height: 100%;
 }
-
-line {
+svg.cursor-trail line {
   stroke: #0ae448;
   stroke-width: 4;
 }
@@ -220,6 +219,62 @@ line {
   }
 }
 
+.header {
+  width: 100%;
+  position: relative;
+}
+.header__navbar {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  width: 25%;
+  background-image: url("../img/home-background-mobile.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 20;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+}
+.header__menu-toggle {
+  background: none;
+  border: none;
+  z-index: 20;
+}
+.header__menu-toggle #theBurger {
+  cursor: pointer;
+  opacity: 0;
+}
+.header__menu {
+  position: fixed;
+  top: 142px;
+  right: 32px;
+  width: 25%;
+  background-image: url("../img/home-background-mobile.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  height: 0;
+  z-index: 10;
+}
+.header__menu ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.header__menu ul li {
+  margin: 1rem 0;
+  opacity: 0;
+}
+
 .home {
   width: 100%;
   background-image: url("../img/home-background-mobile.jpg");
@@ -264,7 +319,7 @@ line {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 128px;
   cursor: pointer;
 }
 @media (min-width: 768px) {
