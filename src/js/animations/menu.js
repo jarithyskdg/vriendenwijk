@@ -6,22 +6,32 @@ export function initMenuSlideToggle() {
     const menu = document.querySelector(".header__menu");
     const menuLinks = menu.querySelectorAll("a");
 
-    // Main timeline for container height + visibility
-    const menuTl = gsap.timeline({ paused: true });
-    menuTl.to(menu, {
-        duration: 0.5,
-        height: "auto",
-        autoAlpha: 1,
-        ease: "power2.inOut",
-        // onStart: () => {
-        //     menu.style.display = "block"; // ensure visible before animation
-        // },
-        // onReverseComplete: () => {
-        //     menu.style.display = "none"; // hide after closing
-        // }
+    const menuTl = gsap.timeline({
+        paused: true,
+        onReverseComplete: () => {
+            gsap.set(menuLinks, { autoAlpha: 0 }); // Hide links after menu closes
+        }
     });
 
-    // Separate links animation (play only when opening)
+
+    menuTl.to(menu, {
+        duration: 0.4,
+        width: "25%",
+        autoAlpha: 1,
+        ease: "power1.inOut",
+    });
+
+    menuTl.to(menu, {
+        duration: 0.4,
+        height: () => menu.scrollHeight, // recalculate at runtime
+        ease: "power1.inOut",
+    }, ">");
+
+    // Fire after menu opens (forward play only)
+    menuTl.eventCallback("onComplete", () => {
+        if (isOpen) linksIn.restart();
+    });
+
     const linksIn = gsap.from(menuLinks, {
         y: -20,
         autoAlpha: 0,
@@ -35,12 +45,13 @@ export function initMenuSlideToggle() {
 
     function openMenu() {
         menuTl.play();
-        linksIn.restart(); // restart links animation every time we open
         toggleBurger();
         isOpen = true;
     }
 
     function closeMenu() {
+        linksIn.kill(); // Stop any ongoing link animations
+        gsap.set(menuLinks, { autoAlpha: 0, y: -20 }); // Hide links immediately
         menuTl.reverse();
         toggleBurger();
         isOpen = false;

@@ -249,7 +249,7 @@ svg.cursor-trail line {
   position: fixed;
   top: 32px;
   right: 32px;
-  width: 25%;
+  width: auto;
   background-image: url("../img/home-background-mobile.svg");
   background-size: cover;
   background-position: center;
