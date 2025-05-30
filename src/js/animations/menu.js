@@ -6,34 +6,56 @@ export function initMenuSlideToggle() {
     const menu = document.querySelector(".header__menu");
     const menuLinks = menu.querySelectorAll("a");
 
-    const tl = gsap.timeline({ paused: true, reversed: true });
-
-    tl.to(menu, {
+    // Main timeline for container height + visibility
+    const menuTl = gsap.timeline({ paused: true });
+    menuTl.to(menu, {
         duration: 0.5,
-        // scaleY: 1,
         height: "auto",
-        // opacity: 1,
-        ease: "power3.out"
-    })
-    .to("ul li", {
-        duration: 0.5,
         autoAlpha: 1,
-        ease: "power3.out",
-        stagger: 0.2
-    }, "-=0.3");
+        ease: "power2.inOut",
+        // onStart: () => {
+        //     menu.style.display = "block"; // ensure visible before animation
+        // },
+        // onReverseComplete: () => {
+        //     menu.style.display = "none"; // hide after closing
+        // }
+    });
+
+    // Separate links animation (play only when opening)
+    const linksIn = gsap.from(menuLinks, {
+        y: -20,
+        autoAlpha: 0,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: 0.2,
+        paused: true
+    });
+
+    let isOpen = false;
+
+    function openMenu() {
+        menuTl.play();
+        linksIn.restart(); // restart links animation every time we open
+        toggleBurger();
+        isOpen = true;
+    }
+
+    function closeMenu() {
+        menuTl.reverse();
+        toggleBurger();
+        isOpen = false;
+    }
 
     function toggleMenu() {
-        tl.reversed() ? tl.play() : tl.reverse();
-        toggleBurger(); // toggle icon as well
+        isOpen ? closeMenu() : openMenu();
     }
 
     menuToggle.addEventListener("click", toggleMenu);
 
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
-            if (!tl.reversed()) {
-                tl.reverse();
-                toggleBurger(); // close burger icon as well
+            if (isOpen) {
+                closeMenu();
             }
         });
     });
