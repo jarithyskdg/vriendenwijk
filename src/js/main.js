@@ -1,3 +1,7 @@
+//helper functions
+import { getMenuWidth } from "./helpers/breakpoints.js";
+
+// animations
 import { initScrollSmoother } from "./animations/scrollSmoother.js";
 import { animateScrollIndicator } from "./animations/scrollIndicator.js";
 import { animateHome } from "./animations/home.js";
@@ -10,6 +14,7 @@ import { initBurgerAnimation } from "./animations/burger.js";
 import { initMenuSlideToggle } from "./animations/menu.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+    getMenuWidth();
     animateHome();
     initScrollSmoother();
     animateScrollIndicator();
