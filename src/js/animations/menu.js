@@ -17,7 +17,7 @@ export function initMenuSlideToggle() {
     });
 
     function getCurrentMenuWidth() {
-        return getMenuWidth(); // e.g. "25%", "40%", or "80%"
+        return getMenuWidth();
     }
 
     menuTl.to(menu, {
@@ -33,7 +33,6 @@ export function initMenuSlideToggle() {
         ease: "power1.inOut",
     }, ">");
 
-    // Animate menu links in after menu opens
     const linksIn = gsap.from(menuLinks, {
         y: -20,
         autoAlpha: 0,
@@ -51,18 +50,36 @@ export function initMenuSlideToggle() {
         menuTl.play();
         toggleBurger();
         isOpen = true;
+        document.addEventListener("mousedown", handleOutsideClick);
+        document.addEventListener("touchstart", handleOutsideClick);
+        document.addEventListener("keydown", handleEscapeKey);
     }
 
     function closeMenu() {
-        linksIn.kill(); // Stop link animation
-        gsap.set(menuLinks, { autoAlpha: 0, y: -20 }); // Hide links immediately
+        linksIn.kill();
+        gsap.set(menuLinks, { autoAlpha: 0, y: -20 });
         menuTl.reverse();
         toggleBurger();
         isOpen = false;
+        document.removeEventListener("mousedown", handleOutsideClick);
+        document.removeEventListener("touchstart", handleOutsideClick);
+        document.removeEventListener("keydown", handleEscapeKey);
     }
 
     function toggleMenu() {
         isOpen ? closeMenu() : openMenu();
+    }
+
+    function handleOutsideClick(event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            closeMenu();
+        }
+    }
+
+    function handleEscapeKey(event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
     }
 
     menuToggle.addEventListener("click", toggleMenu);
@@ -74,15 +91,4 @@ export function initMenuSlideToggle() {
             }
         });
     });
-
-    // // Optional: Update menu width on window resize if menu is open
-    // window.addEventListener("resize", () => {
-    //     if (isOpen) {
-    //         gsap.to(menu, {
-    //             duration: 0.3,
-    //             width: getCurrentMenuWidth(),
-    //             ease: "power1.inOut",
-    //         });
-    //     }
-    // });
 }

@@ -17,7 +17,6 @@
         justify-content: flex-end;
         align-items: center;
         z-index: 20;
-        // padding: 1rem 2rem 0;
         padding: 12.5px 12.5px 0 0;
         border-radius: 30px;
     }
@@ -25,6 +24,7 @@
     &__menu-toggle {
         background: none;
         border: none;
+        outline: none;
         z-index: 20;
 
         #theBurger {
@@ -76,17 +76,9 @@
 
     @include respond-to(tablet) {
         &__navbar {
-            position: fixed;
             top: 24px;
             right: 24px;
             width: 60%;
-            background: transparent;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            z-index: 20;
-            // padding: 1rem 2rem;
-            border-radius: 30px;
         }
 
         &__menu-toggle {
@@ -97,75 +89,23 @@
         }
 
         &__menu {
-            position: fixed;
             top: 24px;
             right: 24px;
             width: 100px;
-            background-image: url("../img/home-background-mobile.svg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            height: 0;
-            z-index: 10;
             padding-top: 100px;
-
-            &__items {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 2rem;
-                // padding: 2rem 0;
-
-                .header__menu__item {
-                    width: 100%;
-                    text-align: center;
-
-                    a {
-                        display: inline-block;
-                        @include heading-h4;
-                        color: $darkGreen;
-                        text-decoration: none;
-                        font-weight: bold;
-                    }
-                }
-            }
         }
     }
 
     @include respond-to(desktop) {
         &__navbar {
-            position: fixed;
             top: 32px;
             right: 32px;
             width: 40%;
-            background: transparent;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            z-index: 20;
-            // padding: 1rem 2rem;
-            border-radius: 30px;
         }
 
         &__menu {
-            position: fixed;
             top: 32px;
             right: 32px;
-            // width: auto;
-            background-image: url("../img/home-background-mobile.svg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            // height: 0;
-            z-index: 10;
-            // padding-top: 110px;
 
             &__items {
                 display: flex;
@@ -173,20 +113,6 @@
                 justify-content: center;
                 align-items: center;
                 gap: 2rem;
-                // padding: 2rem 0;
-
-                .header__menu__item {
-                    width: 100%;
-                    text-align: center;
-
-                    a {
-                        display: inline-block;
-                        @include heading-h4;
-                        color: $darkGreen;
-                        text-decoration: none;
-                        font-weight: bold;
-                    }
-                }
             }
         }
     }
