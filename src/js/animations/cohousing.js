@@ -6,30 +6,55 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateCohousing() {
     document.fonts.ready.then(() => {
+        const cohousingContent = document.querySelector(".cohousing__content");
         const title = document.querySelector(".cohousing__content__title");
+        const text = document.querySelector(".cohousing__content__text");
+        const cta = document.querySelector(".cohousing__cta");
 
-        if (!title) return;
+        if (!cohousingContent || !title || !text || !cta) return;
 
-        // Setup SplitText but defer animation until ScrollTrigger fires
-        const split = new SplitText(title, {
-            type: "words"
-        });
+        // Split title into words, text into lines
+        const splitTitle = new SplitText(title, { type: "words" });
+        const splitText = new SplitText(text, { type: "lines" });
 
-        // Create animation timeline tied to ScrollTrigger
-        gsap.from(split.words, {
-            y: -50,
-            rotation: "random(-80, 80)",
-            duration: 1,
-            ease: "power4.inOut",
-            stagger: 0.25,
-            autoAlpha: 0,
+        // Timeline with ScrollTrigger based on the whole section
+        const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: title,
-                start: "top 100%", // when element hits 80% from top of viewport
-                end: "bottom 20%", // when element hits 20% from bottom of viewport
-                scrub: true, // smooth scrubbing
-                // scrub: 3, // 1 second of scrubbing
+                trigger: cohousingContent,
+                start: "top 85%",
+                end: "bottom 50%",
+                toggleActions: "play none none reverse", // play on scroll in, reverse on scroll out (up only)
+                markers: true, // optional: for debugging
+                scrub: 1, // smooth scrubbing
+
             }
         });
+
+        // Animate title words
+        tl.from(splitTitle.words, {
+            y: 50,
+            rotation: "random(-80, 80)",
+            autoAlpha: 0,
+            duration: 2,
+            ease: "power3.out",
+            stagger: 0.1
+        });
+
+        // Animate text lines after title
+        tl.from(splitText.lines, {
+            y: 40,
+            autoAlpha: 0,
+            duration: 2,
+            ease: "power3.out",
+            stagger: 0.2
+        }, "+=0.3"); // slight delay after title finishes
+
+        // Animate CTA button
+        tl.from(cta, {
+            scale: 0.8,
+            autoAlpha: 0,
+            duration: 1,
+            ease: "power3.out",
+        }, "-=0.3");
     });
 }
