@@ -12,17 +12,22 @@ import { initCursorTrail } from "./animations/cursorTrail.js";
 import { animateCohousing } from "./animations/cohousing.js";
 import { initBurgerAnimation } from "./animations/burger.js";
 import { initMenuSlideToggle } from "./animations/menu.js";
+import { animateAboutUs } from "./animations/about-us.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+    // helper functions
     getMenuWidth();
-    animateHome();
+
+    // animations
     initScrollSmoother();
     animateScrollIndicator();
     initScrollToLinks();
     initClickConfetti();
     initButtonWaveEffect();
     initCursorTrail();
-    animateCohousing();
     initBurgerAnimation();
     initMenuSlideToggle();
+    animateHome();
+    animateCohousing();
+    animateAboutUs();
 });
