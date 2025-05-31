@@ -5,6 +5,11 @@ export function initCursorTrail({
     total = 100,
     ease = 0.75,
 } = {}) {
+    // Exit early if device is touch-only
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        return;
+    }
+
     gsap.defaults({ ease: "none" });
 
     const svgns = "http://www.w3.org/2000/svg";
