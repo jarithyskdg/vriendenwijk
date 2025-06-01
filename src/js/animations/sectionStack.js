@@ -1,9 +1,17 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getCurrentBreakpoint } from "../helpers/breakpoints";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function setupPinnedSections() {
+    const breakpoint = getCurrentBreakpoint();
+
+    // Only enable section stacking on desktop
+    if (breakpoint !== "desktop") {
+        return;
+    }
+
     const panels = gsap.utils.toArray(".panel");
 
     // Create a ScrollTrigger for each panel to track start position
@@ -16,7 +24,6 @@ export function setupPinnedSections() {
 
     // Pin each panel, optionally depending on height
     panels.forEach((panel, index) => {
-        // Skip pinning the last panel (e.g., "portal")
         if (index === panels.length - 1) return;
 
         ScrollTrigger.create({
@@ -25,10 +32,9 @@ export function setupPinnedSections() {
                 panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
             pin: true,
             pinSpacing: false,
-            markers: false // set to true for debugging
+            markers: false
         });
     });
-
 
     // Add snapping between panels
     ScrollTrigger.create({
@@ -37,7 +43,6 @@ export function setupPinnedSections() {
                 const scrollMax = ScrollTrigger.maxScroll(window);
                 const currentScroll = self.scroll();
 
-                // If we're near the bottom (footer), skip snap
                 if (scrollMax - currentScroll < window.innerHeight * 0.5) return progress;
 
                 const panelStarts = tops.map(st => st.start);
