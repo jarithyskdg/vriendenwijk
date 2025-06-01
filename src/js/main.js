@@ -1,5 +1,6 @@
 //helper functions
 import { getMenuWidth } from "./helpers/breakpoints.js";
+import { setProgrammaticScroll, isProgrammaticScroll } from "./helpers/globals.js";
 
 // animations
 import { initScrollSmoother } from "./animations/scrollSmoother.js";
@@ -19,6 +20,9 @@ import { setupPinnedSections } from "./animations/sectionStack.js";
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
     getMenuWidth();
+    setProgrammaticScroll();
+    isProgrammaticScroll();
+
 
     // animations
     setupPinnedSections();

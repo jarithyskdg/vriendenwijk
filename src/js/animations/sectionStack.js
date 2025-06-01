@@ -1,20 +1,20 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
+import { isProgrammaticScroll } from "../helpers/globals";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function setupPinnedSections() {
     const breakpoint = getCurrentBreakpoint();
 
-    // Only enable section stacking on desktop
-    if (breakpoint !== "desktop") {
+    if (breakpoint !== "desktop" || isProgrammaticScroll()) {
         return;
     }
 
     const panels = gsap.utils.toArray(".panel");
 
-    // Create a ScrollTrigger for each panel to track start position
+    // Track start positions
     const tops = panels.map(panel =>
         ScrollTrigger.create({
             trigger: panel,
@@ -22,7 +22,7 @@ export function setupPinnedSections() {
         })
     );
 
-    // Pin each panel, optionally depending on height
+    // Pin each panel
     panels.forEach((panel, index) => {
         if (index === panels.length - 1) return;
 
@@ -36,7 +36,7 @@ export function setupPinnedSections() {
         });
     });
 
-    // Add snapping between panels
+    // Snapping behavior
     ScrollTrigger.create({
         snap: {
             snapTo: (progress, self) => {
@@ -54,8 +54,8 @@ export function setupPinnedSections() {
         }
     });
 
-    // Refresh layout after setup to fix layout jumpiness
+    // Final layout refresh
     setTimeout(() => {
         ScrollTrigger.refresh();
-    }, 500); // Tweak this delay if needed
+    }, 500);
 }
