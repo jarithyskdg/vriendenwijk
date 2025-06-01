@@ -1,17 +1,20 @@
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { getCurrentBreakpoint } from "../helpers/breakpoints";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateCohousing() {
     document.fonts.ready.then(() => {
-        const cohousingContent = document.querySelector(".cohousing__content");
+        const section = document.querySelector("#cohousing");
         const title = document.querySelector(".cohousing__content__title");
         const text = document.querySelector(".cohousing__content__text");
         const cta = document.querySelector(".cohousing__cta");
 
-        if (!cohousingContent || !title || !text || !cta) return;
+        if (!section || !title || !text || !cta) return;
+
+        const breakpoint = getCurrentBreakpoint();
 
         // Split title into words, text into lines
         const splitTitle = new SplitText(title, { type: "words" });
@@ -20,9 +23,10 @@ export function animateCohousing() {
         // Timeline with ScrollTrigger based on the whole section
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: cohousingContent,
-                start: "top 85%",
-                end: "bottom 50%",
+                trigger: section,
+                // start: "top 85%",
+                start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
+                end: "center center",
                 toggleActions: "play none none reverse", // play on scroll in, reverse on scroll out (up only)
                 scrub: 1, // smooth scrubbing
                 markers: false // set to true for debugging

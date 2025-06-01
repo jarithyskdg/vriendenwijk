@@ -1,31 +1,36 @@
-// scrollTo.js
-
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollSmoother);
+gsap.registerPlugin(ScrollToPlugin, ScrollSmoother, ScrollTrigger);
 
 export function scrollToSection(target) {
-    const smoother = ScrollSmoother.get(); // get the smoother instance
-
     if (!target) return;
 
     const targetElement = document.querySelector(target);
     if (!targetElement) return;
 
-    if (smoother) {
-        smoother.scrollTo(targetElement, true, "top top");
-    } else {
-        gsap.to(window, {
-            scrollTo: {
-                y: targetElement,
-                offsetY: 50, // adjust if you have fixed headers
-            },
-            duration: 1,
-            ease: "power2.out",
-        });
-    }
+    const smoother = ScrollSmoother.get();
+
+    // Refresh ScrollTrigger layout before scroll
+    ScrollTrigger.refresh();
+
+    // Delay the scroll slightly to avoid race conditions with pinned layout
+    setTimeout(() => {
+        if (smoother) {
+            smoother.scrollTo(targetElement, true, "top top");
+        } else {
+            gsap.to(window, {
+                scrollTo: {
+                    y: targetElement,
+                    offsetY: 50,
+                },
+                duration: 1,
+                ease: "power2.out",
+            });
+        }
+    }, 100); // You can tweak this delay if needed
 }
 
 export function initScrollToLinks() {

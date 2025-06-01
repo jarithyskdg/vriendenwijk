@@ -53,4 +53,9 @@ export function setupPinnedSections() {
             ease: "power1.inOut"
         }
     });
+
+    // Refresh layout after setup to fix layout jumpiness
+    setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 500); // Tweak this delay if needed
 }
