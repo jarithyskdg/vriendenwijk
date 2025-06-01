@@ -56,7 +56,7 @@ export function animateCohousing() {
         tl.from(cta, {
             scale: 0.8,
             autoAlpha: 0,
-            duration: 1,
+            duration: 2,
             ease: "power3.out",
         }, "-=0.3");
     });
