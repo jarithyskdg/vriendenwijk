@@ -402,6 +402,7 @@ svg.cursor-trail line {
 .cohousing {
   width: 100%;
   min-height: 100vh;
+  background-color: #F0EEE8;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -799,6 +800,7 @@ svg.cursor-trail line {
 .insights {
   width: 100%;
   min-height: 100vh;
+  background-color: #F0EEE8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1104,6 +1106,7 @@ footer.footer .footer__container .footer__content__body--right .footer__links a:
 .transition {
   width: 100%;
   min-height: 100vh;
+  background-color: #F0EEE8;
   display: flex;
   justify-content: center;
   align-items: flex-start;

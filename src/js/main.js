@@ -14,12 +14,14 @@ import { initBurgerAnimation } from "./animations/burger.js";
 import { initMenuSlideToggle } from "./animations/menu.js";
 import { animateAboutUs } from "./animations/about-us.js";
 import { animateOurStory } from "./animations/our-story.js";
+import { setupPinnedSections } from "./animations/sectionStack.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
     getMenuWidth();
 
     // animations
+    setupPinnedSections();
     initScrollSmoother();
     animateScrollIndicator();
     initScrollToLinks();
