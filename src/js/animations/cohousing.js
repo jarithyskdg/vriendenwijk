@@ -24,8 +24,8 @@ export function animateCohousing() {
                 start: "top 85%",
                 end: "bottom 50%",
                 toggleActions: "play none none reverse", // play on scroll in, reverse on scroll out (up only)
-                markers: false, // optional: for debugging
                 scrub: 1, // smooth scrubbing
+                markers: false // set to true for debugging
             }
         });
 

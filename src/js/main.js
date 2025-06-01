@@ -13,6 +13,7 @@ import { animateCohousing } from "./animations/cohousing.js";
 import { initBurgerAnimation } from "./animations/burger.js";
 import { initMenuSlideToggle } from "./animations/menu.js";
 import { animateAboutUs } from "./animations/about-us.js";
+import { animateOurStory } from "./animations/our-story.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -30,4 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateHome();
     animateCohousing();
     animateAboutUs();
+    animateOurStory();
 });
