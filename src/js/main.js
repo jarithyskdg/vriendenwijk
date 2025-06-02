@@ -18,6 +18,7 @@ import { animateOurStory } from "./animations/our-story.js";
 import { setupPinnedSections } from "./animations/sectionStack.js";
 import { animateFacilities } from "./animations/facilities.js";
 import { animatePractical } from "./animations/practical.js";
+import { animateQuote } from "./animations/quote.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -42,4 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateOurStory();
     animateFacilities();
     animatePractical();
+    animateQuote();
 });

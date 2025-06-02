@@ -35,7 +35,7 @@ export function animatePractical() {
             end: endValue,
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: true // set to true for debugging
+            markers: false // set to true for debugging
         }
     });
 
