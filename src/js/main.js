@@ -17,6 +17,7 @@ import { animateAboutUs } from "./animations/about-us.js";
 import { animateOurStory } from "./animations/our-story.js";
 import { setupPinnedSections } from "./animations/sectionStack.js";
 import { animateFacilities } from "./animations/facilities.js";
+import { animatePractical } from "./animations/practical.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -40,4 +41,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateAboutUs();
     animateOurStory();
     animateFacilities();
+    animatePractical();
 });
