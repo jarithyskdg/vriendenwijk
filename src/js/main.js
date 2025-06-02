@@ -16,6 +16,7 @@ import { initMenuSlideToggle } from "./animations/menu.js";
 import { animateAboutUs } from "./animations/about-us.js";
 import { animateOurStory } from "./animations/our-story.js";
 import { setupPinnedSections } from "./animations/sectionStack.js";
+import { animateFacilities } from "./animations/facilities.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -38,4 +39,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateCohousing();
     animateAboutUs();
     animateOurStory();
+    animateFacilities();
 });
