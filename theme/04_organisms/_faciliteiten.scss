@@ -24,6 +24,7 @@
                 height: 100%;
                 object-fit: cover;
                 object-position: center;
+                will-change: transform, opacity;
             }
         }
 

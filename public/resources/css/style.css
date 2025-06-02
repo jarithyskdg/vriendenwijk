@@ -655,6 +655,7 @@ svg.cursor-trail line {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  will-change: transform, opacity;
 }
 .faciliteiten__container .faciliteiten__content {
   width: 100%;
