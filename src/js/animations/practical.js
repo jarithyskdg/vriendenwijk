@@ -13,15 +13,13 @@ export function animatePractical() {
 
     const breakpoint = getCurrentBreakpoint();
 
-    // Determine start and end values based on breakpoint
-    let startValue;
-    let endValue;
+    let startValue, endValue;
 
     if (breakpoint === "mobile") {
         startValue = "top 75%";
         endValue = "30% 40%";
     } else if (breakpoint === "tablet") {
-        startValue = "top 75%";   // <-- Custom tablet start value
+        startValue = "top 75%";
         endValue = "25% 40%";
     } else {
         startValue = "20% 85%";
@@ -39,25 +37,49 @@ export function animatePractical() {
         }
     });
 
-    // Cards: alternate from left/right with bounce scale
-    cards.forEach((card, index) => {
-        const fromDirection = index % 2 === 0 ? -50 : 50;
-
-        tl.from(card, {
-            x: fromDirection,
-            y: 50,
+    if (breakpoint === "desktop") {
+        // 👇 First animate the image
+        tl.from(img, {
+            x: 100,
             opacity: 0,
-            scale: 0.8,
-            duration: 0.6,
-            ease: "back.out(1.7)"
-        }, `-=${0.4 - index * 0.03}`);
-    });
+            duration: 1,
+            ease: "power3.out"
+        });
 
-    // Image fade-in from the right
-    tl.from(img, {
-        x: 100,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    });
+        // 👇 Then animate the cards
+        cards.forEach((card, index) => {
+            const fromDirection = index % 2 === 0 ? -50 : 50;
+
+            tl.from(card, {
+                x: fromDirection,
+                y: 50,
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                ease: "back.out(1.7)"
+            }, `-=${0.4 - index * 0.03}`);
+        });
+
+    } else {
+        // 👇 On mobile/tablet, animate cards first
+        cards.forEach((card, index) => {
+            const fromDirection = index % 2 === 0 ? -50 : 50;
+
+            tl.from(card, {
+                x: fromDirection,
+                y: 50,
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                ease: "back.out(1.7)"
+            }, `-=${0.4 - index * 0.03}`);
+        });
+
+        tl.from(img, {
+            x: 100,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+    }
 }
