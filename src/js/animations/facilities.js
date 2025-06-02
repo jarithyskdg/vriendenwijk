@@ -21,10 +21,10 @@ export function animateFacilities() {
         scrollTrigger: {
             trigger: section,
             start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
-            end: "center center",
+            end: breakpoint === "mobile" ? "center 40%" : "center center",
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: true // set to true for debugging
+            markers: false // set to true for debugging
         }
     });
 
