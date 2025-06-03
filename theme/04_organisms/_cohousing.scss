@@ -1,5 +1,6 @@
 @use "../00_common/variables" as *;
 @use "../01_fundaments/_typography" as *;
+@use "../01_fundaments/_headings" as *;
 @use "../00_common/mixins" as *;
 
 .cohousing {
@@ -31,10 +32,26 @@
                 width: fit-content;
                 margin-bottom: 48px;
                 text-align: initial;
+
+                h2 {
+                    @include heading-h2;
+
+                    .cohousing-word {
+                        @include heading-h2;
+
+                        &:first-child {
+                            font-weight: bold;
+                        }
+                    }
+                }
             }
 
             &__text {
                 @include text--lg;
+
+                .cohousing-line {
+                    @include text--lg;
+                }
             }
         }
 

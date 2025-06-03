@@ -33,6 +33,10 @@
             &__text {
                 p {
                     @include heading-h2;
+
+                    .quote-word {
+                        @include heading-h2;
+                    }
                 }
             }
 

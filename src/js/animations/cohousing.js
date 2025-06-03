@@ -17,8 +17,8 @@ export function animateCohousing() {
         const breakpoint = getCurrentBreakpoint();
 
         // Split title into words, text into lines
-        const splitTitle = new SplitText(title, { type: "words" });
-        const splitText = new SplitText(text, { type: "lines" });
+        const splitTitle = new SplitText(title, { type: "words", wordsClass: "cohousing-word" });
+        const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line" });
 
         // Timeline with ScrollTrigger based on the whole section
         const tl = gsap.timeline({
