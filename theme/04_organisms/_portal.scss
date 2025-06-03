@@ -35,6 +35,11 @@
                 h2 {
                     @include heading-h1;
                     color: $yellow;
+
+                    .portal-char {
+                        @include heading-h1;
+                        color: $yellow;
+                    }
                 }
             }
         }
@@ -48,6 +53,10 @@
                 &__title {
                     h2 {
                         font-size: 4rem; // 64px
+
+                        .portal-char {
+                            font-size: 4rem; // 64px
+                        }
                     }
                 }
             }

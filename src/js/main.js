@@ -20,6 +20,7 @@ import { animateFacilities } from "./animations/facilities.js";
 import { animatePractical } from "./animations/practical.js";
 import { animateQuote } from "./animations/quote.js";
 import { animateInsights } from "./animations/insights.js";
+import { animatePortal } from "./animations/portal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -46,4 +47,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animatePractical();
     animateQuote();
     animateInsights();
+    animatePortal();
 });

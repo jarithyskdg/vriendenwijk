@@ -430,7 +430,32 @@ svg.cursor-trail line {
   margin-bottom: 48px;
   text-align: initial;
 }
+.cohousing__container .cohousing__content__title h2 {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+.cohousing__container .cohousing__content__title h2 span.bold {
+  font-weight: bold;
+}
+.cohousing__container .cohousing__content__title h2 .cohousing-word {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+.cohousing__container .cohousing__content__title h2 .cohousing-word span.bold {
+  font-weight: bold;
+}
+.cohousing__container .cohousing__content__title h2 .cohousing-word:first-child {
+  font-weight: bold;
+}
 .cohousing__container .cohousing__content__text {
+  font-family: "Helvetica", sans-serif;
+  font-weight: normal;
+  font-size: 1.25rem;
+  line-height: 168%;
+}
+.cohousing__container .cohousing__content__text .cohousing-line {
   font-family: "Helvetica", sans-serif;
   font-weight: normal;
   font-size: 1.25rem;
@@ -913,11 +938,23 @@ svg.cursor-trail line {
 .portal__container .portal__content__title h2 span.bold {
   font-weight: bold;
 }
+.portal__container .portal__content__title h2 .portal-char {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 3rem;
+  color: #FFEBAE;
+}
+.portal__container .portal__content__title h2 .portal-char span.bold {
+  font-weight: bold;
+}
 @media (min-width: 768px) {
   .portal__container {
     width: 70%;
   }
   .portal__container .portal__content__title h2 {
+    font-size: 4rem;
+  }
+  .portal__container .portal__content__title h2 .portal-char {
     font-size: 4rem;
   }
 }
@@ -1197,6 +1234,14 @@ footer.footer .footer__container .footer__content__body--right .footer__links a:
   font-size: 2.5rem;
 }
 .quote__container .quote__content__text p span.bold {
+  font-weight: bold;
+}
+.quote__container .quote__content__text p .quote-word {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 2.5rem;
+}
+.quote__container .quote__content__text p .quote-word span.bold {
   font-weight: bold;
 }
 .quote__container .quote__mark {
