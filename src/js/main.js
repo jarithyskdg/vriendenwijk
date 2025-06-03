@@ -19,6 +19,7 @@ import { setupPinnedSections } from "./animations/sectionStack.js";
 import { animateFacilities } from "./animations/facilities.js";
 import { animatePractical } from "./animations/practical.js";
 import { animateQuote } from "./animations/quote.js";
+import { animateInsights } from "./animations/insights.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -44,4 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateFacilities();
     animatePractical();
     animateQuote();
+    animateInsights();
 });
