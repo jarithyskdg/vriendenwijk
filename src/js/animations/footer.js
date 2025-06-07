@@ -69,3 +69,32 @@ export function animateFooter() {
         ease: "power2.out"
     }, "-=0.3");
 }
+
+export function animateFooterLinks() {
+    // Only activate hover effect on devices with a fine pointer (e.g. mouse)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches === false) {
+        return;
+    }
+
+    const links = document.querySelectorAll(".footer__link-item");
+
+    links.forEach(link => {
+        const tl = gsap.timeline({ paused: true });
+
+        tl.to(link, {
+            scale: 1.15,
+            duration: 0.3,
+            ease: "power2.out"
+        });
+
+        link.addEventListener("mouseenter", () => {
+            tl.play();
+        });
+
+        link.addEventListener("mouseleave", () => {
+            tl.reverse();
+        });
+    });
+}
+
+

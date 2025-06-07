@@ -21,7 +21,7 @@ import { animatePractical } from "./animations/practical.js";
 import { animateQuote } from "./animations/quote.js";
 import { animateInsights } from "./animations/insights.js";
 import { animatePortal } from "./animations/portal.js";
-import { animateFooter } from "./animations/footer.js";
+import { animateFooter, animateFooterLinks } from "./animations/footer.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     // helper functions
@@ -51,4 +51,5 @@ document.addEventListener("DOMContentLoaded", () => {
     animateInsights();
     animatePortal();
     animateFooter();
+    animateFooterLinks();
 });
