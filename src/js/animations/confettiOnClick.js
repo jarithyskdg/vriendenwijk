@@ -5,14 +5,18 @@ gsap.registerPlugin(Physics2DPlugin);
 
 export function initClickConfetti() {
     let isMobile = window.matchMedia("(pointer: coarse)").matches;
+    let prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (isMobile) return; // Disable confetti on mobile devices
+    if (isMobile || prefersReducedMotion) {
+        console.log("Confetti disabled: mobile or reduced motion preference.");
+        return;
+    }
 
-    console.log(isMobile ? "Mobile device detected, confetti disabled." : "Confetti enabled for desktop.");
+    console.log("Confetti enabled for desktop.");
 
     document.addEventListener("click", (event) => {
         if (event.target.closest("a, button, input, textarea")) return; // Ignore clicks on interactive elements
-        
+
         const dotCount = gsap.utils.random(15, 30, 1);
         const colors = ["#0ae448", "#abff84", "#fffce1"];
 
