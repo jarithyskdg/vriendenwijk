@@ -12,7 +12,7 @@ import { initButtonWaveEffect } from "./animations/buttonWaveEffect.js";
 import { initCursorTrail } from "./animations/cursorTrail.js";
 import { animateCohousing } from "./animations/cohousing.js";
 import { initBurgerAnimation } from "./animations/burger.js";
-import { initMenuSlideToggle } from "./animations/menu.js";
+import { initMenuSlideToggle, menuItemHoverEffect } from "./animations/menu.js";
 import { animateAboutUs } from "./animations/about-us.js";
 import { animateOurStory } from "./animations/our-story.js";
 import { setupPinnedSections } from "./animations/sectionStack.js";
@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initCursorTrail();
     initBurgerAnimation();
     initMenuSlideToggle();
+    menuItemHoverEffect();
     animateHome();
     animateCohousing();
     animateAboutUs();

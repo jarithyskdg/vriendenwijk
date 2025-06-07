@@ -273,11 +273,26 @@ svg.cursor-trail line {
   padding: 1rem 0 2rem;
 }
 .header__menu__items .header__menu__item {
-  width: 100%;
+  position: relative;
+  display: inline-block;
+  width: 30%;
+  padding: 0.5rem 0;
   text-align: center;
+}
+.header__menu__items .header__menu__item .border {
+  position: absolute;
+  inset: 0;
+  border: 2.5px solid #374729;
+  border-radius: 40px;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  z-index: 0;
 }
 .header__menu__items .header__menu__item a {
   display: inline-block;
+  position: relative;
+  z-index: 1;
   font-family: "Raleway", sans-serif;
   font-weight: normal;
   font-size: 1.5rem;

@@ -92,3 +92,35 @@ export function initMenuSlideToggle() {
         });
     });
 }
+
+export function menuItemHoverEffect() {
+    // Only activate hover effect on devices with a fine pointer (e.g. mouse)
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches === false) {
+        return;
+    }
+
+    const menuItems = document.querySelectorAll(".header__menu__item");
+
+    menuItems.forEach(item => {
+        const border = item.querySelector(".border");
+        if (!border) return;
+
+        const tl = gsap.timeline({ paused: true });
+        tl.to(border, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.4,
+            ease: "power2.out"
+        });
+
+        item.addEventListener("mouseenter", () => {
+            tl.play();
+        });
+
+        item.addEventListener("mouseleave", () => {
+            tl.reverse();
+        });
+    });
+}
+
+
