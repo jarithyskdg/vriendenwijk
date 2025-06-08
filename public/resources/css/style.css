@@ -413,53 +413,14 @@ svg.cursor-trail line {
   background-color: #F0EEE8;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .cohousing__arms {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999;
-}
-.cohousing__arms .arm {
-  position: absolute;
-}
-.cohousing__arms .arm--bottom {
-  width: 343px;
-  height: 235px;
-  bottom: -343px;
-  left: 40%;
-}
-.cohousing__arms .arm--top {
-  width: 226px;
-  height: 366px;
-  top: -366px;
-  left: 50%;
-  transform: rotate(0deg);
-}
-.cohousing__arms .arm--left {
-  width: 210px;
-  height: 349px;
-  left: -210px;
-  top: 40%;
-  transform: rotate(0deg);
-}
-.cohousing__arms .arm--right {
-  width: 270px;
-  height: 298px;
-  right: -270px;
-  top: 50%;
-  transform: rotate(0deg);
-}
-.cohousing__arms .arm--bottom-right {
-  width: 243px;
-  height: 280px;
-  bottom: -280px;
-  left: 77.5%;
-  transform: rotate(0deg);
+  display: none;
 }
 .cohousing__container {
   width: 80%;
+  margin-top: 35%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -517,6 +478,7 @@ svg.cursor-trail line {
 @media (min-width: 768px) {
   .cohousing__container {
     width: 70%;
+    margin-top: 25%;
   }
   .cohousing__container .cohousing__content__title {
     margin-bottom: 56px;
@@ -526,8 +488,52 @@ svg.cursor-trail line {
   }
 }
 @media (min-width: 1024px) {
+  .cohousing {
+    align-items: center;
+  }
+  .cohousing__arms {
+    display: block;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 999;
+  }
+  .cohousing__arms .arm {
+    position: absolute;
+  }
+  .cohousing__arms .arm--bottom {
+    width: 343px;
+    height: 235px;
+    bottom: -343px;
+    left: 40%;
+  }
+  .cohousing__arms .arm--top {
+    width: 226px;
+    height: 366px;
+    top: -366px;
+    left: 50%;
+  }
+  .cohousing__arms .arm--left {
+    width: 210px;
+    height: 349px;
+    left: -210px;
+    top: 40%;
+  }
+  .cohousing__arms .arm--right {
+    width: 270px;
+    height: 298px;
+    right: -270px;
+    top: 50%;
+  }
+  .cohousing__arms .arm--bottom-right {
+    width: 243px;
+    height: 280px;
+    bottom: -280px;
+    left: 77.5%;
+  }
   .cohousing__container {
     width: 60%;
+    margin-top: 0;
   }
   .cohousing__container .cohousing__content__title {
     margin-bottom: 64px;

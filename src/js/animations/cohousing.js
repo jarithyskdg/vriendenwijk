@@ -63,6 +63,9 @@ export function animateCohousing() {
 }
 
 export function animateCohousingArms() {
+    const breakpoint = getCurrentBreakpoint();
+    if (breakpoint !== "desktop") return; // Only run on desktop
+
     const section = document.querySelector("#cohousing");
     const armsContainer = document.querySelector(".cohousing__arms");
     if (!section || !armsContainer) return;
