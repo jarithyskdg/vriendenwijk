@@ -4,16 +4,75 @@
 @use "../00_common/mixins" as *;
 
 .cohousing {
+    position: relative;
     width: 100%;
     min-height: 100vh;
     background-color: $beige;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    // overflow: hidden;
+
+    &__arms {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 999;
+
+        .arm {
+            position: absolute;
+
+            &--bottom {
+                width: 343px;
+                height: 235px;
+                // background-color: red;
+                bottom: -343px;
+                left: 40%;
+                // transform-origin: center center;
+                // transform: rotate(90deg);
+            }
+
+            &--top {
+                width: 226px;
+                height: 366px;
+                // background-color: red;
+                top: -366px;
+                left: 50%;
+                transform: rotate(0deg);
+            }
+
+            &--left {
+                width: 210px;
+                height: 349px;
+                // background-color: red;
+                left: -210px;
+                top: 40%;
+                transform: rotate(0deg);
+            }
+
+            &--right {
+                width: 270px;
+                height: 298px;
+                // background-color: red;
+                right: -270px;
+                top: 50%;
+                transform: rotate(0deg);
+            }
+
+            &--bottom-right {
+                width: 243px;
+                height: 280px;
+                // background-color: red;
+                bottom: -280px;
+                left: 77.5%;
+                transform: rotate(0deg);
+            }
+        }
+    }
 
     &__container {
         width: 80%;
-        margin-top: 35%;
+        // margin-top: 35%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -65,7 +124,7 @@
     @include respond-to(tablet) {
         &__container {
             width: 70%;
-            margin-top: 25%;
+            // margin-top: 25%;
 
             .cohousing__content {
                 &__title {
@@ -83,7 +142,7 @@
     @include respond-to(desktop) {
         &__container {
             width: 60%;
-            margin-top: 15%;
+            // margin-top: 15%;
 
             .cohousing__content {
                 &__title {
