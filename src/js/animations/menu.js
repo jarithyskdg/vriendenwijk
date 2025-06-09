@@ -6,6 +6,11 @@ export function initMenuSlideToggle() {
     const menuToggle = document.querySelector(".header__menu-toggle");
     const menu = document.querySelector(".header__menu");
     const menuLinks = menu.querySelectorAll("a");
+    menu.setAttribute("id", "header-menu");
+    menu.setAttribute("role", "menu");
+    menuToggle.setAttribute("aria-haspopup", "true");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-controls", "header-menu");
 
     let isOpen = false;
 
@@ -47,6 +52,8 @@ export function initMenuSlideToggle() {
     });
 
     function openMenu() {
+        menuToggle.setAttribute("aria-expanded", "true");
+
         menuTl.play();
         toggleBurger();
         isOpen = true;
@@ -56,6 +63,8 @@ export function initMenuSlideToggle() {
     }
 
     function closeMenu() {
+        menuToggle.setAttribute("aria-expanded", "false");
+        
         linksIn.kill();
         gsap.set(menuLinks, { autoAlpha: 0, y: -20 });
         menuTl.reverse();
