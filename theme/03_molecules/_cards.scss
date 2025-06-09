@@ -51,12 +51,4 @@
             @include text--md;
         }
     }
-
-    @media screen and (min-width: 1100px) {
-        &--practical {
-            &__name {
-                @include text--sm;
-            }
-        }
-    }
 }

@@ -27,12 +27,12 @@
 
 @mixin heading-h3 {
     @include heading-base;
-    font-size: 1.75rem; // 28px;
+    font-size: 2rem; // 28px;
 }
 
 @mixin heading-h4 {
     @include heading-base;
-    font-size: 1.5rem; // 24px;
+    font-size: 1.75rem; // 24px;
 }
 
 h1 {

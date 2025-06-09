@@ -1,32 +1,32 @@
-@use "../00_common/variables" as *; // allows direct use of variables.$ff-body, variables.$sm, etc.
-@use "../00_common/mixins" as *; // allows direct use of @include respond-to(...)
+@use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
 
 @mixin text--sm {
-  font-family: $ff-body;
-  font-weight: normal;
-  font-size: $sm;
-  line-height: 168%; // 28px;
+    font-family: $ff-body;
+    font-weight: normal;
+    font-size: $sm;
+    line-height: 168%; // 28px;
 }
 
 @mixin text--md {
-  font-family: $ff-body;
-  font-weight: normal;
-  font-size: $md;
-  line-height: 168%; // 28px;
+    font-family: $ff-body;
+    font-weight: normal;
+    font-size: $md;
+    line-height: 168%; // 28px;
 }
 
 @mixin text--lg {
-  font-family: $ff-body;
-  font-weight: normal;
-  font-size: $lg;
-  line-height: 168%; // 28px;
+    font-family: $ff-body;
+    font-weight: normal;
+    font-size: $lg;
+    line-height: 168%; // 28px;
 }
 
 @mixin text--xl {
-  font-family: $ff-body;
-  font-weight: normal;
-  font-size: $xl;
-  line-height: 168%; // 28px;
+    font-family: $ff-body;
+    font-weight: normal;
+    font-size: $xl;
+    line-height: 168%; // 28px;
 }
 
 .text-subtitle {

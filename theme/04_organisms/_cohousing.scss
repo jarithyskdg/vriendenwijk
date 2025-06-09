@@ -11,11 +11,6 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    // overflow: hidden;
-
-    &__arms {
-        display: none;
-    }
 
     &__container {
         width: 80%;
@@ -89,53 +84,6 @@
     @include respond-to(desktop) {
         align-items: center;
 
-        &__arms {
-            display: block;
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 999;
-
-            .arm {
-                position: absolute;
-
-                &--bottom {
-                    width: 343px;
-                    height: 235px;
-                    bottom: -343px;
-                    left: 40%;
-                }
-
-                &--top {
-                    width: 226px;
-                    height: 366px;
-                    top: -366px;
-                    left: 50%;
-                }
-
-                &--left {
-                    width: 210px;
-                    height: 349px;
-                    left: -210px;
-                    top: 40%;
-                }
-
-                &--right {
-                    width: 270px;
-                    height: 298px;
-                    right: -270px;
-                    top: 50%;
-                }
-
-                &--bottom-right {
-                    width: 243px;
-                    height: 280px;
-                    bottom: -280px;
-                    left: 77.5%;
-                }
-            }
-        }
-
         &__container {
             width: 60%;
             margin-top: 0;
@@ -151,7 +99,6 @@
             }
 
             .cohousing__cta {
-                // justify-content: flex-start;
                 width: 100%;
             }
         }

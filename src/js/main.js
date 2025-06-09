@@ -10,7 +10,8 @@ import { initScrollToLinks } from "./animations/scrollTo.js";
 import { initClickConfetti } from "./animations/confettiOnClick.js";
 import { initButtonWaveEffect } from "./animations/buttonWaveEffect.js";
 import { initCursorTrail } from "./animations/cursorTrail.js";
-import { animateCohousing, animateCohousingArms } from "./animations/cohousing.js";
+import { animateCohousing } from "./animations/cohousing.js";
+import { animateTransitionArms } from "./animations/animateTransitionArms.js";
 import { initBurgerAnimation } from "./animations/burger.js";
 import { initMenuSlideToggle, menuItemHoverEffect } from "./animations/menu.js";
 import { animateAboutUs } from "./animations/about-us.js";
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuItemHoverEffect();
     animateHome();
     animateCohousing();
-    animateCohousingArms();
+    animateTransitionArms();
     animateAboutUs();
     animateOurStory();
     animateFacilities();

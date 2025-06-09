@@ -19,7 +19,7 @@ h2 span.bold {
 h3 {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 h3 span.bold {
   font-weight: bold;
@@ -28,7 +28,7 @@ h3 span.bold {
 h4 {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 h4 span.bold {
   font-weight: bold;
@@ -211,18 +211,11 @@ svg.cursor-trail line {
   font-size: 1.125rem;
   line-height: 168%;
 }
-@media screen and (min-width: 1100px) {
-  .card--practical__name {
-    font-family: "Helvetica", sans-serif;
-    font-weight: normal;
-    font-size: 0.875rem;
-    line-height: 168%;
-  }
-}
 
 .header {
   width: 100%;
   position: relative;
+  z-index: 999;
 }
 .header__navbar {
   position: fixed;
@@ -287,7 +280,7 @@ svg.cursor-trail line {
   z-index: 1;
   font-family: "Raleway", sans-serif;
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   color: #374729;
   text-decoration: none;
   font-weight: bold;
@@ -416,9 +409,6 @@ svg.cursor-trail line {
   justify-content: center;
   align-items: flex-start;
 }
-.cohousing__arms {
-  display: none;
-}
 .cohousing__container {
   width: 80%;
   margin-top: 35%;
@@ -492,46 +482,6 @@ svg.cursor-trail line {
   .cohousing {
     align-items: center;
   }
-  .cohousing__arms {
-    display: block;
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 999;
-  }
-  .cohousing__arms .arm {
-    position: absolute;
-  }
-  .cohousing__arms .arm--bottom {
-    width: 343px;
-    height: 235px;
-    bottom: -343px;
-    left: 40%;
-  }
-  .cohousing__arms .arm--top {
-    width: 226px;
-    height: 366px;
-    top: -366px;
-    left: 50%;
-  }
-  .cohousing__arms .arm--left {
-    width: 210px;
-    height: 349px;
-    left: -210px;
-    top: 40%;
-  }
-  .cohousing__arms .arm--right {
-    width: 270px;
-    height: 298px;
-    right: -270px;
-    top: 50%;
-  }
-  .cohousing__arms .arm--bottom-right {
-    width: 243px;
-    height: 280px;
-    bottom: -280px;
-    left: 77.5%;
-  }
   .cohousing__container {
     width: 60%;
     margin-top: 0;
@@ -544,6 +494,52 @@ svg.cursor-trail line {
   }
   .cohousing__container .cohousing__cta {
     width: 100%;
+  }
+}
+
+.transition__arms {
+  display: none;
+}
+@media screen and (min-width: 1500px) {
+  .transition__arms {
+    display: block;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 998;
+  }
+  .transition__arms .arm {
+    position: absolute;
+  }
+  .transition__arms .arm--bottom {
+    width: 343px;
+    height: 235px;
+    bottom: -343px;
+    left: 40%;
+  }
+  .transition__arms .arm--top {
+    width: 226px;
+    height: 366px;
+    top: -366px;
+    left: 15%;
+  }
+  .transition__arms .arm--left {
+    width: 210px;
+    height: 349px;
+    left: -210px;
+    top: 40%;
+  }
+  .transition__arms .arm--right {
+    width: 270px;
+    height: 298px;
+    right: -270px;
+    top: 30%;
+  }
+  .transition__arms .arm--bottom-right {
+    width: 243px;
+    height: 280px;
+    bottom: -280px;
+    left: 75%;
   }
 }
 
@@ -619,17 +615,11 @@ svg.cursor-trail line {
     column-gap: 48px;
   }
   .about-us__container .about-us__items .about-us__item {
-    height: 100%;
     width: calc(50% - 24px);
+    height: 100%;
   }
   .about-us__container .about-us__items .about-us__item__icon {
     width: 36px;
-  }
-  .about-us__container .about-us__items .about-us__item__text {
-    font-family: "Helvetica", sans-serif;
-    font-weight: normal;
-    font-size: 1.125rem;
-    line-height: 168%;
   }
   .about-us__cta {
     margin-top: 100px;
@@ -1135,7 +1125,7 @@ footer.footer .footer__container .footer__content__body--right .footer__links {
 footer.footer .footer__container .footer__content__body--right .footer__links a {
   font-family: "Raleway", sans-serif;
   font-weight: normal;
-  font-size: 1.75rem;
+  font-size: 2rem;
   color: #374729;
 }
 footer.footer .footer__container .footer__content__body--right .footer__links a span.bold {
