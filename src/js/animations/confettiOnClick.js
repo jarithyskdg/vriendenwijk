@@ -3,7 +3,15 @@ import { Physics2DPlugin } from "gsap/Physics2DPlugin";
 
 gsap.registerPlugin(Physics2DPlugin);
 
+// === TOGGLE HERE ===
+const CONFETTI_ENABLED = false;
+
 export function initClickConfetti() {
+    if (!CONFETTI_ENABLED) {
+        console.log("Confetti disabled via toggle.");
+        return;
+    }
+
     let isMobile = window.matchMedia("(pointer: coarse)").matches;
     let prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
