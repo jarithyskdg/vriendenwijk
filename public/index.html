@@ -58,8 +58,8 @@
         <div id="smooth-content">
 
 
-            <section id="home" class="home panel">
-                <div class="home__container">
+            <section id="home" class="home panel" aria-label="Home section">
+                <div class="home__container container">
                     <div class="home__container__content">
                         <div class="logo-wrapper">
                             <div class="home__logo logo">
@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="scroll-arrow">
-                        <a href="#cohousing" aria-label="Scroll to next section">
+                        <a href="#cohousing" aria-label="Scroll to next section: Cohousing">
                             <div class="scroll-indicator">
                                 <svg class="indicator indicator-1" width="28" height="16" viewBox="0 0 28 16"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,11 +93,12 @@
                 </div>
             </section>
 
-            <section id="cohousing" class="cohousing panel">
-                <div class="cohousing__container">
+            <section id="cohousing" class="cohousing panel" aria-label="Cohousing section">
+                <div class="cohousing__container container" tabindex="0">
                     <div class="cohousing__content">
                         <div class="cohousing__content__title">
-                            <h2><span class="bold">Cohousing</span><span class="mobile-br"><br></span> x vrienden</h2>
+                            <h2 id="cohousing-title"><span class="bold">Cohousing</span><span
+                                    class="mobile-br"><br></span> x vrienden</h2>
                         </div>
 
                         <p class="cohousing__content__text">
@@ -116,8 +117,8 @@
                 </div>
             </section>
 
-            <section id="about-us" class="about-us panel">
-                <div class="about-us__container">
+            <section id="about-us" class="about-us panel" aria-label="About Us section">
+                <div class="about-us__container container" tabindex="0">
                     <div class="about-us__items">
                         <div class="about-us__item">
                             <img class="about-us__item__icon" src="resources/img/duurzaamheid-icon.svg"
@@ -177,13 +178,13 @@
                 </div>
             </section>
 
-            <section id="our-story" class="our-story panel">
-                <div class="our-story__container">
+            <section id="our-story" class="our-story panel" aria-labelledby="our-story-title">
+                <div class="our-story__container container" tabindex="0">
                     <div class="logo logo--small">
                         <img class="logo--small" src="resources/img/logo-white.svg" alt="Logo Vriendenwijk">
                     </div>
 
-                    <h2 class="our-story__title">Ons Verhaal</h2>
+                    <h2 id="our-story-title" class="our-story__title">Ons Verhaal</h2>
 
                     <div class="our-story__content">
                         <div class="our-story__content__col">
@@ -229,8 +230,9 @@
                 </div>
             </section>
 
-            <section id="faciliteiten" class="faciliteiten panel">
-                <div class="faciliteiten__container">
+            <section id="faciliteiten" class="faciliteiten panel"
+                aria-label="Appartementen en faciliteiten overzicht">
+                <div class="faciliteiten__container container" tabindex="0">
 
                     <div class="faciliteiten__img">
                         <img class="image image--left" src="resources/img/vriendenwijk-placeholder.gif" alt="grondplan">
@@ -245,16 +247,13 @@
                         <div class="faciliteiten__content__body">
                             <p class="faciliteiten__content__text faciliteiten__content__text--first">
                                 Vriendenwijk I bestaat uit vier volledig uitgeruste appartementen. Daarnaast biedt het
-                                project
-                                een
-                                breed scala aan gedeelde faciliteiten:
+                                project een breed scala aan gedeelde faciliteiten:
                             </p>
 
                             <ul class="faciliteiten__list">
                                 <li class="faciliteiten__list__item">Gemeenschappelijke parking en tuin;</li>
                                 <li class="faciliteiten__list__item">Open woonkamer met grote keuken, ideaal voor
-                                    samenkomsten;
-                                </li>
+                                    samenkomsten;</li>
                                 <li class="faciliteiten__list__item">Sport- en wellnessruimte;</li>
                                 <li class="faciliteiten__list__item">Wasruimte;</li>
                                 <li class="faciliteiten__list__item">Coworking space.</li>
@@ -271,8 +270,9 @@
                     </div>
             </section>
 
-            <section id="practical" class="practical panel">
-                <div class="practical__container">
+            <section id="practical" class="practical panel"
+                aria-label="Praktische informatie over appartementen en faciliteiten">
+                <div class="practical__container container" tabindex="0">
 
                     <div class="practical__img">
                         <img class="image image--left" src="resources/img/vriendenwijk-placeholder.gif" alt="grondplan">
@@ -350,8 +350,8 @@
                 </div>
             </section>
 
-            <section id="quote" class="quote panel">
-                <div class="quote__container">
+            <section id="quote" class="quote panel" aria-label="Inspirerende quote">
+                <div class="quote__container container" tabindex="0">
                     <div class="quote__mark quote__mark--top">
                         <img class="quote__mark__img" src="resources/img/quote-top.svg" alt="quote mark">
                     </div>
@@ -368,8 +368,9 @@
                 </div>
             </section>
 
-            <section id="insights" class="insights panel">
-                <div class="insights__container">
+            <section id="insights" class="insights panel"
+                aria-label="Inzichten over gemeenschappelijk wonen">
+                <div class="insights__container container" tabindex="0">
                     <div class="insights__content">
                         <div class="insights__content__title">
                             <h2>Inzichten</h2>
@@ -385,8 +386,7 @@
                                     <div class="card--insights__content">
                                         <p>
                                             Over de financiële voordelen, het sociale aspect en hoe je samen meer luxe
-                                            kunt
-                                            bereiken.
+                                            kunt bereiken.
                                         </p>
                                     </div>
                                 </div>
@@ -399,9 +399,8 @@
                                     <div class="card--insights__content">
                                         <p>
                                             Diepgaande uitleg over de architecturale en filosofische keuzes om iedereen
-                                            een
-                                            fijne woonervaring te geven. Introvert of extraver, we creëren een plek voor
-                                            iedereen.
+                                            een fijne woonervaring te geven. Introvert of extraver, we creëren een plek
+                                            voor iedereen.
                                         </p>
                                     </div>
                                 </div>
@@ -429,8 +428,8 @@
                 </div>
             </section>
 
-            <section id="portal" class="portal panel">
-                <div class="portal__container">
+            <section id="portal" class="portal panel" aria-label="Portal section">
+                <div class="portal__container container" tabindex="0">
                     <div class="portal__content">
                         <div class="portal__content__title">
                             <h2>Bewoner van vriendenwijk?</h2>
@@ -443,8 +442,8 @@
                 </div>
             </section>
 
-            <footer id="footer" class="footer">
-                <div class="footer__container">
+            <footer id="footer" class="footer" aria-label="Footer">
+                <div class="footer__container container" tabindex="0">
                     <div class="footer__content">
                         <div class="logo logo--footer footer__logo">
                             <img src="resources/img/logo.svg" alt="Logo Vriendenwijk" class="logo__img">

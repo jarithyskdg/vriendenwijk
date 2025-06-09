@@ -47,8 +47,8 @@
 
     @include respond-to(desktop) {
         &__container {
-            align-items: flex-start;
             width: 60%;
+            align-items: flex-start;
 
             .our-story__content {
                 flex-direction: row;

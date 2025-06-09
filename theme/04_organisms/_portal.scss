@@ -3,7 +3,6 @@
 @use "../01_fundaments/_headings" as *;
 @use "../00_common/mixins" as *;
 
-
 .portal {
     width: 100%;
     min-height: 100vh;
@@ -14,11 +13,11 @@
 
     &__container {
         width: 80%;
+        margin-bottom: 256px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 256px;
 
         .portal__content {
             width: 100%;
@@ -52,10 +51,10 @@
             .portal__content {
                 &__title {
                     h2 {
-                        font-size: 4rem; // 64px
+                        font-size: 4rem;
 
                         .portal-char {
-                            font-size: 4rem; // 64px
+                            font-size: 4rem;
                         }
                     }
                 }

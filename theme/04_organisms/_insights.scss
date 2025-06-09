@@ -25,6 +25,16 @@
             justify-content: center;
             align-items: center;
 
+            &__title {
+                width: fit-content;
+                text-align: center;
+                margin-bottom: 32px;
+
+                h2 {
+                    font-weight: bold;
+                }
+            }
+
             &__body {
                 margin-bottom: 48px;
 
@@ -35,16 +45,6 @@
                     justify-content: center;
                     align-items: center;
                     gap: 32px;
-                }
-            }
-
-            &__title {
-                width: fit-content;
-                text-align: center;
-                margin-bottom: 32px;
-
-                h2 {
-                    font-weight: bold;
                 }
             }
         }
@@ -63,6 +63,10 @@
             .insights__content {
                 gap: 128px;
 
+                &__title {
+                    margin-bottom: 0;
+                }
+
                 &__body {
                     margin-bottom: 0;
 
@@ -71,10 +75,6 @@
                         align-items: stretch;
                         gap: 32px;
                     }
-                }
-
-                &__title {
-                    margin-bottom: 0;
                 }
             }
         }
