@@ -13,8 +13,6 @@ export function getMenuWidth() {
     return "90%";
 }
 
-// If you want, you can add more generic breakpoint helpers, for example:
-
 export function getCurrentBreakpoint() {
     const width = window.innerWidth;
     if (width >= 1200) return "desktop";
