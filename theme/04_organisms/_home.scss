@@ -1,5 +1,5 @@
 @use "../00_common/variables" as *;
-@use "../00_common/mixins" as *; // allows direct use of @include respond-to(...)
+@use "../00_common/mixins" as *;
 
 .home {
     width: 100%;
@@ -53,15 +53,9 @@
             align-items: center;
             margin-top: 128px;
             cursor: pointer;
-
-            // img {
-            //     width: 24px;
-            //     height: 24px;
-            // }
         }
     }
 
-    // Tablet styles
     @include respond-to(tablet) {
         background-image: url("../img/home-background.jpg");
 
@@ -78,17 +72,9 @@
                     }
                 }
             }
-
-            // .scroll-arrow {
-            //     img {
-            //         width: 28px;
-            //         height: 28px;
-            //     }
-            // }
         }
     }
 
-    // Desktop styles
     @include respond-to(desktop) {
         background-image: url("../img/home-background.jpg");
 
@@ -99,13 +85,6 @@
             &__content {
                 gap: 20px;
             }
-
-            // .scroll-arrow {
-            //     img {
-            //         width: 32px;
-            //         height: 32px;
-            //     }
-            // }
         }
     }
 }
