@@ -68,30 +68,6 @@
                 text-align: center;
                 cursor: pointer;
 
-                // &::before {
-                //     content: "";
-                //     position: absolute;
-                //     inset: 0;
-                //     border: 2px solid $darkGreen;
-                //     border-radius: 12px;
-                //     opacity: 0;
-                //     transform: scale(0.8);
-                //     pointer-events: none;
-                //     transition: none; // We use GSAP for animation
-                // }
-
-                // .border {
-                //     position: absolute;
-                //     inset: 0;
-                //     border: 2.5px solid $darkGreen;
-                //     border-radius: 40px;
-                //     opacity: 0;
-                //     transform: scale(0.8);
-                //     pointer-events: none;
-                //     z-index: 0;
-                // }
-
-
                 a {
                     display: inline-block;
                     position: relative;
@@ -139,10 +115,6 @@
             right: 32px;
 
             &__items {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
                 gap: 2rem;
             }
         }

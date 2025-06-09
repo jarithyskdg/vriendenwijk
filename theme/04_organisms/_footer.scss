@@ -56,8 +56,6 @@ footer.footer {
                         margin-bottom: 64px;
 
                         &__title {
-                            // margin-bottom: 32px;
-
                             h2 {
                                 font-weight: bold;
                                 color: $darkGreen;
@@ -65,7 +63,6 @@ footer.footer {
                         }
 
                         &__details {
-                            // width: 100%;
                             display: flex;
                             flex-direction: column;
                             justify-content: flex-start;
@@ -103,7 +100,6 @@ footer.footer {
 
                         &__links {
                             display: flex;
-                            flex-direction: row;
                             justify-content: center;
                             align-items: center;
                             gap: 24px;
@@ -131,11 +127,10 @@ footer.footer {
                         align-items: flex-start;
                         gap: 24px;
 
-
                         a {
                             @include heading-h3;
-                            // text-decoration: underline;
                             color: $darkGreen;
+                            position: relative;
 
                             &::after {
                                 content: '';
@@ -152,7 +147,6 @@ footer.footer {
                             }
 
                             &:hover {
-                                // font-weight: bold;
                                 cursor: pointer;
 
                                 &::after {
@@ -189,10 +183,8 @@ footer.footer {
                         width: 40%;
                         margin-bottom: 0;
 
-
                         .contact-info {
                             width: 100%;
-                            // margin-bottom: 0;
 
                             &__details {
                                 gap: 16px;
@@ -201,7 +193,6 @@ footer.footer {
 
                         .socials {
                             width: 100%;
-                            // margin-bottom: 0;
                         }
                     }
 
@@ -213,7 +204,6 @@ footer.footer {
                             gap: 24px;
                         }
                     }
-
                 }
             }
         }

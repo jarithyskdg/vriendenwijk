@@ -1,0 +1,5 @@
+@use "../00_common/variables" as *;
+
+.header__menu-toggle:focus-visible {
+    outline: auto;
+}
