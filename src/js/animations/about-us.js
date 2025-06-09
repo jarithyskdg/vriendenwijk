@@ -11,6 +11,7 @@ export function animateAboutUs() {
 
     if (!section || !items.length || !cta) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const breakpoint = getCurrentBreakpoint();
 
     const scrollTriggerSettings = {
@@ -19,16 +20,15 @@ export function animateAboutUs() {
         end: breakpoint === "mobile" ? "center 40%" : "center center",
         toggleActions: "play none none reverse",
         scrub: 1,
-        markers: false // set to true for debugging
+        markers: false
     };
 
     const tl = gsap.timeline({
         scrollTrigger: scrollTriggerSettings
     });
 
-    // Convert NodeList to array and optionally shuffle for desktop
     const itemArray = Array.from(items);
-    if (breakpoint === "desktop") {
+    if (breakpoint === "desktop" && !prefersReducedMotion) {
         gsap.utils.shuffle(itemArray);
     }
 
@@ -39,38 +39,45 @@ export function animateAboutUs() {
 
         const itemTL = gsap.timeline();
 
-        const iconEase = breakpoint === "desktop" ? "bounce.out" : "power3.out";
+        // Set motion-sensitive easing and durations
+        const iconEase = prefersReducedMotion ? "power1.out" : (breakpoint === "desktop" ? "bounce.out" : "power3.out");
+        const iconY = prefersReducedMotion ? "-30" : breakpoint === "mobile" ? -50 : -80;
+        const iconDuration = prefersReducedMotion ? 0.4 : (breakpoint === "mobile" ? 0.6 : 0.8);
+
+        const titleEase = prefersReducedMotion ? "power1.out" : "back.out(1.7)";
+        const titleDuration = prefersReducedMotion ? 0.4 : 0.6;
+
+        const textEase = prefersReducedMotion ? "power1.out" : "power2.out";
+        const textDuration = prefersReducedMotion ? 0.4 : 0.6;
 
         itemTL.from(icon, {
-            // y: -80,
-            y: breakpoint === "mobile" ? -50 : -80,
+            y: iconY,
             autoAlpha: 0,
-            // duration: 0.8,
-            duration: breakpoint === "mobile" ? 0.6 : 0.8,
+            duration: iconDuration,
             ease: iconEase
         });
 
         itemTL.from(title, {
             scale: 0,
             autoAlpha: 0,
-            duration: 0.6,
-            ease: "back.out(1.7)"
+            duration: titleDuration,
+            ease: titleEase
         }, "-=0.4");
 
         itemTL.from(text, {
             y: 30,
             autoAlpha: 0,
-            duration: 0.6,
-            ease: "power2.out"
+            duration: textDuration,
+            ease: textEase
         }, "-=0.3");
 
         tl.add(itemTL, index * 0.4);
     });
 
     tl.from(cta, {
-        y: 80,
+        y: prefersReducedMotion ? 30 : 80,
         autoAlpha: 0,
-        duration: 0.8,
-        ease: "power3.out"
+        duration: prefersReducedMotion ? 0.5 : 0.8,
+        ease: prefersReducedMotion ? "power1.out" : "power3.out"
     }, "-=0.3");
 }

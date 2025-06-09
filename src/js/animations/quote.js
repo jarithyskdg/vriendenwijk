@@ -10,28 +10,33 @@ export function animateQuote() {
 
     if (!section || !quoteText) return;
 
-    // ✅ Split the paragraph into words
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const split = new SplitText(quoteText, { type: "words", wordsClass: "quote-word" });
 
     // Start all words invisible
-    gsap.set(split.words, { autoAlpha: 0, yPercent: 100 });
+    gsap.set(split.words, {
+        autoAlpha: 0,
+        yPercent: prefersReducedMotion ? 0 : 100
+    });
 
     // Animate on scroll
     gsap.to(split.words, {
         scrollTrigger: {
             trigger: section,
             start: "top 80%",
-            // end: "center center",
-            toggleActions: "play pauze resume reset",
-            markers: false // optional for debugging
+            toggleActions: "play pause resume reset",
+            markers: false
         },
         autoAlpha: 1,
         yPercent: 0,
-        duration: 0.6,
-        ease: "power2.out",
-        stagger: {
-            each: 0.05,
-            from: "random" // ← makes the words animate in random order
-        }
+        duration: prefersReducedMotion ? 0.3 : 0.6,
+        ease: prefersReducedMotion ? "power1.out" : "power2.out",
+        stagger: prefersReducedMotion
+            ? 0 // no stagger for reduced motion
+            : {
+                each: 0.05,
+                from: "random"
+            }
     });
 }

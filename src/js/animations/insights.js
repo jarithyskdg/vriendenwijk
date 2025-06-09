@@ -14,10 +14,11 @@ export function animateInsights() {
 
     const breakpoint = getCurrentBreakpoint();
     const isDesktop = breakpoint === "desktop";
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Remove parallax attributes on non-desktop
+    // Remove parallax attributes on non-desktop or reduced motion
     cards.forEach((card) => {
-        if (!isDesktop) {
+        if (!isDesktop || prefersReducedMotion) {
             card.removeAttribute("data-speed");
             card.removeAttribute("data-lag");
         }
@@ -29,10 +30,10 @@ export function animateInsights() {
             trigger: isDesktop ? section : title,
             start: isDesktop ? "top 80%" : "top 90%",
             end: isDesktop ? "center center" : "top center",
-            scrub: true,
+            scrub: 1,
             markers: false
         },
-        y: isDesktop ? 60 : -60,
+        y: prefersReducedMotion ? 0 : isDesktop ? 60 : -60,
         opacity: 0,
         ease: "power2.out"
     });
@@ -46,11 +47,11 @@ export function animateInsights() {
                 trigger: card,
                 start: "top 90%",
                 end: "top center",
-                scrub: true,
+                scrub: 1,
                 markers: false
             },
-            x: !isDesktop ? (isEven ? -100 : 100) : 0,
-            y: isDesktop ? 80 : 0,
+            x: prefersReducedMotion ? 0 : !isDesktop ? (isEven ? -100 : 100) : 0,
+            y: prefersReducedMotion ? 0 : isDesktop ? 80 : 0,
             opacity: 0,
             ease: "power2.out"
         });
@@ -62,12 +63,12 @@ export function animateInsights() {
             trigger: isDesktop ? section : cta,
             start: isDesktop ? "40% 60%" : "top bottom",
             end: isDesktop ? "center center" : "top 90%",
-            scrub: true,
+            scrub: 1,
             markers: false
         },
-        scale: 0.9,
+        scale: prefersReducedMotion ? 1 : 0.9,
         opacity: 0,
-        duration: 0.6,
+        duration: prefersReducedMotion ? 0.3 : 0.6,
         ease: "power2.out"
     });
 }

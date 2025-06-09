@@ -5,8 +5,13 @@ export function initCursorTrail({
     total = 100,
     ease = 0.75,
 } = {}) {
-    // Exit early if device is touch-only
-    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Exit early if device is touch-only or motion should be reduced
+    if (
+        !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
+        prefersReducedMotion
+    ) {
         return;
     }
 

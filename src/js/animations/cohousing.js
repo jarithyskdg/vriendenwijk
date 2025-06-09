@@ -6,6 +6,8 @@ import { getCurrentBreakpoint } from "../helpers/breakpoints";
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateCohousing() {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     document.fonts.ready.then(() => {
         const section = document.querySelector("#cohousing");
         const title = document.querySelector(".cohousing__content__title");
@@ -20,7 +22,6 @@ export function animateCohousing() {
         const splitTitle = new SplitText(title, { type: "words", wordsClass: "cohousing-word" });
         const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line" });
 
-        // Timeline with ScrollTrigger based on the whole section
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
@@ -28,35 +29,60 @@ export function animateCohousing() {
                 end: "center center",
                 toggleActions: "play none none reverse",
                 scrub: 1,
-                markers: false // set to true for debugging
+                markers: false
             }
         });
 
-        // Animate title words
-        tl.from(splitTitle.words, {
-            y: 50,
-            rotation: "random(-80, 80)",
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-            stagger: 0.1
-        });
+        if (prefersReducedMotion) {
+            // Reduced motion-friendly animations
+            tl.from(splitTitle.words, {
+                y: 30,            // smaller vertical movement
+                rotation: 0,      // no rotation
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power1.out",
+                stagger: 0.1
+            });
 
-        // Animate text lines after title
-        tl.from(splitText.lines, {
-            y: 40,
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-            stagger: 0.2
-        }, "+=0.3"); // slight delay after title finishes
+            tl.from(splitText.lines, {
+                y: 15,            // smaller vertical movement
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power1.out",
+                stagger: 0.15
+            }, "+=0.2");
 
-        // Animate CTA button
-        tl.from(cta, {
-            scale: 0.8,
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-        }, "-=0.3");
+            tl.from(cta, {
+                scale: 0.95,      // subtle scaling
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power1.out",
+            }, "-=0.2");
+        } else {
+            // Original, more dynamic animations
+            tl.from(splitTitle.words, {
+                y: 50,
+                rotation: "random(-80, 80)",
+                autoAlpha: 0,
+                duration: 2,
+                ease: "power3.out",
+                stagger: 0.1
+            });
+
+            tl.from(splitText.lines, {
+                y: 40,
+                autoAlpha: 0,
+                duration: 2,
+                ease: "power3.out",
+                stagger: 0.2
+            }, "+=0.3");
+
+            tl.from(cta, {
+                scale: 0.8,
+                autoAlpha: 0,
+                duration: 2,
+                ease: "power3.out",
+            }, "-=0.3");
+        }
     });
 }

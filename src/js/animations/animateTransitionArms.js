@@ -5,6 +5,10 @@ import { getCurrentBreakpoint } from "../helpers/breakpoints";
 gsap.registerPlugin(ScrollTrigger);
 
 export function animateTransitionArms() {
+    // Respect reduced motion setting
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     const breakpoint = getCurrentBreakpoint();
     if (breakpoint !== "desktop") return; // Only run on desktop
 

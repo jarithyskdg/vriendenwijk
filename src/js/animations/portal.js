@@ -11,6 +11,8 @@ export function animatePortal() {
 
     if (!section || !title || !button) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     // Split the title into characters
     const split = new SplitText(title, {
         type: "chars, words",
@@ -18,7 +20,10 @@ export function animatePortal() {
     });
 
     // Start all characters hidden and below
-    gsap.set(split.chars, { autoAlpha: 0, yPercent: 100 });
+    gsap.set(split.chars, {
+        autoAlpha: 0,
+        yPercent: prefersReducedMotion ? 0 : 100
+    });
 
     // Animate characters on scroll
     gsap.to(split.chars, {
@@ -30,9 +35,9 @@ export function animatePortal() {
         },
         autoAlpha: 1,
         yPercent: 0,
-        duration: 0.5,
+        duration: prefersReducedMotion ? 0.3 : 0.5,
         ease: "power2.out",
-        stagger: {
+        stagger: prefersReducedMotion ? 0 : {
             each: 0.05,
             from: "random"
         }
@@ -47,9 +52,9 @@ export function animatePortal() {
             markers: false
         },
         opacity: 0,
-        scale: 0.90,
-        duration: 0.6,
-        delay: 0.2,
+        scale: prefersReducedMotion ? 1 : 0.90,
+        duration: prefersReducedMotion ? 0.3 : 0.6,
+        delay: prefersReducedMotion ? 0 : 0.2,
         ease: "power2.out"
     });
 }

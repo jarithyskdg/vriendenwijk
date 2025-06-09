@@ -12,6 +12,7 @@ export function animatePractical() {
     if (!section || !img || !cards.length) return;
 
     const breakpoint = getCurrentBreakpoint();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let startValue, endValue;
 
@@ -33,52 +34,40 @@ export function animatePractical() {
             end: endValue,
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: false // set to true for debugging
+            markers: false
         }
     });
 
-    if (breakpoint === "desktop") {
-        // 👇 First animate the image
-        tl.from(img, {
-            x: 100,
+    // Use conditional logic per breakpoint
+    const animateCard = (card, index) => {
+        const fromDirection = index % 2 === 0 ? -50 : 50;
+
+        tl.from(card, {
+            x: prefersReducedMotion ? 0 : fromDirection,
+            y: prefersReducedMotion ? 0 : 50,
             opacity: 0,
-            duration: 1,
+            scale: prefersReducedMotion ? 1 : 0.8,
+            duration: prefersReducedMotion ? 0.4 : 0.6,
+            ease: prefersReducedMotion ? "power1.out" : "power3.out"
+        }, `-=${0.4 - index * 0.03}`);
+    };
+
+    if (breakpoint === "desktop") {
+        tl.from(img, {
+            x: prefersReducedMotion ? 0 : 100,
+            opacity: 0,
+            duration: prefersReducedMotion ? 0.5 : 1,
             ease: "power3.out"
         });
 
-        // 👇 Then animate the cards
-        cards.forEach((card, index) => {
-            const fromDirection = index % 2 === 0 ? -50 : 50;
-
-            tl.from(card, {
-                x: fromDirection,
-                y: 50,
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.6,
-                ease: "back.out(1.7)"
-            }, `-=${0.4 - index * 0.03}`);
-        });
-
+        cards.forEach(animateCard);
     } else {
-        // 👇 On mobile/tablet, animate cards first
-        cards.forEach((card, index) => {
-            const fromDirection = index % 2 === 0 ? -50 : 50;
-
-            tl.from(card, {
-                x: fromDirection,
-                y: 50,
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.6,
-                ease: "back.out(1.7)"
-            }, `-=${0.4 - index * 0.03}`);
-        });
+        cards.forEach(animateCard);
 
         tl.from(img, {
-            x: 100,
+            x: prefersReducedMotion ? 0 : 100,
             opacity: 0,
-            duration: 1,
+            duration: prefersReducedMotion ? 0.5 : 1,
             ease: "power3.out"
         });
     }

@@ -13,8 +13,8 @@ export function animateOurStory() {
     if (!section || !logo || !title || !paragraphs.length) return;
 
     const breakpoint = getCurrentBreakpoint();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Animate logo and title
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: section,
@@ -22,30 +22,40 @@ export function animateOurStory() {
             end: "center center",
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: false // set to true for debugging
+            markers: false
         }
     });
 
+    // Adjust for motion preferences
+    const motion = {
+        logoY: prefersReducedMotion ? 0 : -30,
+        titleY: prefersReducedMotion ? 0 : 30,
+        ease: prefersReducedMotion ? "power1.out" : "power2.out",
+        duration: prefersReducedMotion ? 0.4 : 0.6,
+        paraX: prefersReducedMotion ? 0 : 50,
+        paraDuration: prefersReducedMotion ? 0.4 : 0.8
+    };
+
     tl.from(logo, {
-        y: -30,
+        y: motion.logoY,
         autoAlpha: 0,
-        duration: 0.6,
-        ease: "power2.out"
+        duration: motion.duration,
+        ease: motion.ease
     });
 
     tl.from(title, {
-        y: 30,
+        y: motion.titleY,
         autoAlpha: 0,
-        duration: 0.6,
-        ease: "power2.out"
+        duration: motion.duration,
+        ease: motion.ease
     }, "-=0.3");
 
     paragraphs.forEach((p, i) => {
         tl.from(p, {
-            x: i % 2 === 0 ? -50 : 50,
+            x: i % 2 === 0 ? -motion.paraX : motion.paraX,
             autoAlpha: 0,
-            duration: 0.8,
-            ease: "power2.out"
+            duration: motion.paraDuration,
+            ease: motion.ease
         }, "-=0.4");
     });
 }

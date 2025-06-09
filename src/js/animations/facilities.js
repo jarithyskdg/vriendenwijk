@@ -16,6 +16,7 @@ export function animateFacilities() {
     if (!section || !img || !title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
 
     const breakpoint = getCurrentBreakpoint();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -24,52 +25,52 @@ export function animateFacilities() {
             end: breakpoint === "mobile" ? "center 40%" : "center center",
             toggleActions: "play none none reverse",
             scrub: 1,
-            markers: false // set to true for debugging
+            markers: false
         }
     });
 
     tl.from(img, {
-        x: -100,
+        x: prefersReducedMotion ? 0 : -100,
         opacity: 0,
-        duration: 1,
+        duration: prefersReducedMotion ? 0.6 : 1,
         ease: "power3.out"
     });
 
     tl.from(title, {
-        y: 50,
+        y: prefersReducedMotion ? 0 : 50,
         opacity: 0,
-        duration: 0.8,
+        duration: prefersReducedMotion ? 0.5 : 0.8,
         ease: "power3.out"
     }, "-=0.6");
 
     tl.from(firstParagraph, {
-        y: 30,
+        y: prefersReducedMotion ? 0 : 30,
         opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
+        duration: prefersReducedMotion ? 0.4 : 0.6,
+        ease: prefersReducedMotion ? "power1.out" : "power2.out",
         stagger: 0.2
     }, "-=0.5");
 
     tl.from(listItems, {
-        x: 50,
+        x: prefersReducedMotion ? 0 : 50,
         opacity: 0,
-        duration: 0.5,
-        ease: "power2.out",
+        duration: prefersReducedMotion ? 0.4 : 0.5,
+        ease: prefersReducedMotion ? "power1.out" : "power2.out",
         stagger: 0.15
     }, "-=0.4");
 
     tl.from(lastParagraph, {
-        y: 30,
+        y: prefersReducedMotion ? 0 : 30,
         opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
+        duration: prefersReducedMotion ? 0.4 : 0.6,
+        ease: prefersReducedMotion ? "power1.out" : "power2.out",
         stagger: 0.2
     }, "-=0.5");
 
     tl.from(cta, {
-        scale: 0.9,
+        scale: prefersReducedMotion ? 1 : 0.9,
         opacity: 0,
-        duration: 0.6,
-        ease: "back.out(1.7)"
+        duration: prefersReducedMotion ? 0.4 : 0.6,
+        ease: prefersReducedMotion ? "power1.out" : "back.out(1.7)"
     }, "-=0.4");
 }
