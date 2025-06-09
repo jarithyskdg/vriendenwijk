@@ -1,3 +1,5 @@
+@use "../00_common/variables" as *;
+
 svg.cursor-trail {
     position: fixed;
     top: 0;
@@ -8,7 +10,8 @@ svg.cursor-trail {
     height: 100%;
 
     line {
-        stroke: #0ae448;
-        stroke-width: 4;
+        stroke: $lightGreen;
+        stroke-width: 5;
+        filter: drop-shadow(0 0 5px $grey);
     }
 }
