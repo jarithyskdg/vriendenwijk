@@ -92,7 +92,7 @@ export function animateCohousingArms() {
             start: "top center",
             end: "bottom 85%",
             toggleActions: "play reverse restart reverse",
-            markers: true,
+            markers: false,
         },
     });
 
