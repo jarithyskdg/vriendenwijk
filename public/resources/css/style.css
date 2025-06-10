@@ -259,6 +259,7 @@ svg.cursor-trail line {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   height: 0;
+  max-height: 95vh;
   z-index: 10;
   padding-top: 90px;
 }
@@ -269,11 +270,12 @@ svg.cursor-trail line {
   align-items: center;
   gap: 2rem;
   padding: 1rem 0 2rem;
+  max-height: 95vh;
 }
 .header__menu__items .header__menu__item {
   position: relative;
   display: inline-block;
-  width: 30%;
+  width: 100%;
   padding: 0.5rem 0;
   text-align: center;
   cursor: pointer;
