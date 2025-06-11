@@ -20,7 +20,6 @@ export function animateTransitionArms() {
         left: armsContainer.querySelector(".arm--left"),
         right: armsContainer.querySelector(".arm--right"),
         top: armsContainer.querySelector(".arm--top"),
-        bottom: armsContainer.querySelector(".arm--bottom"),
         bottomRight: armsContainer.querySelector(".arm--bottom-right"),
     };
 
@@ -59,12 +58,6 @@ export function animateTransitionArms() {
     tl.fromTo(arms.left,
         { x: "-6vw", y: "6vw", rotation: 30, autoAlpha: 0 },
         { x: `${armOffset - 1}vw`, y: "0vw", rotation: 10, duration: 1, autoAlpha: 1, ease: "power2.out" },
-        "-=0.75"
-    );
-
-    tl.fromTo(arms.bottom,
-        { y: 0, rotation: 90, autoAlpha: 0 },
-        { y: `-${armOffset}vw`, rotation: 90, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 }
