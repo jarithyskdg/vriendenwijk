@@ -268,8 +268,8 @@ svg.cursor-trail line {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  padding: 1rem 0 2rem;
+  gap: 1rem;
+  padding: 0 0 2rem;
   max-height: 95vh;
 }
 .header__menu__items .header__menu__item {
@@ -322,7 +322,7 @@ svg.cursor-trail line {
     right: 32px;
   }
   .header__menu__items {
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 

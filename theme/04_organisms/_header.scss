@@ -58,8 +58,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            padding: 1rem 0 2rem;
+            gap: 1rem;
+            padding: 0 0 2rem;
             max-height: 95vh;
 
             .header__menu__item {
@@ -117,7 +117,7 @@
             right: 32px;
 
             &__items {
-                gap: 2rem;
+                gap: 1rem;
             }
         }
     }

@@ -34,7 +34,10 @@ export function initMenuSlideToggle() {
 
     menuTl.to(menu, {
         duration: 0.4,
-        height: () => menu.scrollHeight, // recalc height at runtime
+        height: () => {
+            const maxHeight = window.innerHeight * 0.95;
+            return Math.min(menu.scrollHeight, maxHeight);
+        },
         ease: "power1.inOut",
     }, ">");
 
@@ -64,7 +67,7 @@ export function initMenuSlideToggle() {
 
     function closeMenu() {
         menuToggle.setAttribute("aria-expanded", "false");
-        
+
         linksIn.kill();
         gsap.set(menuLinks, { autoAlpha: 0, y: -20 });
         menuTl.reverse();
