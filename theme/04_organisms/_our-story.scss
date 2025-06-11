@@ -46,6 +46,8 @@
     }
 
     @include respond-to(desktop) {
+        padding: 0;
+        
         &__container {
             width: 60%;
             align-items: flex-start;

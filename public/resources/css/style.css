@@ -677,6 +677,9 @@ svg.cursor-trail line {
   gap: 32px;
 }
 @media (min-width: 1024px) {
+  .our-story {
+    padding: 0;
+  }
   .our-story__container {
     width: 60%;
     align-items: flex-start;
@@ -905,6 +908,7 @@ svg.cursor-trail line {
   }
   .insights__container .insights__content {
     gap: 128px;
+    padding: 0;
   }
   .insights__container .insights__content__title {
     margin-bottom: 0;
