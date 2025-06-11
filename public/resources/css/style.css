@@ -859,6 +859,7 @@ svg.cursor-trail line {
   width: 100%;
   min-height: 100vh;
   background-color: #F0EEE8;
+  padding: 10% 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -872,7 +873,6 @@ svg.cursor-trail line {
 }
 .insights__container .insights__content {
   width: 100%;
-  padding: 10% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -903,12 +903,14 @@ svg.cursor-trail line {
   }
 }
 @media (min-width: 1024px) {
+  .insights {
+    padding: 0;
+  }
   .insights__container {
     width: 80%;
   }
   .insights__container .insights__content {
-    gap: 128px;
-    padding: 0;
+    gap: 64px;
   }
   .insights__container .insights__content__title {
     margin-bottom: 0;

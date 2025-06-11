@@ -6,6 +6,7 @@
     width: 100%;
     min-height: 100vh;
     background-color: $beige;
+    padding: 10% 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +20,7 @@
 
         .insights__content {
             width: 100%;
-            padding: 10% 0;
+            // padding: 10% 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -57,12 +58,14 @@
     }
 
     @include respond-to(desktop) {
+        padding: 0;
+
         &__container {
             width: 80%;
 
             .insights__content {
-                gap: 128px;
-                padding: 0;
+                gap: 64px;
+                // padding: 0;
 
                 &__title {
                     margin-bottom: 0;
