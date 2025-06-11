@@ -512,35 +512,29 @@ svg.cursor-trail line {
   }
   .transition__arms .arm {
     position: absolute;
+    width: 12vw;
+    height: auto;
   }
   .transition__arms .arm--bottom {
-    width: 343px;
-    height: 235px;
-    bottom: -343px;
+    width: auto;
+    height: 12vw;
+    bottom: -12vw;
     left: 40%;
   }
   .transition__arms .arm--top {
-    width: 226px;
-    height: 366px;
-    top: -366px;
+    top: -12vw;
     left: 15%;
   }
   .transition__arms .arm--left {
-    width: 210px;
-    height: 349px;
-    left: -210px;
+    left: -12vw;
     top: 40%;
   }
   .transition__arms .arm--right {
-    width: 270px;
-    height: 298px;
-    right: -270px;
+    right: -12vw;
     top: 30%;
   }
   .transition__arms .arm--bottom-right {
-    width: 243px;
-    height: 280px;
-    bottom: -280px;
+    bottom: -12vw;
     left: 75%;
   }
 }

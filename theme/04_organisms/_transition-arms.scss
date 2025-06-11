@@ -2,53 +2,46 @@
 @use "../00_common/mixins" as *;
 
 .transition__arms {
-    display: none;
+  display: none;
 
-    // Desktop styles
-    @media screen and (min-width: 1500px) {
-        display: block;
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        z-index: 998; //on top but just under header menu
+  @media screen and (min-width: 1500px) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 998;
 
-        .arm {
-            position: absolute;
+    .arm {
+      position: absolute;
+      width: 12vw; // scalable size
+      height: auto; // preserve aspect ratio
 
-            &--bottom {
-                width: 343px;
-                height: 235px;
-                bottom: -343px;
-                left: 40%;
-            }
+      &--bottom {
+        width: auto;
+        height: 12vw;
+        bottom: -12vw;
+        left: 40%;
+      }
 
-            &--top {
-                width: 226px;
-                height: 366px;
-                top: -366px;
-                left: 15%;
-            }
+      &--top {
+        top: -12vw;
+        left: 15%;
+      }
 
-            &--left {
-                width: 210px;
-                height: 349px;
-                left: -210px;
-                top: 40%;
-            }
+      &--left {
+        left: -12vw;
+        top: 40%;
+      }
 
-            &--right {
-                width: 270px;
-                height: 298px;
-                right: -270px;
-                top: 30%;
-            }
+      &--right {
+        right: -12vw;
+        top: 30%;
+      }
 
-            &--bottom-right {
-                width: 243px;
-                height: 280px;
-                bottom: -280px;
-                left: 75%;
-            }
-        }
+      &--bottom-right {
+        bottom: -12vw;
+        left: 75%;
+      }
     }
+  }
 }

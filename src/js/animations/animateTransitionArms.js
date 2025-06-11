@@ -26,11 +26,8 @@ export function animateTransitionArms() {
 
     if (!Object.values(arms).every(Boolean)) return;
 
-    const leftWidth = arms.left.getBoundingClientRect().width;
-    const rightWidth = arms.right.getBoundingClientRect().width;
-    const topHeight = arms.top.getBoundingClientRect().height;
-    const bottomHeight = arms.bottom.getBoundingClientRect().width;
-    const bottomRightHeight = arms.bottomRight.getBoundingClientRect().height;
+    // Use same offset as in SCSS: -12vw (so we animate with ±12vw)
+    const armOffset = 12;
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -43,31 +40,31 @@ export function animateTransitionArms() {
     });
 
     tl.fromTo(arms.top,
-        { y: 0, x: -45, rotation: 45, autoAlpha: 0 },
-        { y: topHeight, x: 0, rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" }
+        { y: 0, x: "-3vw", rotation: 45, autoAlpha: 0 },
+        { y: `${armOffset}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" }
     );
 
     tl.fromTo(arms.bottomRight,
-        { y: 0, x: -90, rotation: -90, autoAlpha: 0 },
-        { y: -bottomRightHeight, x: 0, rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
+        { y: 0, x: "-6vw", rotation: -90, autoAlpha: 0 },
+        { y: `-${armOffset}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 
     tl.fromTo(arms.right,
-        { x: 100, rotation: 35, autoAlpha: 0 },
-        { x: -rightWidth, rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
+        { x: "6vw", rotation: 35, autoAlpha: 0 },
+        { x: `-${armOffset}vw`, rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 
     tl.fromTo(arms.left,
-        { x: -100, y: 100, rotation: 30, autoAlpha: 0 },
-        { x: leftWidth - 10, y: 0, rotation: 10, duration: 1, autoAlpha: 1, ease: "power2.out" },
+        { x: "-6vw", y: "6vw", rotation: 30, autoAlpha: 0 },
+        { x: `${armOffset - 1}vw`, y: "0vw", rotation: 10, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 
     tl.fromTo(arms.bottom,
         { y: 0, rotation: 90, autoAlpha: 0 },
-        { y: -bottomHeight, rotation: 90, duration: 1, autoAlpha: 1, ease: "power2.out" },
+        { y: `-${armOffset}vw`, rotation: 90, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 }
