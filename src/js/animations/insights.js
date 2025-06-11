@@ -47,12 +47,13 @@ export function animateInsights() {
                 trigger: card,
                 start: "top 90%",
                 end: "top center",
-                scrub: 1,
+                // scrub: 1,
                 markers: false
             },
             x: prefersReducedMotion ? 0 : !isDesktop ? (isEven ? -100 : 100) : 0,
             y: prefersReducedMotion ? 0 : isDesktop ? 80 : 0,
             opacity: 0,
+            duration: prefersReducedMotion ? 0.3 : 1,
             ease: "power2.out"
         });
     });

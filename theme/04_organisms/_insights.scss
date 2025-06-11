@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 
     &__container {
         width: 85%;
@@ -20,7 +21,6 @@
 
         .insights__content {
             width: 100%;
-            // padding: 10% 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,14 +58,11 @@
     }
 
     @include respond-to(desktop) {
-        padding: 0;
-
         &__container {
             width: 80%;
 
             .insights__content {
                 gap: 64px;
-                // padding: 0;
 
                 &__title {
                     margin-bottom: 0;
@@ -73,7 +70,17 @@
 
                 &__body {
                     margin-bottom: 0;
+                }
+            }
+        }
+    }
 
+    @media screen and (min-width: 1200px) {
+        padding: 0;
+
+        &__container {
+            .insights__content {
+                &__body {
                     .insights__cards {
                         flex-direction: row;
                         align-items: stretch;

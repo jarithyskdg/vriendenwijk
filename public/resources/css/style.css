@@ -863,6 +863,7 @@ svg.cursor-trail line {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .insights__container {
   width: 85%;
@@ -903,9 +904,6 @@ svg.cursor-trail line {
   }
 }
 @media (min-width: 1024px) {
-  .insights {
-    padding: 0;
-  }
   .insights__container {
     width: 80%;
   }
@@ -917,6 +915,11 @@ svg.cursor-trail line {
   }
   .insights__container .insights__content__body {
     margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .insights {
+    padding: 0;
   }
   .insights__container .insights__content__body .insights__cards {
     flex-direction: row;
