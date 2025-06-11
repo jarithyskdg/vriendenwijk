@@ -47,9 +47,9 @@
 
     @include respond-to(desktop) {
         padding: 0;
-        
+
         &__container {
-            width: 60%;
+            width: 80%;
             align-items: flex-start;
 
             .our-story__content {
