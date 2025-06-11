@@ -516,8 +516,6 @@ svg.cursor-trail line {
     height: auto;
   }
   .transition__arms .arm--bottom {
-    width: auto;
-    height: 12vw;
     bottom: -12vw;
     left: 40%;
   }

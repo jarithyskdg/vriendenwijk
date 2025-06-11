@@ -17,8 +17,6 @@
       height: auto; // preserve aspect ratio
 
       &--bottom {
-        width: auto;
-        height: 12vw;
         bottom: -12vw;
         left: 40%;
       }
