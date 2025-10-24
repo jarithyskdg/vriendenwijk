@@ -1,24 +1,3 @@
-// import { defineConfig } from "vite";
-// import path from "path";
-
-// export default defineConfig({
-//   root: "public", // index.html lives here
-//   base: "./", // ensures relative asset paths work in build
-//   build: {
-//     outDir: "../dist", // output outside of /public
-//     emptyOutDir: true,
-//   },
-//   resolve: {
-//     alias: {
-//       "@": path.resolve(__dirname, "src"), // now you can use @/js/... or @/css/...
-//     },
-//   },
-//   server: {
-//     open: true, // automatically open browser
-//   },
-// });
-
-
 import { defineConfig } from "vite";
 import path from "path";
 import viteImagemin from "vite-plugin-imagemin";
