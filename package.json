@@ -1,17 +1,23 @@
 {
   "name": "vriendenwijk",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "De Vriendenwijk",
+  "type": "module",
   "scripts": {
-    "dev": "gulp",
-    "build": "webpack --mode production"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jarithyskdg/vriendenwijk.git"
   },
-  "keywords": [],
+  "keywords": [
+    "vite",
+    "gsap",
+    "sass",
+    "frontend"
+  ],
   "author": "Jari Thys",
   "license": "ISC",
   "bugs": {
@@ -19,22 +25,13 @@
   },
   "homepage": "https://github.com/jarithyskdg/vriendenwijk#readme",
   "dependencies": {
-    "browser-sync": "^2.29.3",
-    "gsap": "^3.13.0",
-    "gulp": "^4.0.2",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2",
-    "sass": "^1.69.5"
+    "gsap": "^3.13.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.1",
-    "@babel/preset-env": "^7.27.2",
     "autoprefixer": "^10.4.16",
-    "babel-loader": "^10.0.0",
-    "cssnano": "^6.0.1",
-    "gulp-postcss": "^9.0.1",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1"
+    "postcss": "^8.4.47",
+    "sass": "^1.93.2",
+    "vite": "^7.1.12",
+    "vite-plugin-imagemin": "^0.6.1"
   }
 }

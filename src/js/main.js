@@ -1,3 +1,6 @@
+//Import main SCSS so Vite compiles it automatically
+import "../css/style.scss"; // Vite will handle Sass → CSS automatically
+
 //helper functions
 import { getMenuWidth } from "./helpers/breakpoints.js";
 import { setProgrammaticScroll, isProgrammaticScroll } from "./helpers/globals.js";
