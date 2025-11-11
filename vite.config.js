@@ -3,25 +3,28 @@ import path from "path";
 import viteImagemin from "vite-plugin-imagemin";
 
 export default defineConfig({
-  root: ".", // index.html lives here
+  root: ".", // root stays the same (index.html lives here)
   base: "./", // ensures relative paths in production
   build: {
-    outDir: "./dist", // output outside /public
+    outDir: "./dist",
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, "./index.html"),
+      input: {
+        main: path.resolve(__dirname, "./index.html"),
+        detail: path.resolve(__dirname, "./detail.html"),
+        overview: path.resolve(__dirname, "./overview.html"),
+      },
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // use @/js/... and @/scss/...
+      "@": path.resolve(__dirname, "src"), // use @/js/... or @/theme/...
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        // optional: automatically include variables/mixins globally
-        // additionalData: `@use "@/scss/_variables.scss" as *;`,
+        
       },
     },
   },
@@ -39,10 +42,10 @@ export default defineConfig({
     }),
   ],
   server: {
-    open: true,
-    host: true, // allow network testing
+    open: "/index.html", // default page to open
+    host: true,
     watch: {
-      usePolling: true, // more reliable file watching
+      usePolling: true,
     },
   },
 });
