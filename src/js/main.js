@@ -1,60 +1,40 @@
 //Import main SCSS so Vite compiles it automatically
-import "../css/style.scss"; // Vite will handle Sass → CSS automatically
+import "@/css/style.scss"; // Vite will handle Sass → CSS automatically
 
 //helper functions
-import { getMenuWidth } from "./helpers/breakpoints.js";
-import { setProgrammaticScroll, isProgrammaticScroll } from "./helpers/globals.js";
+import { getMenuWidth } from "@/js/helpers/breakpoints.js";
+import { setProgrammaticScroll, isProgrammaticScroll } from "@/js/helpers/globals.js";
 
 // animations
-import { initScrollSmoother } from "./animations/scrollSmoother.js";
-import { animateScrollIndicator } from "./animations/scrollIndicator.js";
-import { animateHome } from "./animations/home.js";
-import { initScrollToLinks } from "./animations/scrollTo.js";
-import { initClickConfetti } from "./animations/confettiOnClick.js";
-import { initButtonWaveEffect } from "./animations/buttonWaveEffect.js";
-import { initCursorTrail } from "./animations/cursorTrail.js";
-import { animateCohousing } from "./animations/cohousing.js";
-import { animateTransitionArms } from "./animations/animateTransitionArms.js";
-import { initBurgerAnimation } from "./animations/burger.js";
-import { initMenuSlideToggle, menuItemHoverEffect } from "./animations/menu.js";
-import { animateAboutUs } from "./animations/about-us.js";
-import { animateOurStory } from "./animations/our-story.js";
-import { setupPinnedSections } from "./animations/sectionStack.js";
-import { animateFacilities } from "./animations/facilities.js";
-import { animatePractical } from "./animations/practical.js";
-import { animateQuote } from "./animations/quote.js";
-import { animateInsights } from "./animations/insights.js";
-import { animatePortal } from "./animations/portal.js";
-import { animateFooter, animateFooterLinks } from "./animations/footer.js";
+import { initScrollSmoother } from "@/js/animations/scrollSmoother.js";
+import { initCursorTrail } from "@/js/animations/cursorTrail.js";
+import { initBurgerAnimation } from "@/js/animations/burger.js";
+import { initMenuSlideToggle, menuItemHoverEffect } from "@/js/animations/menu.js";
+import { animateFooter, animateFooterLinks } from "@/js/animations/footer.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // helper functions
     getMenuWidth();
     setProgrammaticScroll();
     isProgrammaticScroll();
 
-
-    // animations
-    setupPinnedSections();
+    // global animations
     initScrollSmoother();
-    animateScrollIndicator();
-    initScrollToLinks();
-    initClickConfetti();
-    initButtonWaveEffect();
     initCursorTrail();
     initBurgerAnimation();
     initMenuSlideToggle();
     menuItemHoverEffect();
-    animateHome();
-    animateCohousing();
-    animateTransitionArms();
-    animateAboutUs();
-    animateOurStory();
-    animateFacilities();
-    animatePractical();
-    animateQuote();
-    animateInsights();
-    animatePortal();
     animateFooter();
     animateFooterLinks();
+
+    // page-specific logic
+    const page = document.body.dataset.page;
+    if (page) {
+        try {
+            const module = await import(`@/js/pages/${page}.js`);
+            if (typeof module.default === "function") module.default();
+        } catch (err) {
+            console.warn(`No JS found for page: ${page}`);
+        }
+    }
 });
