@@ -5,7 +5,7 @@ import "@/css/detail.scss"; // Vite will handle Sass → CSS automatically
 
 
 export default function initDetailPage() {
-    // Home page animations
+    // Detail page animations
     console.log("Initializing detail page animations...");
 
 

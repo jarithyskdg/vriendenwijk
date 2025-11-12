@@ -5,7 +5,7 @@ import "@/css/overview.scss"; // Vite will handle Sass → CSS automatically
 
 
 export default function initOverviewPage() {
-    // Home page animations
+    // Overview page animations
     console.log("Initializing overview page animations...");
 
 
