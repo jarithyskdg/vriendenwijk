@@ -1,5 +1,5 @@
 //Import main SCSS so Vite compiles it automatically
-import "@/css/overview.scss"; // Vite will handle Sass → CSS automatically
+// import "@/css/overview.scss"; // Vite will handle Sass → CSS automatically
 
 // animation imports
 

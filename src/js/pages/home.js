@@ -1,5 +1,5 @@
 //Import main SCSS so Vite compiles it automatically
-import "@/css/style.scss"; // Vite will handle Sass → CSS automatically
+// import "@/css/home.scss"; // Vite will handle Sass → CSS automatically
 
 // animation imports
 import { animateScrollIndicator } from "@/js/animations/scrollIndicator.js";
