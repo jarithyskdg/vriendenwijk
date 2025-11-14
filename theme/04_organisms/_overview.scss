@@ -42,6 +42,17 @@
                 align-items: center;
                 gap: 48px;
             }
+
+            a.link {
+                margin: 32px 0;
+                color: $darkGreen;
+                text-decoration: underline;
+
+                &:hover,
+                &:focus-visible {
+                    font-weight: bold;
+                }
+            }
         }
     }
 }
