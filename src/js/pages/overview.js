@@ -3,6 +3,7 @@
 
 // animation imports
 import { animateOverviewLinks } from "@/js/animations/links.js";
+import { animateOverviewHeader, animateOverviewSections } from "@/js/animations/overview.js";
 
 
 export default function initOverviewPage() {
@@ -10,6 +11,8 @@ export default function initOverviewPage() {
     console.log("Initializing overview page animations...");
 
     animateOverviewLinks();
+    animateOverviewHeader();
+    animateOverviewSections();
 
 
 }
