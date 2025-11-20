@@ -115,16 +115,16 @@ export function animateOverviewSections() {
         tl.from(title, {
             autoAlpha: 0,
             y: 10,
-            duration: 0.5,
+            duration: 0.3,
             ease: "power1.out"
         });
 
         // Divider lines outward
         tl.to([lineLeft, lineRight], {
             scaleX: 1,
-            duration: 0.4,
+            duration: 0.3,
             ease: "power1.out"
-        }, "-=0.2");
+        }, "-=0.1");
 
         // Cards
         if (cards.length) {
@@ -133,8 +133,8 @@ export function animateOverviewSections() {
                 y: 0,
                 duration: 0.5,
                 ease: "power1.out",
-                stagger: 0.25
-            }, "+=0.1");
+                stagger: 0.2
+            });
         }
 
         // Show more link
@@ -144,7 +144,7 @@ export function animateOverviewSections() {
                 y: 0,
                 duration: 0.25,
                 ease: "power1.out"
-            }, "-=0.1"); // slight pause after last card
+            }, "-=0.1");
         }
     });
 }
