@@ -1,0 +1,67 @@
+@use "../00_common/variables" as *;
+@use "../01_fundaments/_headings" as *;
+@use "../00_common/mixins" as *;
+@use "../01_fundaments/_typography" as *;
+
+.detail {
+    width: 100%;
+    min-height: 100vh;
+    background-color: $beige;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    // padding-bottom: 64px;
+
+    &__container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .detail__header {
+            margin-bottom: 48px;
+
+            img {
+                width: 100%;
+                // max-width: 600px;
+                height: auto;
+                margin-bottom: 32px;
+            }
+
+            &__title {
+                @include heading-h2;
+                text-align: center;
+                // margin-top: 24px;
+                font-weight: bold;
+            }
+        }
+
+        .detail__content {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+
+            &__buttons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+            }
+
+            &__body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                @include text--md;
+            }
+        }
+    }
+}

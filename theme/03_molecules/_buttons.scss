@@ -36,6 +36,49 @@
         border: 1px solid $green;
     }
 
+    &--back {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        background-color: $yellow;
+        color: $darkGreen;
+        border: 1px solid $darkGreen;
+        gap: 8px;
+        padding: 8px 24px;
+        min-width: auto;
+        height: auto;
+    }
+
+    &--detail-content {
+        height: 40px;
+        justify-content: flex-start;
+        // gap: 12px;
+        background-color: $yellow;
+        color: $darkGreen;
+        border: 1px solid $darkGreen;
+        border-radius: 90px;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.25);
+        @include text--sm;
+        min-width: 145px;
+
+        svg {
+            // margin-right: 12px;
+            background-color: $darkGreen;
+            width: 40px;
+            height: 40px;
+            border-radius: 90px;
+            // border: 1px solid $darkGreen;
+
+            path {
+                stroke: $yellow;
+            }
+        }
+
+        .text {
+            padding: 0 8px;
+        }
+    }
+
     &:hover {
         cursor: pointer;
     }
