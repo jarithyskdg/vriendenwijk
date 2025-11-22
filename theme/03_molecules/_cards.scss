@@ -131,4 +131,27 @@
             }
         }
     }
+
+    &--details {
+        background-color: $yellow;
+        border: 1px solid $green;
+        border-radius: 6px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+
+        &__info {
+            @include text--xl;
+            font-weight: bold;
+        }
+
+        &__name {
+            @include text--sm;
+            font-weight: normal;
+        }
+    }
 }
