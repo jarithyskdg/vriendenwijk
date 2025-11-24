@@ -2,11 +2,12 @@
 // import "@/css/detail.scss"; // Vite will handle Sass → CSS automatically
 
 // animation imports
+import { detailContentSwitcher } from "@/js/animations/detailContentSwitcher.js";
 
 
 export default function initDetailPage() {
     // Detail page animations
     console.log("Initializing detail page animations...");
 
-
+    detailContentSwitcher();
 }

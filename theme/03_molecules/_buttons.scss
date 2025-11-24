@@ -51,9 +51,10 @@
     }
 
     &--detail-content {
+        position: relative;
+        overflow: hidden;
         height: 40px;
         justify-content: flex-start;
-        // gap: 12px;
         background-color: $yellow;
         color: $darkGreen;
         border: 1px solid $darkGreen;
@@ -62,17 +63,26 @@
         @include text--sm;
         min-width: 145px;
 
-        svg {
-            // margin-right: 12px;
+        .button__bubble {
+            position: absolute;
+            width: 40px;
+            height: 40px;
             background-color: $darkGreen;
+            border-radius: 50%;
+            top: 50%;
+            left: 20px;
+            transform: translate(-50%, -50%) scale(0);
+            transform-origin: left;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        svg {
             width: 40px;
             height: 40px;
             border-radius: 90px;
-            // border: 1px solid $darkGreen;
-
-            path {
-                stroke: $yellow;
-            }
+            z-index: 2; // above bubble
         }
 
         .text {

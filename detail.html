@@ -73,7 +73,8 @@
                         <h1 class="detail__content__title">[Vriendenwijk naam]</h1>
 
                         <div class="detail__content__buttons">
-                            <a href="#" class="button button--detail-content">
+                            <a href="#" class="button button--detail-content" data-target="description">
+                                <span class="button__bubble"></span>
                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -82,7 +83,8 @@
                                 </svg>
                                 <span class="text">Beschrijving</span>
                             </a>
-                            <a href="#" class="button button--detail-content">
+                            <a href="#" class="button button--detail-content" data-target="details">
+                                <span class="button__bubble"></span>
                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -91,7 +93,8 @@
                                 </svg>
                                 <span class="text">Details</span>
                             </a>
-                            <a href="#" class="button button--detail-content">
+                            <a href="#" class="button button--detail-content" data-target="location">
+                                <span class="button__bubble"></span>
                                 <svg width="31" height="31" viewBox="0 0 31 31" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -103,7 +106,7 @@
                         </div>
 
                         <div class="detail__content__body">
-                            <div id="description" class="detail__content__body__description hidden">
+                            <div id="description" class="detail__content__body__description detail__content__body__section">
                                 <p>Een woonvorm waarbij privacy en gemeenschap in balans worden gebracht. Iedere inwoner
                                     heeft een eigen volledig uitgeruste privé woonplek en deelt daarnaast heel wat
                                     faciliteiten met elkaar. Op deze manier wordt een gemeenschap gecreëerd. Bij
@@ -115,7 +118,7 @@
                                     ontstaan.</p>
                             </div>
 
-                            <div id="details" class="detail__content__body__details hidden">
+                            <div id="details" class="detail__content__body__details detail__content__body__section hidden">
                                 <div class="card card--details">
                                     <div class="card--details__info">
                                         <p>4</p>
@@ -181,7 +184,7 @@
                                 </div>
                             </div>
 
-                            <div id="location" class="detail__content__body__location">
+                            <div id="location" class="detail__content__body__location detail__content__body__section hidden">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.307746946365!2d4.400610977536385!3d51.231826930796295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f65adf1960ef%3A0x32b2e622160ca177!2sRijnkaai%2031%2C%202000%20Antwerpen!5e0!3m2!1snl!2sbe!4v1763824739571!5m2!1snl!2sbe"
                                     width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
