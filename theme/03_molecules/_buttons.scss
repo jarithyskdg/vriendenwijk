@@ -53,6 +53,7 @@
     &--detail-content {
         position: relative;
         overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
         height: 40px;
         justify-content: flex-start;
         background-color: $yellow;
