@@ -147,11 +147,19 @@
         &__info {
             @include text--xl;
             font-weight: bold;
+            line-height: initial;
         }
 
         &__name {
             @include text--sm;
             font-weight: normal;
+        }
+
+        @include respond-to(tablet) {
+            &__info {
+                @include text--xl;
+                font-weight: bold;
+            }
         }
     }
 }
