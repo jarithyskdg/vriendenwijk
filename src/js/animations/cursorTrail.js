@@ -29,10 +29,34 @@ export function initCursorTrail({
         y: window.innerHeight / 2,
     };
 
+    // Hide trail until first real movement
+    root.style.opacity = "0";
+    let hasMoved = false;
+
     window.addEventListener("mousemove", (event) => {
         pointer.x = event.clientX;
         pointer.y = event.clientY;
+
+        if (!hasMoved) {
+            hasMoved = true;
+
+            // Instantly snap all lines to the cursor on first movement
+            const lines = root.querySelectorAll("line");
+            lines.forEach((line) => {
+                gsap.set(line, {
+                    x: pointer.x,
+                    y: pointer.y
+                });
+                line.setAttribute("x2", 0);
+                line.setAttribute("y2", 0);
+            });
+
+            // Then fade in the SVG
+            gsap.to(root, { opacity: 1, duration: 0.2, overwrite: true });
+        }
     });
+
+
 
     let leader = pointer;
 
