@@ -13,7 +13,7 @@ import { animateAboutUs } from "@/js/animations/about-us.js";
 import { animateOurStory } from "@/js/animations/our-story.js";
 import { setupPinnedSections } from "@/js/animations/sectionStack.js";
 import { animateFacilities } from "@/js/animations/facilities.js";
-import { animatePractical } from "@/js/animations/practical.js";
+// import { animatePractical } from "@/js/animations/practical.js";
 import { animateQuote } from "@/js/animations/quote.js";
 import { animateInsights } from "@/js/animations/insights.js";
 import { animatePortal } from "@/js/animations/portal.js";
@@ -33,7 +33,7 @@ export default function initHomePage() {
     animateAboutUs();
     animateOurStory();
     animateFacilities();
-    animatePractical();
+    // animatePractical();
     animateQuote();
     animateInsights();
     animatePortal();
