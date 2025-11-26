@@ -27,6 +27,7 @@ export function animateTransitionArms() {
 
     // Use same offset as in SCSS: -12vw (so we animate with ±12vw)
     const armOffset = 12;
+    const armOffsetY = 12; //increase this and then match the value for _transition-arms.scss if it still looks off on laptop
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -40,12 +41,12 @@ export function animateTransitionArms() {
 
     tl.fromTo(arms.top,
         { y: 0, x: "-3vw", rotation: 45, autoAlpha: 0 },
-        { y: `${armOffset}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" }
+        { y: `${armOffsetY}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" }
     );
 
     tl.fromTo(arms.bottomRight,
         { y: 0, x: "-6vw", rotation: -90, autoAlpha: 0 },
-        { y: `-${armOffset}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
+        { y: `-${armOffsetY}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
         "-=0.75"
     );
 

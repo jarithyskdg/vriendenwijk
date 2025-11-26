@@ -15,6 +15,7 @@
       position: absolute;
       width: 12vw; // scalable size
       height: auto; // preserve aspect ratio
+      opacity: 0;
 
       &--top {
         top: -12vw;
