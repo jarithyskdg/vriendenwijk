@@ -25,19 +25,24 @@ export function initMenuSlideToggle() {
         return getMenuWidth();
     }
 
-    menuTl.to(menu, {
-        duration: 0.4,
-        width: getCurrentMenuWidth(),
-        autoAlpha: 1,
-        ease: "power1.inOut",
-    });
+    // menuTl.to(menu, {
+    //     duration: 0.4,
+    //     width: getCurrentMenuWidth(),
+    //     autoAlpha: 1,
+    //     ease: "power1.inOut",
+    // });
+
+    gsap.set(menu, { width: getCurrentMenuWidth() });
 
     menuTl.to(menu, {
         duration: 0.4,
-        height: () => {
-            const maxHeight = window.innerHeight * 0.95;
-            return Math.min(menu.scrollHeight, maxHeight);
-        },
+        // height: () => {
+        //     const maxHeight = window.innerHeight * 0.95;
+        //     return Math.min(menu.scrollHeight, maxHeight);
+        // },
+        height: "100%",
+        autoAlpha: 1,
+        padding: "16px 0 32px",
         ease: "power1.inOut",
     }, ">");
 
@@ -48,7 +53,7 @@ export function initMenuSlideToggle() {
         ease: "power2.out",
         stagger: 0.1,
         paused: true
-    });
+    }, "=-0.2");
 
     menuTl.eventCallback("onComplete", () => {
         if (isOpen) linksIn.restart();

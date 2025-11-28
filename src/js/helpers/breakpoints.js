@@ -10,7 +10,7 @@ export function getMenuWidth() {
         return "60%";
     }
     // mobile default
-    return "90%";
+    return "100%";
 }
 
 export function getCurrentBreakpoint() {
