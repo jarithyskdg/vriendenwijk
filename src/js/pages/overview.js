@@ -4,6 +4,7 @@
 // animation imports
 import { animateOverviewLinks } from "@/js/animations/links.js";
 import { animateOverviewHeader, animateOverviewSections } from "@/js/animations/overview.js";
+import { initScrollToLinks } from "@/js/animations/scrollTo.js";
 
 
 export default function initOverviewPage() {
@@ -13,6 +14,7 @@ export default function initOverviewPage() {
     animateOverviewLinks();
     animateOverviewHeader();
     animateOverviewSections();
+    initScrollToLinks();
 
 
 }

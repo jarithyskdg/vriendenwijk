@@ -5,7 +5,7 @@ import { getMenuWidth } from "../helpers/breakpoints.js";
 export function initMenuSlideToggle() {
     const menuToggle = document.querySelector(".header__menu-toggle");
     const menu = document.querySelector(".header__menu");
-    const menuLinks = menu.querySelectorAll("a");
+    const menuLinks = menu.querySelectorAll(".header__menu__item, .header__menu__items__divider span");
     menu.setAttribute("id", "header-menu");
     menu.setAttribute("role", "menu");
     menuToggle.setAttribute("aria-haspopup", "true");
@@ -51,9 +51,9 @@ export function initMenuSlideToggle() {
         autoAlpha: 0,
         duration: 0.4,
         ease: "power2.out",
-        stagger: 0.1,
+        stagger: 0.07,
         paused: true
-    }, "=-0.2");
+    }, "=-0.6");
 
     menuTl.eventCallback("onComplete", () => {
         if (isOpen) linksIn.restart();
