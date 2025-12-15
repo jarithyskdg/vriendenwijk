@@ -82,7 +82,7 @@ export function animateFooterLinks() {
         const tl = gsap.timeline({ paused: true });
 
         tl.to(link, {
-            scale: 1.15,
+            scale: 1.075,
             duration: 0.3,
             ease: "power2.out"
         });
