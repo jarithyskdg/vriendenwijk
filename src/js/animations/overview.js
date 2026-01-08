@@ -6,6 +6,8 @@ gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateOverviewHeader() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return; // optional if reduced animations are still to much
+
     const section = document.querySelector(".overview");
     if (!section) return;
 
@@ -53,6 +55,8 @@ export function animateOverviewHeader() {
 
 export function animateOverviewSections() {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return; // optional if reduced animations are still to much
+
     const sections = document.querySelectorAll(".divider");
     if (!sections.length) return;
 

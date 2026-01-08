@@ -3,6 +3,9 @@ import SplitText from "gsap/SplitText";
 
 
 export function animateDetail() {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+    
     const tl = gsap.timeline({
         defaults: { ease: "power1.out" }
     });
