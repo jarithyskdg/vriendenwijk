@@ -22,7 +22,7 @@ export function animateOverviewHeader() {
     // Reduced motion
     if (prefersReducedMotion) {
         tl.from(".overview__title", {
-            y: -100,
+            y: prefersReducedMotion ? 0 : -100,
             autoAlpha: 0,
             duration: 0.7,
             ease: "power1.out"
@@ -52,6 +52,7 @@ export function animateOverviewHeader() {
 }
 
 export function animateOverviewSections() {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const sections = document.querySelectorAll(".divider");
     if (!sections.length) return;
 
@@ -78,13 +79,13 @@ export function animateOverviewSections() {
             : null;
 
         // ---- INITIAL STATES ----
-        gsap.set(lineLeft, { scaleX: 0, transformOrigin: "right" });
-        gsap.set(lineRight, { scaleX: 0, transformOrigin: "left" });
+        gsap.set(lineLeft, { autoAlpha: 0, scaleX: prefersReducedMotion ? 1 : 0, transformOrigin: "right" });
+        gsap.set(lineRight, { autoAlpha: 0, scaleX: prefersReducedMotion ? 1 : 0, transformOrigin: "left" });
 
         if (cards.length) {
             gsap.set(cards, {
                 autoAlpha: 0,
-                y: 50
+                y: prefersReducedMotion ? 0 : 50
             });
         }
 
@@ -122,6 +123,7 @@ export function animateOverviewSections() {
         // Divider lines outward
         tl.to([lineLeft, lineRight], {
             scaleX: 1,
+            autoAlpha: 1,
             duration: 0.3,
             ease: "power1.out"
         }, "-=0.1");
@@ -133,7 +135,7 @@ export function animateOverviewSections() {
                 y: 0,
                 duration: 0.5,
                 ease: "power1.out",
-                stagger: 0.2
+                stagger: prefersReducedMotion ? 0 : 0.2
             });
         }
 
