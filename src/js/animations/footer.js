@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export function animateFooter() {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const footer = document.querySelector("#footer");
     if (!footer) return;
 
@@ -35,39 +36,39 @@ export function animateFooter() {
         autoAlpha: 0,
         y: 40,
         duration: 0.4,
-        stagger: 0.15,
+        stagger: prefersReducedMotion ? 0 : 0.15,
         ease: "power2.out"
-    }, "-=0.4");
+    }, prefersReducedMotion ? "=" : "-=0.4");
 
     tl.from(contactTitle, {
         autoAlpha: 0,
         y: 40,
         duration: 0.5,
         ease: "power2.out"
-    }, "-=0.3");
+    }, prefersReducedMotion ? "=" : "-=0.3");
 
     tl.from(contactDetails, {
         autoAlpha: 0,
         y: 40,
         duration: 0.4,
-        stagger: 0.1,
+        stagger: prefersReducedMotion ? 0 : 0.1,
         ease: "power2.out"
-    }, "-=0.3");
+    }, prefersReducedMotion ? "=" : "-=0.3");
 
     tl.from(socialsTitle, {
         autoAlpha: 0,
         y: 40,
         duration: 0.5,
         ease: "power2.out"
-    }, "-=0.3");
+    }, prefersReducedMotion ? "=" : "-=0.3");
 
     tl.from(socialIcons, {
         autoAlpha: 0,
         y: 35,
         duration: 0.4,
-        stagger: 0.2,
+        stagger: prefersReducedMotion ? 0 : 0.2,
         ease: "power2.out"
-    }, "-=0.3");
+    }, prefersReducedMotion ? "=" : "-=0.3");
 }
 
 export function animateFooterLinks() {

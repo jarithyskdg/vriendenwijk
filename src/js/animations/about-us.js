@@ -41,7 +41,7 @@ export function animateAboutUs() {
 
         // Set motion-sensitive easing and durations
         const iconEase = prefersReducedMotion ? "power1.out" : (breakpoint === "desktop" ? "bounce.out" : "power3.out");
-        const iconY = prefersReducedMotion ? "-30" : breakpoint === "mobile" ? -50 : -80;
+        const iconY = prefersReducedMotion ? "0" : breakpoint === "mobile" ? -50 : -80;
         const iconDuration = prefersReducedMotion ? 0.4 : (breakpoint === "mobile" ? 0.6 : 0.8);
 
         const titleEase = prefersReducedMotion ? "power1.out" : "back.out(1.7)";
@@ -71,7 +71,7 @@ export function animateAboutUs() {
             ease: textEase
         }, "-=0.3");
 
-        tl.add(itemTL, index * 0.4);
+        prefersReducedMotion ? tl.add(itemTL, 0) : tl.add(itemTL, index * 0.4);
     });
 
     tl.from(cta, {

@@ -22,21 +22,21 @@ export function animateHome() {
 
     if (prefersReducedMotion) {
         tl.from(".home__logo", {
-            y: -100,
+            // y: -100,
             autoAlpha: 0,
             duration: 0.7,
             ease: "power1.out"
         });
 
         tl.from(".home__subtitle", {
-            y: -100,
+            // y: -100,
             autoAlpha: 0,
             duration: 0.7,
             ease: "power1.out"
         }, "-=0.3");
 
         tl.from(".scroll-arrow", {
-            y: -50,
+            // y: -50,
             autoAlpha: 0,
             duration: 0.7,
             ease: "power1.out"
@@ -44,7 +44,7 @@ export function animateHome() {
 
     } else {
         tl.from(".home__logo", {
-            y: -165,
+            y: -265,
             duration: 0.7,
             ease: "power1.out"
         });

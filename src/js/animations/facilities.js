@@ -41,7 +41,7 @@ export function animateFacilities() {
         opacity: 0,
         duration: prefersReducedMotion ? 0.5 : 0.8,
         ease: "power3.out"
-    }, "-=0.6");
+    }, prefersReducedMotion ? "=" : "-=0.6");
 
     tl.from(firstParagraph, {
         y: prefersReducedMotion ? 0 : 30,
@@ -49,15 +49,15 @@ export function animateFacilities() {
         duration: prefersReducedMotion ? 0.4 : 0.6,
         ease: prefersReducedMotion ? "power1.out" : "power2.out",
         stagger: 0.2
-    }, "-=0.5");
+    }, prefersReducedMotion ? "=" : "-=0.5");
 
     tl.from(listItems, {
         x: prefersReducedMotion ? 0 : 50,
         opacity: 0,
         duration: prefersReducedMotion ? 0.4 : 0.5,
         ease: prefersReducedMotion ? "power1.out" : "power2.out",
-        stagger: 0.15
-    }, "-=0.4");
+        stagger: prefersReducedMotion ? 0 : 0.15
+    }, prefersReducedMotion ? "=" : "-=0.4");
 
     tl.from(lastParagraph, {
         y: prefersReducedMotion ? 0 : 30,
@@ -65,12 +65,12 @@ export function animateFacilities() {
         duration: prefersReducedMotion ? 0.4 : 0.6,
         ease: prefersReducedMotion ? "power1.out" : "power2.out",
         stagger: 0.2
-    }, "-=0.5");
+    }, prefersReducedMotion ? "=" : "-=0.5");
 
     tl.from(cta, {
         scale: prefersReducedMotion ? 1 : 0.9,
         opacity: 0,
         duration: prefersReducedMotion ? 0.4 : 0.6,
         ease: prefersReducedMotion ? "power1.out" : "back.out(1.7)"
-    }, "-=0.4");
+    }, prefersReducedMotion ? "=" : "-=0.4");
 }
