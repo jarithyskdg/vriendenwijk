@@ -19,7 +19,7 @@ export function animateTransitionArms() {
     const arms = {
         left: armsContainer.querySelector(".arm--left"),
         right: armsContainer.querySelector(".arm--right"),
-        top: armsContainer.querySelector(".arm--top"),
+        // top: armsContainer.querySelector(".arm--top"),
         bottomRight: armsContainer.querySelector(".arm--bottom-right"),
     };
 
@@ -39,29 +39,28 @@ export function animateTransitionArms() {
         },
     });
 
-    tl.fromTo(
-        arms.top,
-        { y: 0, x: "-3vw", rotation: 45, autoAlpha: 0 },
-        {
-            y: () => {
-                const header = document.querySelector(".header__navbar");
-                const headerHeight = header ? header.offsetHeight : 80; // fallback
-                const headerHeightVW = (headerHeight / window.innerWidth) * 100;
+    // tl.fromTo(
+    //     arms.top,
+    //     { y: 0, x: "-3vw", rotation: 45, autoAlpha: 0 },
+    //     {
+    //         y: () => {
+    //             const header = document.querySelector(".header__navbar");
+    //             const headerHeight = header ? header.offsetHeight : 80; // fallback
+    //             const headerHeightVW = (headerHeight / window.innerWidth) * 100;
 
-                return `${armOffsetY + headerHeightVW}vw`;
-            },
-            x: "0vw",
-            rotation: 0,
-            duration: 1,
-            autoAlpha: 1,
-            ease: "power2.out",
-        }
-    );
+    //             return `${armOffsetY + headerHeightVW}vw`;
+    //         },
+    //         x: "0vw",
+    //         rotation: 0,
+    //         duration: 1,
+    //         autoAlpha: 1,
+    //         ease: "power2.out",
+    //     }
+    // );
 
     tl.fromTo(arms.bottomRight,
         { y: 0, x: "-6vw", rotation: -90, autoAlpha: 0 },
-        { y: `-${armOffsetY}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" },
-        "-=0.75"
+        { y: `-${armOffsetY}vw`, x: "0vw", rotation: 0, duration: 1, autoAlpha: 1, ease: "power2.out" }
     );
 
     tl.fromTo(arms.right,

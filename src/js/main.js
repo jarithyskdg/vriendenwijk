@@ -9,6 +9,7 @@ import { setProgrammaticScroll, isProgrammaticScroll } from "@/js/helpers/global
 import { initScrollSmoother } from "@/js/animations/scrollSmoother.js";
 import { initCursorTrail } from "@/js/animations/cursorTrail.js";
 import { initBurgerAnimation } from "@/js/animations/burger.js";
+import { animateHeader } from "@/js/animations/header.js";
 import { initMenuSlideToggle, menuItemHoverEffect } from "@/js/animations/menu.js";
 import { animateFooter, animateFooterLinks } from "@/js/animations/footer.js";
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // global animations
     initScrollSmoother();
+    animateHeader();
     initCursorTrail();
     initBurgerAnimation();
     initMenuSlideToggle();
