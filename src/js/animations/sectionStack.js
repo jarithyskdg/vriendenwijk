@@ -49,7 +49,7 @@ export function setupPinnedSections() {
                 const snapScroll = gsap.utils.snap(panelStarts, currentScroll);
                 return gsap.utils.normalize(0, scrollMax, snapScroll);
             },
-            duration: 0.5,
+            duration: 1,
             ease: "power1.inOut"
         }
     });
