@@ -11,29 +11,154 @@
     align-items: center;
     border-radius: 6px;
     overflow: hidden;
+    position: relative;
+
+    &__flair {
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &::before {
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            content: "";
+            display: block;
+            left: 0;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: 170%;
+        }
+    }
+
+    &__label {
+        position: relative;
+        text-align: center;
+        transition: color 50ms ease-in-out;
+    }
 
     &--primary {
         background-color: $lightGreen;
-        color: $darkGreen;
-        border: 1px solid $green;
+
+        .button__label {
+            color: $darkGreen;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid $darkGreen;
+            border-radius: 6px;
+            content: "";
+            pointer-events: none;
+        }
+
+        &:hover {
+            .button__label {
+                transition: color 0.15s ease-in-out;
+                color: $yellow;
+                text-decoration: none;
+            }
+        }
+
+        .button__flair {
+            transform: scale(0);
+            transform-origin: 0 0;
+            will-change: transform;
+
+            &::before {
+                background-color: $darkGreen;
+            }
+        }
     }
 
-    &--lila {
-        background-color: $lila;
-        color: $darkGreen;
-        border: 1px solid $yellow;
-    }
+    // &--lila {
+    //     background-color: $lila;
+    //     color: $darkGreen;
+    //     border: 1px solid $yellow;
+    // }
 
     &--yellow {
         background-color: $yellow;
-        color: $darkGreen;
-        border: 1px solid $green;
+
+        .button__label {
+            color: $darkGreen;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid $darkGreen;
+            border-radius: 6px;
+            content: "";
+            pointer-events: none;
+        }
+
+        &:hover {
+            .button__label {
+                transition: color 0.15s ease-in-out;
+                color: $yellow;
+                text-decoration: none;
+            }
+        }
+
+        .button__flair {
+            transform: scale(0);
+            transform-origin: 0 0;
+            will-change: transform;
+
+            &::before {
+                background-color: $darkGreen;
+            }
+        }
     }
 
     &--darkGreen {
         background-color: $darkGreen;
-        color: $yellow;
-        border: 1px solid $green;
+
+        .button__label {
+            color: $yellow;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid $yellow;
+            border-radius: 6px;
+            content: "";
+            pointer-events: none;
+        }
+
+        &:hover {
+            .button__label {
+                transition: color 0.15s ease-in-out;
+                color: $darkGreen;
+                text-decoration: none;
+            }
+        }
+
+        .button__flair {
+            transform: scale(0);
+            transform-origin: 0 0;
+            will-change: transform;
+
+            &::before {
+                background-color: $yellow;
+            }
+        }
     }
 
     &--back {
