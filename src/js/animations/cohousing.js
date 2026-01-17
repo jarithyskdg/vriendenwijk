@@ -20,7 +20,7 @@ export function animateCohousing() {
 
         // Split title into words, text into lines
         const splitTitle = new SplitText(title, { type: "words", wordsClass: "cohousing-word" });
-        const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line" });
+        const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line", mask: "lines" });
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -70,11 +70,11 @@ export function animateCohousing() {
             });
 
             tl.from(splitText.lines, {
-                y: 40,
+                y: 100,
                 autoAlpha: 0,
-                duration: 2,
+                duration: 3,
                 ease: "power3.out",
-                stagger: 0.2
+                stagger: 1
             }, "+=0.3");
 
             tl.from(cta, {

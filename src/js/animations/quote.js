@@ -12,16 +12,16 @@ export function animateQuote() {
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const split = new SplitText(quoteText, { type: "words", wordsClass: "quote-word" });
+    const split = new SplitText(quoteText, { type: "chars, words", charsClass: "quote-char", mask: "chars" });
 
-    // Start all words invisible
-    gsap.set(split.words, {
+    // Start all chars invisible
+    gsap.set(split.chars, {
         autoAlpha: 0,
-        yPercent: prefersReducedMotion ? 0 : 100
+        yPercent: prefersReducedMotion ? 0 : () => (Math.random() < 0.5 ? -100 : 100)
     });
 
     // Animate on scroll
-    gsap.to(split.words, {
+    gsap.to(split.chars, {
         scrollTrigger: {
             trigger: section,
             start: "top 80%",
@@ -35,7 +35,7 @@ export function animateQuote() {
         stagger: prefersReducedMotion
             ? 0 // no stagger for reduced motion
             : {
-                each: 0.05,
+                each: 0.02,
                 from: "random"
             }
     });
