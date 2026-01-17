@@ -1,16 +1,29 @@
 import { gsap } from "gsap";
 import { toggleBurger } from "./burger.js";
 import { getMenuWidth } from "../helpers/breakpoints.js";
+import { Observer } from "gsap/Observer";
+
+gsap.registerPlugin(Observer);
 
 export function initMenuSlideToggle() {
     const menuToggle = document.querySelector(".header__menu-toggle");
     const menu = document.querySelector(".header__menu");
+    const overlay = document.querySelector(".menu-overlay");
     const menuLinks = menu.querySelectorAll(".header__menu__item, .header__menu__items__divider span");
     menu.setAttribute("id", "header-menu");
     menu.setAttribute("role", "menu");
     menuToggle.setAttribute("aria-haspopup", "true");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-controls", "header-menu");
+
+    let scrollObserver = Observer.create({
+        type: "wheel,touch",
+        onChangeY: () => isOpen && closeMenu(),
+        preventDefault: false,
+        allowClicks: true,
+        tolerance: 10,
+        enabled: false
+    });
 
     let isOpen = false;
 
@@ -34,6 +47,12 @@ export function initMenuSlideToggle() {
 
     gsap.set(menu, { width: getCurrentMenuWidth() });
 
+    menuTl.to(overlay, {
+        duration: 0.4,
+        autoAlpha: 1,
+        ease: "power1.inOut"
+    }, "0");
+
     menuTl.to(menu, {
         duration: 0.4,
         // height: () => {
@@ -44,7 +63,7 @@ export function initMenuSlideToggle() {
         autoAlpha: 1,
         padding: "16px 0 32px",
         ease: "power1.inOut",
-    }, ">");
+    }, "0");
 
     const linksIn = gsap.from(menuLinks, {
         y: -20,
@@ -55,31 +74,45 @@ export function initMenuSlideToggle() {
         paused: true
     }, "=-0.6");
 
+    menuTl.eventCallback("onStart", () => {
+        overlay.style.pointerEvents = "auto";
+    });
+
     menuTl.eventCallback("onComplete", () => {
         if (isOpen) linksIn.restart();
+    });
+
+    menuTl.eventCallback("onReverseComplete", () => {
+        overlay.style.pointerEvents = "none";
     });
 
     function openMenu() {
         menuToggle.setAttribute("aria-expanded", "true");
 
+        document.body.setAttribute("aria-hidden", "true");
+        menu.removeAttribute("aria-hidden");
         menuTl.play();
         toggleBurger();
         isOpen = true;
-        document.addEventListener("mousedown", handleOutsideClick);
-        document.addEventListener("touchstart", handleOutsideClick);
+
+        scrollObserver.enable();
+
         document.addEventListener("keydown", handleEscapeKey);
     }
 
     function closeMenu() {
         menuToggle.setAttribute("aria-expanded", "false");
 
+        document.body.removeAttribute("aria-hidden");
+        menu.setAttribute("aria-hidden", "true");
         linksIn.kill();
         gsap.set(menuLinks, { autoAlpha: 0, y: -20 });
         menuTl.reverse();
         toggleBurger();
         isOpen = false;
-        document.removeEventListener("mousedown", handleOutsideClick);
-        document.removeEventListener("touchstart", handleOutsideClick);
+
+        scrollObserver.disable();
+
         document.removeEventListener("keydown", handleEscapeKey);
     }
 
@@ -87,17 +120,17 @@ export function initMenuSlideToggle() {
         isOpen ? closeMenu() : openMenu();
     }
 
-    function handleOutsideClick(event) {
-        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-            closeMenu();
-        }
-    }
-
     function handleEscapeKey(event) {
         if (event.key === "Escape") {
             closeMenu();
         }
     }
+
+    overlay.addEventListener("click", () => {
+        if (isOpen) {
+            closeMenu();
+        }
+    });
 
     menuToggle.addEventListener("click", toggleMenu);
 
