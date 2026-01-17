@@ -23,6 +23,11 @@ export function animateAboutUs() {
         markers: false
     };
 
+    gsap.set(items, {
+        backgroundColor: "rgba(255, 255, 255, 0)",
+        boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0)"
+    });
+
     const tl = gsap.timeline({
         scrollTrigger: scrollTriggerSettings
     });
@@ -50,12 +55,19 @@ export function animateAboutUs() {
         const textEase = prefersReducedMotion ? "power1.out" : "power2.out";
         const textDuration = prefersReducedMotion ? 0.4 : 0.6;
 
+        itemTL.to(item, {
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
+            boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0.25)",
+            duration: prefersReducedMotion ? 0.4 : 0.6,
+            ease: "power1.out"
+        });
+
         itemTL.from(icon, {
             y: iconY,
             autoAlpha: 0,
             duration: iconDuration,
             ease: iconEase
-        });
+        }, "-=0.4");
 
         itemTL.from(title, {
             scale: 0,
