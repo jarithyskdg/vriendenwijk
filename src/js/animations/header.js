@@ -11,9 +11,10 @@ export function animateHeader() {
 
     // Scroll observer for header show/hide
     Observer.create({
-        type: "wheel,touch",
-        onUp: () => showAnim.play(),
-        onDown: () => showAnim.reverse(),
+        type: "wheel,touch,pointer",
+        onUp: () => showAnim.reverse(),
+        onDown: () => showAnim.play(),
+        wheelSpeed: -1, //invert wheel direction and switch onUP and onDown so that scrolling and swiping behaves the same
         preventDefault: false,
         allowClicks: true,
         tolerance: 10,
