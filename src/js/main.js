@@ -4,6 +4,7 @@ import "@/css/style.scss"; // Vite will handle Sass → CSS automatically
 //helper functions
 import { getMenuWidth } from "@/js/helpers/breakpoints.js";
 import { setProgrammaticScroll, isProgrammaticScroll } from "@/js/helpers/globals.js";
+import { onReducedMotionChange } from "./helpers/reducedMotion.js";
 
 // animations
 import { initScrollSmoother } from "@/js/animations/scrollSmoother.js";
@@ -18,6 +19,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     getMenuWidth();
     setProgrammaticScroll();
     isProgrammaticScroll();
+    onReducedMotionChange(() => {
+        window.location.reload();
+    });
 
     // global animations
     initScrollSmoother();

@@ -1,10 +1,9 @@
 // scrollIndicator.js
 import { gsap } from "gsap";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 export function animateScrollIndicator() {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion()) return;
 
   gsap.to(".indicator-1", {
     y: -8,

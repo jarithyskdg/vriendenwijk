@@ -2,13 +2,26 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
 import { isProgrammaticScroll } from "../helpers/globals";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function setupPinnedSections() {
     const breakpoint = getCurrentBreakpoint();
 
-    if (breakpoint !== "desktop" || isProgrammaticScroll()) {
+    // Exit early → normal scrolling
+    if (
+        prefersReducedMotion() ||
+        breakpoint !== "desktop" ||
+        isProgrammaticScroll()
+    ) {
+        // Optional safety cleanup if this runs after being enabled once
+        ScrollTrigger.getAll().forEach(st => {
+            if (st.trigger?.classList?.contains("panel")) {
+                st.kill();
+            }
+        });
+
         return;
     }
 
@@ -25,15 +38,6 @@ export function setupPinnedSections() {
     // Pin each panel
     panels.forEach((panel, index) => {
         if (index === panels.length - 1) return;
-
-        // ScrollTrigger.create({
-        //     trigger: panel,
-        //     start: () =>
-        //         panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom",
-        //     pin: true,
-        //     pinSpacing: false,
-        //     markers: false
-        // });
 
         gsap.to(panel, {
             opacity: 0,

@@ -4,6 +4,7 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
 import { setProgrammaticScroll } from "../helpers/globals";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollToPlugin, ScrollSmoother, ScrollTrigger);
 
@@ -13,11 +14,24 @@ export function scrollToSection(target) {
     const targetElement = document.querySelector(target);
     if (!targetElement) return;
 
-    const smoother = ScrollSmoother.get();
     const breakpoint = getCurrentBreakpoint();
+    const reducedMotion = prefersReducedMotion();
+    const smoother = !reducedMotion ? ScrollSmoother.get() : null;
 
     // Set the programmatic scroll flag
     setProgrammaticScroll(true);
+
+    // Reduced motion → instant jump, no animation
+    if (reducedMotion) {
+        if (target === "#home") {
+            window.scrollTo(0, 0);
+        } else {
+            targetElement.scrollIntoView();
+        }
+
+        setProgrammaticScroll(false);
+        return;
+    }
 
     ScrollTrigger.refresh();
 
@@ -53,7 +67,6 @@ export function scrollToSection(target) {
         }
     }, 100);
 }
-
 
 export function initScrollToLinks() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

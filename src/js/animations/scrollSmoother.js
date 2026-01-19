@@ -2,10 +2,17 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 export function initScrollSmoother() {
+  if (prefersReducedMotion()) {
+    // Safety: kill any existing smoother instance
+    ScrollSmoother.get()?.kill();
+    return;
+  }
+
   ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
