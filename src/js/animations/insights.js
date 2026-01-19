@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,13 +13,16 @@ export function animateInsights() {
     const cards = section.querySelectorAll(".card--insights");
     const cta = section.querySelector(".insights__cta .button");
 
+    if (!title || !cards.length || !cta) return;
+    
+    if (prefersReducedMotion()) return;
+
     const breakpoint = getCurrentBreakpoint();
     const isDesktop = breakpoint === "desktop";
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Remove parallax attributes on non-desktop or reduced motion
+    // Remove parallax attributes on non-desktop
     cards.forEach((card) => {
-        if (!isDesktop || prefersReducedMotion) {
+        if (!isDesktop) {
             card.removeAttribute("data-speed");
             card.removeAttribute("data-lag");
         }
@@ -33,7 +37,7 @@ export function animateInsights() {
             scrub: 1,
             markers: false
         },
-        y: prefersReducedMotion ? 0 : isDesktop ? 60 : -60,
+        y: isDesktop ? 60 : -60,
         opacity: 0,
         ease: "power2.out"
     });
@@ -50,10 +54,10 @@ export function animateInsights() {
                 // scrub: 1,
                 markers: false
             },
-            x: prefersReducedMotion ? 0 : !isDesktop ? (isEven ? -100 : 100) : 0,
-            y: prefersReducedMotion ? 0 : isDesktop ? 80 : 0,
+            x: !isDesktop ? (isEven ? -100 : 100) : 0,
+            y: isDesktop ? 80 : 0,
             opacity: 0,
-            duration: prefersReducedMotion ? 0.3 : 1,
+            duration: 1,
             ease: "power2.out"
         });
     });
@@ -67,9 +71,9 @@ export function animateInsights() {
             scrub: 1,
             markers: false
         },
-        scale: prefersReducedMotion ? 1 : 0.9,
+        scale: 0.9,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.3 : 0.6,
+        duration: 0.6,
         ease: "power2.out"
     });
 }

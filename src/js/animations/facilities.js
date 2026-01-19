@@ -1,11 +1,15 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function animateFacilities() {
     const section = document.querySelector("#faciliteiten");
+
+    if (!section) return;
+
     const img = section.querySelector(".faciliteiten__img img");
     const title = section.querySelector(".faciliteiten__content__title");
     const firstParagraph = section.querySelectorAll(".faciliteiten__content__text--first");
@@ -13,10 +17,11 @@ export function animateFacilities() {
     const listItems = section.querySelectorAll(".faciliteiten__list__item");
     const cta = section.querySelector(".faciliteiten__content__cta");
 
-    if (!section || !img || !title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
+    if (!img || !title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
 
+    if (prefersReducedMotion()) return;
+    
     const breakpoint = getCurrentBreakpoint();
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -30,47 +35,47 @@ export function animateFacilities() {
     });
 
     tl.from(img, {
-        x: prefersReducedMotion ? 0 : -100,
+        x: -100,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.6 : 1,
+        duration: 1,
         ease: "power3.out"
     });
 
     tl.from(title, {
-        y: prefersReducedMotion ? 0 : 50,
+        y: 50,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.5 : 0.8,
+        duration: 0.8,
         ease: "power3.out"
-    }, prefersReducedMotion ? "=" : "-=0.6");
+    }, "-=0.6");
 
     tl.from(firstParagraph, {
-        y: prefersReducedMotion ? 0 : 30,
+        y: 30,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.4 : 0.6,
-        ease: prefersReducedMotion ? "power1.out" : "power2.out",
+        duration: 0.6,
+        ease: "power2.out",
         stagger: 0.2
-    }, prefersReducedMotion ? "=" : "-=0.5");
+    }, "-=0.5");
 
     tl.from(listItems, {
-        x: prefersReducedMotion ? 0 : 50,
+        x: 50,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.4 : 0.5,
-        ease: prefersReducedMotion ? "power1.out" : "power2.out",
-        stagger: prefersReducedMotion ? 0 : 0.15
-    }, prefersReducedMotion ? "=" : "-=0.4");
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.15
+    }, "-=0.4");
 
     tl.from(lastParagraph, {
-        y: prefersReducedMotion ? 0 : 30,
+        y: 30,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.4 : 0.6,
-        ease: prefersReducedMotion ? "power1.out" : "power2.out",
+        duration: 0.6,
+        ease: "power2.out",
         stagger: 0.2
-    }, prefersReducedMotion ? "=" : "-=0.5");
+    }, "-=0.5");
 
     tl.from(cta, {
-        scale: prefersReducedMotion ? 1 : 0.9,
+        scale: 0.9,
         opacity: 0,
-        duration: prefersReducedMotion ? 0.4 : 0.6,
-        ease: prefersReducedMotion ? "power1.out" : "back.out(1.7)"
-    }, prefersReducedMotion ? "=" : "-=0.4");
+        duration: 0.6,
+        ease: "back.out(1.7)"
+    }, "-=0.4");
 }

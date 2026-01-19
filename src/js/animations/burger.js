@@ -17,12 +17,6 @@ export function initBurgerAnimation() {
     burgerTimeline.to(".buns", { duration: 0.85, drawSVG: "69% 96.5%" }, 0);
     burgerTimeline.to(".letters", { duration: 0.85, drawSVG: "0% 53%", x: 0 }, 0);
     burgerTimeline.reversed(true);
-
-    // this is handled in menu.js now
-    
-    // document.querySelector("#theBurger").addEventListener("click", () => {
-    //     burgerTimeline.reversed(!burgerTimeline.reversed());
-    // });
 }
 
 export function toggleBurger() {

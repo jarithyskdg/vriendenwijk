@@ -25,12 +25,11 @@ export function animateOverviewLinks() {
             ease: "power2.out"
         });
 
-        tl.from(arrow, {
-            x: -16,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.out"
-        }, "-=0.3");
+        tl.fromTo(arrow, 
+            {x: -16, opacity: 0},
+            {x: 0, opacity: 1, duration: 0.3, ease: "power2.out"},
+            "-=0.3"
+        );
 
         title.addEventListener("mouseenter", () => tl.play());
         title.addEventListener("mouseleave", () => tl.reverse());

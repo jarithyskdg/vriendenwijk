@@ -38,13 +38,6 @@ export function initMenuSlideToggle() {
         return getMenuWidth();
     }
 
-    // menuTl.to(menu, {
-    //     duration: 0.4,
-    //     width: getCurrentMenuWidth(),
-    //     autoAlpha: 1,
-    //     ease: "power1.inOut",
-    // });
-
     gsap.set(menu, { width: getCurrentMenuWidth() });
 
     menuTl.to(overlay, {
@@ -55,10 +48,6 @@ export function initMenuSlideToggle() {
 
     menuTl.to(menu, {
         duration: 0.4,
-        // height: () => {
-        //     const maxHeight = window.innerHeight * 0.95;
-        //     return Math.min(menu.scrollHeight, maxHeight);
-        // },
         height: "100%",
         autoAlpha: 1,
         padding: "16px 0 32px",

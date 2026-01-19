@@ -26,6 +26,10 @@
             .overview__title {
                 @include heading-h2;
                 text-align: center;
+
+                .overview-title-word {
+                    font-family: $ff-heading;
+                }
             }
         }
 

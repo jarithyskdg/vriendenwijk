@@ -1,17 +1,21 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export function animatePortal() {
     const section = document.querySelector("#portal");
+
+    if (!section) return;
+
     const title = section?.querySelector(".portal__content__title h2");
     const button = section?.querySelector(".portal__cta .button");
 
-    if (!section || !title || !button) return;
+    if (!title || !button) return;
 
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion()) return;
 
     // Split the title into characters
     const split = new SplitText(title, {
@@ -22,7 +26,7 @@ export function animatePortal() {
     // Start all characters hidden and below
     gsap.set(split.chars, {
         autoAlpha: 0,
-        yPercent: prefersReducedMotion ? 0 : 100
+        yPercent: 100
     });
 
     // Animate characters on scroll
@@ -35,9 +39,10 @@ export function animatePortal() {
         },
         autoAlpha: 1,
         yPercent: 0,
-        duration: prefersReducedMotion ? 0.3 : 0.5,
+        duration: 0.5,
         ease: "power2.out",
-        stagger: prefersReducedMotion ? 0 : {
+        stagger:
+        {
             each: 0.05,
             from: "random"
         }
@@ -52,9 +57,9 @@ export function animatePortal() {
             markers: false
         },
         opacity: 0,
-        scale: prefersReducedMotion ? 1 : 0.90,
-        duration: prefersReducedMotion ? 0.3 : 0.6,
-        delay: prefersReducedMotion ? 0 : 0.2,
+        scale: 0.90,
+        duration: 0.6,
+        delay: 0.2,
         ease: "power2.out"
     });
 }

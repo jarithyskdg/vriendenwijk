@@ -100,6 +100,10 @@
                     color: inherit;
                 }
 
+                .detail-link-arrow {
+                    opacity: 0;
+                }
+
                 h4.detail-link-title {
 
                     &::after {

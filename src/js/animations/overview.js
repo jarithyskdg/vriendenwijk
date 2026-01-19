@@ -1,15 +1,15 @@
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateOverviewHeader() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return; // optional if reduced animations are still to much
-
-    const section = document.querySelector(".overview");
+    const section = document.querySelector("#overview");
     if (!section) return;
+
+    if (prefersReducedMotion()) return;
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -21,24 +21,13 @@ export function animateOverviewHeader() {
         }
     });
 
-    // Reduced motion
-    if (prefersReducedMotion) {
-        tl.from(".overview__title", {
-            y: prefersReducedMotion ? 0 : -100,
-            autoAlpha: 0,
-            duration: 0.7,
-            ease: "power1.out"
-        });
-        return;
-    }
-
     // Avoid double-splitting
     if (section.querySelector(".overview__title .word")) return;
 
     document.fonts.ready.then(() => {
         const split = SplitText.create(".overview__title", {
             type: "words",
-            wordsClass: "word",
+            wordsClass: "overview-title-word",
             ignore: ".mobile-br"
         });
 
@@ -54,8 +43,7 @@ export function animateOverviewHeader() {
 }
 
 export function animateOverviewSections() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return; // optional if reduced animations are still to much
+    if (prefersReducedMotion()) return;
 
     const sections = document.querySelectorAll(".divider");
     if (!sections.length) return;
@@ -83,13 +71,13 @@ export function animateOverviewSections() {
             : null;
 
         // ---- INITIAL STATES ----
-        gsap.set(lineLeft, { autoAlpha: 0, scaleX: prefersReducedMotion ? 1 : 0, transformOrigin: "right" });
-        gsap.set(lineRight, { autoAlpha: 0, scaleX: prefersReducedMotion ? 1 : 0, transformOrigin: "left" });
+        gsap.set(lineLeft, { autoAlpha: 0, scaleX: 0, transformOrigin: "right" });
+        gsap.set(lineRight, { autoAlpha: 0, scaleX: 0, transformOrigin: "left" });
 
         if (cards.length) {
             gsap.set(cards, {
                 autoAlpha: 0,
-                y: prefersReducedMotion ? 0 : 50
+                y: 50
             });
         }
 
@@ -113,7 +101,7 @@ export function animateOverviewSections() {
 
         // Delay only on first section
         if (isFirst) {
-            tl.to({}, { duration: 0.4 });
+            tl.to({}, { duration: 0.5 });
         }
 
         // Divider title
@@ -139,7 +127,7 @@ export function animateOverviewSections() {
                 y: 0,
                 duration: 0.5,
                 ease: "power1.out",
-                stagger: prefersReducedMotion ? 0 : 0.2
+                stagger: 0.2
             });
         }
 

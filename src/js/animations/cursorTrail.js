@@ -1,16 +1,16 @@
 import gsap from "gsap";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 export function initCursorTrail({
     selector = "svg.cursor-trail",
     total = 100,
     ease = 0.75,
 } = {}) {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // Exit early if device is touch-only or motion should be reduced
     if (
         !window.matchMedia("(hover: hover) and (pointer: fine)").matches ||
-        prefersReducedMotion
+        prefersReducedMotion()
     ) {
         return;
     }

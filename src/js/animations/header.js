@@ -1,13 +1,13 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Observer } from "gsap/Observer";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Observer);
 
 export function animateHeader() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion()) return;
 
     // Scroll observer for header show/hide
     Observer.create({

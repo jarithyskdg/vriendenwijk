@@ -1,10 +1,11 @@
 import { gsap } from "gsap";
 import SplitText from "gsap/SplitText";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
+gsap.registerPlugin(SplitText);
 
 export function animateDetail() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion()) return;
     
     const tl = gsap.timeline({
         defaults: { ease: "power1.out" }
@@ -25,7 +26,7 @@ export function animateDetail() {
     })
 
     // Title characters
-    .from(title.chars, {
+    tl.from(title.chars, {
         y: 20,
         autoAlpha: 0,
         duration: 0.4,
@@ -34,7 +35,7 @@ export function animateDetail() {
     }, "-=0.2")
 
     // Buttons below title
-    .from(".button--detail-content", {
+    tl.from(".button--detail-content", {
         y: 15,
         autoAlpha: 0,
         duration: 0.4,
@@ -42,7 +43,7 @@ export function animateDetail() {
     }, "-=0.2")
 
     // First visible content section
-    .from(".detail__content__body__section:not(.hidden) > *", {
+    tl.from(".detail__content__body__section:not(.hidden) > *", {
         y: -20,
         autoAlpha: 0,
         duration: 0.35,

@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 export function detailContentSwitcher() {
     const buttons = document.querySelectorAll(".button--detail-content");
@@ -43,19 +44,23 @@ export function detailContentSwitcher() {
         if (currentSection) {
             currentSection.classList.add("hidden");
 
-            gsap.to(currentSection, {
-                autoAlpha: 0,
-                y: 20,
-                duration: 0.25,
-            });
+            if (!prefersReducedMotion()) {
+                gsap.to(currentSection, {
+                    autoAlpha: 0,
+                    y: 20,
+                    duration: 0.25,
+                });
+            }
         }
 
         // Show new
         next.classList.remove("hidden");
-        gsap.fromTo(next,
-            { autoAlpha: 0, y: -20 },
-            { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }
-        );
+        if (!prefersReducedMotion()) {
+            gsap.fromTo(next,
+                { autoAlpha: 0, y: -20 },
+                { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }
+            );
+        }
 
         currentSection = next;
     }

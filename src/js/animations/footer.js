@@ -1,10 +1,10 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function animateFooter() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const footer = document.querySelector("#footer");
     if (!footer) return;
 
@@ -14,6 +14,10 @@ export function animateFooter() {
     const contactDetails = footer.querySelectorAll(".contact-info__details p");
     const socialsTitle = footer.querySelector(".socials__title h2");
     const socialIcons = footer.querySelectorAll(".socials__links a");
+
+    if (!logo || !links.length || !contactTitle || !contactDetails.length || !socialsTitle || !socialIcons.length) return;
+
+    if (prefersReducedMotion()) return;
 
     // Create timeline
     const tl = gsap.timeline({
@@ -36,39 +40,39 @@ export function animateFooter() {
         autoAlpha: 0,
         y: 40,
         duration: 0.4,
-        stagger: prefersReducedMotion ? 0 : 0.15,
+        stagger: 0.15,
         ease: "power2.out"
-    }, prefersReducedMotion ? "=" : "-=0.4");
+    }, "-=0.4");
 
     tl.from(contactTitle, {
         autoAlpha: 0,
         y: 40,
         duration: 0.5,
         ease: "power2.out"
-    }, prefersReducedMotion ? "=" : "-=0.3");
+    }, "-=0.3");
 
     tl.from(contactDetails, {
         autoAlpha: 0,
         y: 40,
         duration: 0.4,
-        stagger: prefersReducedMotion ? 0 : 0.1,
+        stagger: 0.1,
         ease: "power2.out"
-    }, prefersReducedMotion ? "=" : "-=0.3");
+    }, "-=0.3");
 
     tl.from(socialsTitle, {
         autoAlpha: 0,
         y: 40,
         duration: 0.5,
         ease: "power2.out"
-    }, prefersReducedMotion ? "=" : "-=0.3");
+    }, "-=0.3");
 
     tl.from(socialIcons, {
         autoAlpha: 0,
         y: 35,
         duration: 0.4,
-        stagger: prefersReducedMotion ? 0 : 0.2,
+        stagger: 0.2,
         ease: "power2.out"
-    }, prefersReducedMotion ? "=" : "-=0.3");
+    }, "-=0.3");
 }
 
 export function animateFooterLinks() {

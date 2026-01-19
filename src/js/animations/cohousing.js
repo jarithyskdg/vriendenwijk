@@ -2,12 +2,11 @@ import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { getCurrentBreakpoint } from "../helpers/breakpoints";
+import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export function animateCohousing() {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
     document.fonts.ready.then(() => {
         const section = document.querySelector("#cohousing");
         const title = document.querySelector(".cohousing__content__title");
@@ -15,6 +14,7 @@ export function animateCohousing() {
         const cta = document.querySelector(".cohousing__cta");
 
         if (!section || !title || !text || !cta) return;
+        if (prefersReducedMotion()) return;
 
         const breakpoint = getCurrentBreakpoint();
 
@@ -33,56 +33,28 @@ export function animateCohousing() {
             }
         });
 
-        if (prefersReducedMotion) {
-            // Reduced motion-friendly animations
-            tl.from(splitTitle.words, {
-                y: 30,            // smaller vertical movement
-                rotation: 0,      // no rotation
-                autoAlpha: 0,
-                duration: 1,
-                ease: "power1.out",
-                stagger: 0.1
-            });
+        tl.from(splitTitle.words, {
+            y: 50,
+            rotation: "random(-80, 80)",
+            autoAlpha: 0,
+            duration: 2,
+            ease: "power3.out",
+            stagger: 0.1
+        });
 
-            tl.from(splitText.lines, {
-                y: 15,            // smaller vertical movement
-                autoAlpha: 0,
-                duration: 1,
-                ease: "power1.out",
-                stagger: 0.15
-            }, "+=0.2");
+        tl.from(splitText.lines, {
+            y: 100,
+            autoAlpha: 0,
+            duration: 3,
+            ease: "power3.out",
+            stagger: 1
+        }, "+=0.3");
 
-            tl.from(cta, {
-                scale: 0.95,      // subtle scaling
-                autoAlpha: 0,
-                duration: 1,
-                ease: "power1.out",
-            }, "-=0.2");
-        } else {
-            // Original, more dynamic animations
-            tl.from(splitTitle.words, {
-                y: 50,
-                rotation: "random(-80, 80)",
-                autoAlpha: 0,
-                duration: 2,
-                ease: "power3.out",
-                stagger: 0.1
-            });
-
-            tl.from(splitText.lines, {
-                y: 100,
-                autoAlpha: 0,
-                duration: 3,
-                ease: "power3.out",
-                stagger: 1
-            }, "+=0.3");
-
-            tl.from(cta, {
-                scale: 0.8,
-                autoAlpha: 0,
-                duration: 2,
-                ease: "power3.out",
-            }, "-=0.3");
-        }
+        tl.from(cta, {
+            scale: 0.8,
+            autoAlpha: 0,
+            duration: 2,
+            ease: "power3.out",
+        }, "-=0.3");
     });
 }
