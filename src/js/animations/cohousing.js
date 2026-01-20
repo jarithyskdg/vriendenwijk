@@ -6,55 +6,55 @@ import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export function animateCohousing() {
-    document.fonts.ready.then(() => {
-        const section = document.querySelector("#cohousing");
-        const title = document.querySelector(".cohousing__content__title");
-        const text = document.querySelector(".cohousing__content__text");
-        const cta = document.querySelector(".cohousing__cta");
+export async function animateCohousing() {
+    // Exit early if motion should be reduced
+    if (prefersReducedMotion()) return;
 
-        if (!section || !title || !text || !cta) return;
-        if (prefersReducedMotion()) return;
+    const section = document.querySelector("#cohousing");
+    const title = document.querySelector(".cohousing__content__title");
+    const text = document.querySelector(".cohousing__content__text");
+    const cta = document.querySelector(".cohousing__cta");
 
-        const breakpoint = getCurrentBreakpoint();
+    if (!section || !title || !text || !cta) return;
 
-        // Split title into words, text into lines
-        const splitTitle = new SplitText(title, { type: "words", wordsClass: "cohousing-word" });
-        const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line", mask: "lines" });
+    const breakpoint = getCurrentBreakpoint();
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
-                end: "center center",
-                toggleActions: "play none none reverse",
-                scrub: 1,
-                markers: false
-            }
-        });
+    // Split title into words, text into lines
+    const splitTitle = new SplitText(title, { type: "words", wordsClass: "cohousing-word" });
+    const splitText = new SplitText(text, { type: "lines", linesClass: "cohousing-line", mask: "lines" });
 
-        tl.from(splitTitle.words, {
-            y: 50,
-            rotation: "random(-80, 80)",
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-            stagger: 0.1
-        });
-
-        tl.from(splitText.lines, {
-            y: 100,
-            autoAlpha: 0,
-            duration: 3,
-            ease: "power3.out",
-            stagger: 1
-        }, "+=0.3");
-
-        tl.from(cta, {
-            scale: 0.8,
-            autoAlpha: 0,
-            duration: 2,
-            ease: "power3.out",
-        }, "-=0.3");
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: section,
+            start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
+            end: "center center",
+            toggleActions: "play none none reverse",
+            scrub: 1,
+            markers: false
+        }
     });
+
+    tl.from(splitTitle.words, {
+        y: 50,
+        rotation: "random(-80, 80)",
+        autoAlpha: 0,
+        duration: 2,
+        ease: "power3.out",
+        stagger: 0.1
+    });
+
+    tl.from(splitText.lines, {
+        y: 100,
+        autoAlpha: 0,
+        duration: 3,
+        ease: "power3.out",
+        stagger: 1
+    }, "+=0.3");
+
+    tl.from(cta, {
+        scale: 0.8,
+        autoAlpha: 0,
+        duration: 2,
+        ease: "power3.out",
+    }, "-=0.3");
 }

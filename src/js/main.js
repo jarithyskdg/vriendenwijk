@@ -2,9 +2,10 @@
 import "@/css/style.scss"; // Vite will handle Sass → CSS automatically
 
 //helper functions
+import { waitForFonts } from "@/js/helpers/fonts.js";
 import { getMenuWidth } from "@/js/helpers/breakpoints.js";
 import { setProgrammaticScroll, isProgrammaticScroll } from "@/js/helpers/globals.js";
-import { onReducedMotionChange } from "./helpers/reducedMotion.js";
+import { onReducedMotionChange } from "@/js/helpers/reducedMotion.js";
 
 // animations
 import { initScrollSmoother } from "@/js/animations/scrollSmoother.js";
@@ -16,6 +17,8 @@ import { animateFooter, animateFooterLinks } from "@/js/animations/footer.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
     // helper functions
+    await waitForFonts();
+    
     getMenuWidth();
     setProgrammaticScroll();
     isProgrammaticScroll();
