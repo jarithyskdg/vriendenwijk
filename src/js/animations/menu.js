@@ -7,6 +7,7 @@ import { prefersReducedMotion } from "../helpers/reducedMotion.js";
 gsap.registerPlugin(Observer);
 
 export function initMenuSlideToggle() {
+    const bodyWrapper = document.querySelector("#smooth-wrapper");
     const menuToggle = document.querySelector(".header__menu-toggle");
     const menu = document.querySelector(".header__menu");
     const overlay = document.querySelector(".menu-overlay");
@@ -41,7 +42,7 @@ export function initMenuSlideToggle() {
     if (prefersReducedMotion()) {
         function openMenu() {
             menuToggle.setAttribute("aria-expanded", "true");
-            document.body.setAttribute("aria-hidden", "true");
+            bodyWrapper.setAttribute("aria-hidden", "true");
             menu.removeAttribute("aria-hidden");
 
             gsap.set(overlay, { autoAlpha: 1, pointerEvents: "auto" });
@@ -60,7 +61,7 @@ export function initMenuSlideToggle() {
 
         function closeMenu() {
             menuToggle.setAttribute("aria-expanded", "false");
-            document.body.removeAttribute("aria-hidden");
+            bodyWrapper.removeAttribute("aria-hidden");
             menu.setAttribute("aria-hidden", "true");
 
             gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none" });
@@ -135,7 +136,7 @@ export function initMenuSlideToggle() {
 
     function openMenu() {
         menuToggle.setAttribute("aria-expanded", "true");
-        document.body.setAttribute("aria-hidden", "true");
+        bodyWrapper.setAttribute("aria-hidden", "true");
         menu.removeAttribute("aria-hidden");
 
         menuTl.play();
@@ -147,7 +148,7 @@ export function initMenuSlideToggle() {
 
     function closeMenu() {
         menuToggle.setAttribute("aria-expanded", "false");
-        document.body.removeAttribute("aria-hidden");
+        bodyWrapper.removeAttribute("aria-hidden");
         menu.setAttribute("aria-hidden", "true");
 
         linksIn.kill();
