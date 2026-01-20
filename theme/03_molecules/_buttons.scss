@@ -79,12 +79,6 @@
         }
     }
 
-    // &--lila {
-    //     background-color: $lila;
-    //     color: $darkGreen;
-    //     border: 1px solid $yellow;
-    // }
-
     &--yellow {
         background-color: $yellow;
 
@@ -167,12 +161,55 @@
         left: 32px;
         background-color: $yellow;
         color: $darkGreen;
-        border: 1px solid $darkGreen;
         gap: 8px;
         padding: 8px 24px;
         min-width: auto;
         height: auto;
         z-index: 10;
+
+        .button__label {
+            color: $darkGreen;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        &:after {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            border: 1px solid $darkGreen;
+            border-radius: 6px;
+            content: "";
+            pointer-events: none;
+        }
+
+        &:hover {
+            .button__label {
+                transition: color 0.15s ease-in-out;
+                color: $yellow;
+                text-decoration: none;
+
+                svg {
+                    path {
+                        transition: fill 0.15s ease-in-out;
+                        fill: $yellow;
+                    }
+                }
+            }
+        }
+
+        .button__flair {
+            transform: scale(0);
+            transform-origin: 0 0;
+            will-change: transform;
+
+            &::before {
+                background-color: $darkGreen;
+            }
+        }
     }
 
     &--detail-content {

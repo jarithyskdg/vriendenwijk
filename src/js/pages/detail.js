@@ -3,6 +3,7 @@
 
 // animation imports
 import { detailContentSwitcher } from "@/js/animations/detailContentSwitcher.js";
+import { magneticButtonEffect } from "@/js/animations/animateButtons.js";
 import { animateDetail } from "@/js/animations/detail.js";
 
 
@@ -12,4 +13,5 @@ export default function initDetailPage() {
 
     animateDetail();
     detailContentSwitcher();
+    magneticButtonEffect();
 }
