@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { toggleBurger } from "./burger.js";
 import { getMenuWidth } from "../helpers/breakpoints.js";
 import { Observer } from "gsap/Observer";
+import { prefersReducedMotion } from "../helpers/reducedMotion.js";
 
 gsap.registerPlugin(Observer);
 
@@ -10,11 +11,16 @@ export function initMenuSlideToggle() {
     const menu = document.querySelector(".header__menu");
     const overlay = document.querySelector(".menu-overlay");
     const menuLinks = menu.querySelectorAll(".header__menu__item, .header__menu__items__divider span");
+
+    if (!menuToggle || !menu || !overlay) return;
+
     menu.setAttribute("id", "header-menu");
     menu.setAttribute("role", "menu");
     menuToggle.setAttribute("aria-haspopup", "true");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-controls", "header-menu");
+
+    let isOpen = false;
 
     let scrollObserver = Observer.create({
         type: "wheel,touch",
@@ -25,20 +31,72 @@ export function initMenuSlideToggle() {
         enabled: false
     });
 
-    let isOpen = false;
+    function getCurrentMenuWidth() {
+        return getMenuWidth();
+    }
 
+    gsap.set(menu, { width: getCurrentMenuWidth() });
+
+    //reduced motion version
+    if (prefersReducedMotion()) {
+        function openMenu() {
+            menuToggle.setAttribute("aria-expanded", "true");
+            document.body.setAttribute("aria-hidden", "true");
+            menu.removeAttribute("aria-hidden");
+
+            gsap.set(overlay, { autoAlpha: 1, pointerEvents: "auto" });
+            gsap.set(menu, {
+                height: "100%",
+                autoAlpha: 1,
+                padding: "16px 0 32px"
+            });
+            gsap.set(menuLinks, { autoAlpha: 1, y: 0 });
+
+            toggleBurger();
+            isOpen = true;
+            scrollObserver.enable();
+            document.addEventListener("keydown", handleEscapeKey);
+        }
+
+        function closeMenu() {
+            menuToggle.setAttribute("aria-expanded", "false");
+            document.body.removeAttribute("aria-hidden");
+            menu.setAttribute("aria-hidden", "true");
+
+            gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none" });
+            gsap.set(menu, { autoAlpha: 0, height: 0 });
+            gsap.set(menuLinks, { autoAlpha: 0, y: 0 });
+
+            toggleBurger();
+            isOpen = false;
+            scrollObserver.disable();
+            document.removeEventListener("keydown", handleEscapeKey);
+        }
+
+        function toggleMenu() {
+            isOpen ? closeMenu() : openMenu();
+        }
+
+        function handleEscapeKey(e) {
+            if (e.key === "Escape") closeMenu();
+        }
+
+        overlay.addEventListener("click", () => isOpen && closeMenu());
+        menuToggle.addEventListener("click", toggleMenu);
+        menuLinks.forEach(link =>
+            link.addEventListener("click", () => isOpen && closeMenu())
+        );
+
+        return;
+    }
+
+    //normal animated version
     const menuTl = gsap.timeline({
         paused: true,
         onReverseComplete: () => {
             gsap.set(menuLinks, { autoAlpha: 0 }); // Hide links after menu closes
         }
     });
-
-    function getCurrentMenuWidth() {
-        return getMenuWidth();
-    }
-
-    gsap.set(menu, { width: getCurrentMenuWidth() });
 
     menuTl.to(overlay, {
         duration: 0.4,
@@ -77,31 +135,27 @@ export function initMenuSlideToggle() {
 
     function openMenu() {
         menuToggle.setAttribute("aria-expanded", "true");
-
         document.body.setAttribute("aria-hidden", "true");
         menu.removeAttribute("aria-hidden");
+
         menuTl.play();
         toggleBurger();
         isOpen = true;
-
         scrollObserver.enable();
-
         document.addEventListener("keydown", handleEscapeKey);
     }
 
     function closeMenu() {
         menuToggle.setAttribute("aria-expanded", "false");
-
         document.body.removeAttribute("aria-hidden");
         menu.setAttribute("aria-hidden", "true");
+
         linksIn.kill();
         gsap.set(menuLinks, { autoAlpha: 0, y: -20 });
         menuTl.reverse();
         toggleBurger();
         isOpen = false;
-
         scrollObserver.disable();
-
         document.removeEventListener("keydown", handleEscapeKey);
     }
 
@@ -133,9 +187,7 @@ export function initMenuSlideToggle() {
 }
 
 export function menuItemHoverEffect() {
-    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches === false) {
-        return;
-    }
+    if (prefersReducedMotion() || window.matchMedia("(hover: hover) and (pointer: fine)").matches === false) return;
 
     const links = document.querySelectorAll(".header__menu__item");
 
@@ -148,13 +200,9 @@ export function menuItemHoverEffect() {
             ease: "power2.out"
         });
 
-        link.addEventListener("mouseenter", () => {
-            tl.play();
-        });
+        link.addEventListener("mouseenter", () => tl.play());
 
-        link.addEventListener("mouseleave", () => {
-            tl.reverse();
-        });
+        link.addEventListener("mouseleave", () => tl.reverse());
     });
 }
 
