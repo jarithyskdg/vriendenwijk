@@ -4,6 +4,7 @@
 @mixin heading-bold-span {
     span.bold {
         font-weight: bold;
+        font-family: $ff-heading;
     }
 }
 
