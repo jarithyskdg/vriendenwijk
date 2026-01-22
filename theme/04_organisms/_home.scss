@@ -4,10 +4,12 @@
 .home {
     width: 100%;
     min-height: 100vh;
-    background-image: url("@/img/home-background-mobile.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: $teal;
+    background: radial-gradient(circle,rgba(186, 200, 177, 1) 0%, rgba(186, 200, 177, 1) 50%, rgba(123, 150, 105, 1) 90%);
+    // background-image: url("@/img/home-background-mobile.jpg");
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +63,7 @@
     }
 
     @include respond-to(tablet) {
-        background-image: url("@/img/home-background.jpg");
+        // background-image: url("@/img/home-background.jpg");
 
         &__container {
             width: 60%;
@@ -80,7 +82,7 @@
     }
 
     @include respond-to(desktop) {
-        background-image: url("@/img/home-background.jpg");
+        // background-image: url("@/img/home-background.jpg");
 
         &__container {
             width: 50%;

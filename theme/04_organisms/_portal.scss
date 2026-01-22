@@ -33,11 +33,11 @@
 
                 h2 {
                     @include heading-h1;
-                    color: $yellow;
+                    color: $teal;
 
                     .portal-char {
                         @include heading-h1;
-                        color: $yellow;
+                        color: $teal;
                     }
                 }
             }

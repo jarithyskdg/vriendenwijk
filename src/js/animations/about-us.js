@@ -28,11 +28,6 @@ export function animateAboutUs() {
         markers: false
     };
 
-    gsap.set(items, {
-        backgroundColor: "rgba(255, 255, 255, 0)",
-        boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0)"
-    });
-
     const tl = gsap.timeline({
         scrollTrigger: scrollTriggerSettings
     });
@@ -49,9 +44,9 @@ export function animateAboutUs() {
 
         const itemTL = gsap.timeline();
 
-        itemTL.to(item, {
-            backgroundColor: "rgba(255, 255, 255, 0.7)",
-            boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0.25)",
+        itemTL.from(item, {
+            backgroundColor: "rgba(255, 255, 255, 0)",
+            boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0)",
             duration: 0.6,
             ease: "power1.out"
         });

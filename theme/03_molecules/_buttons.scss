@@ -42,7 +42,7 @@
     }
 
     &--primary {
-        background-color: $lightGreen;
+        background-color: $teal;
 
         .button__label {
             color: $darkGreen;
@@ -63,45 +63,7 @@
         &:hover {
             .button__label {
                 transition: color 0.15s ease-in-out;
-                color: $yellow;
-                text-decoration: none;
-            }
-        }
-
-        .button__flair {
-            transform: scale(0);
-            transform-origin: 0 0;
-            will-change: transform;
-
-            &::before {
-                background-color: $darkGreen;
-            }
-        }
-    }
-
-    &--yellow {
-        background-color: $yellow;
-
-        .button__label {
-            color: $darkGreen;
-        }
-
-        &:after {
-            bottom: 0;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            border: 1px solid $darkGreen;
-            border-radius: 6px;
-            content: "";
-            pointer-events: none;
-        }
-
-        &:hover {
-            .button__label {
-                transition: color 0.15s ease-in-out;
-                color: $yellow;
+                color: $teal;
                 text-decoration: none;
             }
         }
@@ -121,7 +83,7 @@
         background-color: $darkGreen;
 
         .button__label {
-            color: $yellow;
+            color: $teal;
         }
 
         &:after {
@@ -130,7 +92,7 @@
             position: absolute;
             right: 0;
             top: 0;
-            border: 1px solid $yellow;
+            border: 1px solid $teal;
             border-radius: 6px;
             content: "";
             pointer-events: none;
@@ -150,7 +112,7 @@
             will-change: transform;
 
             &::before {
-                background-color: $yellow;
+                background-color: $teal;
             }
         }
     }
@@ -159,8 +121,7 @@
         position: absolute;
         top: 32px;
         left: 32px;
-        background-color: $yellow;
-        color: $darkGreen;
+        background-color: $teal;
         gap: 8px;
         padding: 8px 24px;
         min-width: auto;
@@ -189,13 +150,13 @@
         &:hover {
             .button__label {
                 transition: color 0.15s ease-in-out;
-                color: $yellow;
+                color: $teal;
                 text-decoration: none;
 
                 svg {
                     path {
                         transition: fill 0.15s ease-in-out;
-                        fill: $yellow;
+                        fill: $teal;
                     }
                 }
             }
@@ -218,7 +179,7 @@
         -webkit-tap-highlight-color: transparent;
         height: 40px;
         justify-content: flex-start;
-        background-color: $yellow;
+        background-color: $teal;
         color: $darkGreen;
         border: 1px solid $darkGreen;
         border-radius: 90px;

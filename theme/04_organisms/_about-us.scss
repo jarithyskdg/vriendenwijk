@@ -6,9 +6,12 @@
     width: 100%;
     min-height: 100vh;
     padding: 10% 0;
-    background-image: url("@/img/about-us-background-mobile-dark.jpg");
-    background-size: cover;
-    background-position: center;
+    // background-image: url("@/img/about-us-background-mobile-dark.jpg");
+    // background-size: cover;
+    // background-position: center;
+    background: $slate;
+    background: linear-gradient(45deg,rgba(108, 132, 128, 1) 25%, rgba(186, 200, 177, 1) 100%);
+// background: radial-gradient(circle,rgba(108, 132, 128, 1) 0%, rgba(108, 132, 128, 1) 80%, rgba(186, 200, 177, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,7 +65,7 @@
 
     // Tablet styles
     @include respond-to(tablet) {
-        background-image: url("@/img/about-us-background-dark.jpg");
+        // background-image: url("@/img/about-us-background-dark.jpg");
         height: auto;
         padding: 80px 0;
 
@@ -93,7 +96,7 @@
 
     // Desktop styles
     @media screen and (min-width: 1200px) {
-        background-image: url("@/img/about-us-background-dark.jpg");
+        // background-image: url("@/img/about-us-background-dark.jpg");
 
         &__container {
             width: 80%;

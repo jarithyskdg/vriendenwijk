@@ -9,10 +9,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("@/img/quote-background.svg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: #6C8480;
+    background: linear-gradient(45deg,rgba(108, 132, 128, 1) 25%, rgba(186, 200, 177, 1) 100%);
+    // background-image: url("@/img/quote-background.svg");
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
 
     &__container {
         position: relative;

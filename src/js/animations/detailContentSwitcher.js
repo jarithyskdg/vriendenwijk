@@ -83,7 +83,7 @@ export function detailContentSwitcher() {
         if (!svgPath) return;
 
         gsap.to(svgPath, {
-            stroke: active ? "#FFEBAE" : "#374729",
+            stroke: active ? "#BAC8B1" : "#404E3B",
             duration: 0.35,
             ease: "power1.inOut"
         });

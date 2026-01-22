@@ -3,16 +3,16 @@
 @use "../00_common/mixins" as *;
 
 .card {
-    &--lila {
-        background-color: $lila;
+    &--purple {
+        background-color: $purple;
     }
 
     &--green {
         background-color: $green;
     }
 
-    &--orange {
-        background-color: $orange;
+    &--blue {
+        background-color: $blue;
     }
 
     &--about-us {
@@ -24,7 +24,7 @@
     }
 
     &--practical {
-        background-color: $yellow;
+        background-color: $teal;
         border: 1px solid $green;
         border-radius: 6px;
         padding: 16px;
@@ -145,8 +145,8 @@
     }
 
     &--details {
-        background-color: $yellow;
-        border: 1px solid $green;
+        background-color: $teal;
+        border: 1px solid $darkGreen;
         border-radius: 6px;
         padding: 16px;
         display: flex;
