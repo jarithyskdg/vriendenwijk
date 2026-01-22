@@ -4,7 +4,7 @@
     "cards": [
       {
         "title": "De Meir",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Antwerpen 1",
         "address": "Keyserlei 19",
         "features": ["goede ligging", "winkelgelegenheden", "openbaar vervoer"],
@@ -12,7 +12,7 @@
       },
       {
         "title": "Het Eilandje",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Antwerpen 2",
         "address": "Rijnkaai 31",
         "features": ["waterzicht", "horeca", "tramverbinding"],
@@ -20,7 +20,7 @@
       },
       {
         "title": "Zuid",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Antwerpen 3",
         "address": "Amerikalei 102",
         "features": ["cultureel", "groene lanen", "fietsverbindingen"],
@@ -28,7 +28,7 @@
       },
       {
         "title": "Berchem",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Antwerpen 4",
         "address": "Statiestraat 44",
         "features": ["station nabij", "winkels", "park"],
@@ -36,7 +36,7 @@
       },
       {
         "title": "Borgerhout",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Antwerpen 5",
         "address": "Turnhoutsebaan 210",
         "features": ["diverse buurt", "markten", "OV"],
@@ -44,7 +44,7 @@
       },
       {
         "title": "Wilrijk",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Antwerpen 6",
         "address": "Bist 12",
         "features": ["rustig", "groen", "familievriendelijk"],
@@ -58,7 +58,7 @@
     "cards": [
       {
         "title": "Heverlee",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Leuven 1",
         "address": "Naamsesteenweg 120",
         "features": ["campus", "groene omgeving", "fietswegen"],
@@ -66,7 +66,7 @@
       },
       {
         "title": "Kessel-Lo",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Leuven 2",
         "address": "Diestsesteenweg 88",
         "features": ["station", "park Belle Vue", "winkels"],
@@ -74,7 +74,7 @@
       },
       {
         "title": "Binnenstad",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Leuven 3",
         "address": "Bondgenotenlaan 54",
         "features": ["historisch", "horeca", "OV"],
@@ -82,7 +82,7 @@
       },
       {
         "title": "Wilsele",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Leuven 4",
         "address": "Aarschotsesteenweg 310",
         "features": ["rustig", "kanaal", "fietsroute"],
@@ -90,7 +90,7 @@
       },
       {
         "title": "Wijgmaal",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Leuven 5",
         "address": "Remylaan 6",
         "features": ["dorpsgevoel", "trein", "groen"],
@@ -98,7 +98,7 @@
       },
       {
         "title": "Korbeek-Lo",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Leuven 6",
         "address": "Tiensesteenweg 210",
         "features": ["residentieel", "stil", "nabij centrum"],
@@ -112,7 +112,7 @@
     "cards": [
       {
         "title": "Binnenstad",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Mechelen 1",
         "address": "Ijzerenleen 45",
         "features": ["historisch", "winkels", "horeca"],
@@ -120,7 +120,7 @@
       },
       {
         "title": "Nekkerspoel",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Mechelen 2",
         "address": "Hanswijkvaart 18",
         "features": ["station", "OV", "nabij centrum"],
@@ -128,7 +128,7 @@
       },
       {
         "title": "Muizen",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Mechelen 3",
         "address": "Leuvensesteenweg 390",
         "features": ["dorpskern", "groen", "rustig"],
@@ -136,7 +136,7 @@
       },
       {
         "title": "Hombeek",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Mechelen 4",
         "address": "Dorpsstraat 62",
         "features": ["familievriendelijk", "school", "park"],
@@ -144,7 +144,7 @@
       },
       {
         "title": "Battel",
-        "image": "/src/img/wijk-1.png",
+        "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Mechelen 5",
         "address": "Battelsesteenweg 140",
         "features": ["kanaal", "fietspad", "rust"],
@@ -152,7 +152,7 @@
       },
       {
         "title": "Leest",
-        "image": "/src/img/wijk-2.png",
+        "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Mechelen 6",
         "address": "Dorp 9",
         "features": ["landelijk", "stil", "gemeenschapsgevoel"],
