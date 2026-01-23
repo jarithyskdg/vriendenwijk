@@ -7,6 +7,7 @@ import { animateHome } from "@/js/animations/home.js";
 import { initScrollToLinks } from "@/js/animations/scrollTo.js";
 import { initClickConfetti } from "@/js/animations/confettiOnClick.js";
 import { magneticButtonEffect } from "@/js/animations/animateButtons.js";
+import { initSlider } from "@/js/animations/slider.js";
 import { animateCohousing } from "@/js/animations/cohousing.js";
 import { animateTransitionArms } from "@/js/animations/animateTransitionArms.js";
 import { animateAboutUs } from "@/js/animations/about-us.js";
@@ -27,6 +28,7 @@ export default function initHomePage() {
     initClickConfetti();
     magneticButtonEffect();
     animateHome();
+    initSlider();
     animateCohousing();
     animateTransitionArms();
     animateAboutUs();
