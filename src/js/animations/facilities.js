@@ -10,14 +10,14 @@ export function animateFacilities() {
 
     if (!section) return;
 
-    const slider = section.querySelector(".faciliteiten__slider .slider");
+    // const slider = section.querySelector(".faciliteiten__slider .slider");
     const title = section.querySelector(".faciliteiten__content__title");
     const firstParagraph = section.querySelectorAll(".faciliteiten__content__text--first");
     const lastParagraph = section.querySelectorAll(".faciliteiten__content__text--last");
     const listItems = section.querySelectorAll(".faciliteiten__list__item");
     const cta = section.querySelector(".faciliteiten__content__cta");
 
-    if (!slider || !title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
+    if (!title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
 
     if (prefersReducedMotion()) return;
     
@@ -34,12 +34,12 @@ export function animateFacilities() {
         }
     });
 
-    tl.from(slider, {
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out"
-    });
+    // tl.from(slider, {
+    //     x: -100,
+    //     opacity: 0,
+    //     duration: 1,
+    //     ease: "power3.out"
+    // });
 
     tl.from(title, {
         y: 50,
