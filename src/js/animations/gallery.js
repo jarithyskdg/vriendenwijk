@@ -34,7 +34,8 @@ export function initGalleryFlip() {
                     start: "center center",
                     end: "+=100%",
                     scrub: true,
-                    pin: galleryElement.parentNode
+                    pin: galleryElement.parentNode,
+                    pinSpacing: true,
                     // markers: true
                 }
             });
