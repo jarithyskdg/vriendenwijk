@@ -16,8 +16,8 @@ export function animateQuote() {
     // Start state (collapsed/squashed)
     gsap.set(container, {
         transformOrigin: "50% 50%",
-        scaleX: 0.85,
-        scaleY: 0.85,
+        scaleX: 0.5,
+        scaleY: 1,
         autoAlpha: 0,
         y: 20
     });
@@ -33,7 +33,7 @@ export function animateQuote() {
         y: 0,
         scaleX: 1,
         scaleY: 1,
-        duration: 1.25,
+        duration: 1.5,
         ease: "elastic(1, 0.35)"
     });
 }
