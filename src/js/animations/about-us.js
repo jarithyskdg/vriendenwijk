@@ -9,76 +9,69 @@ export function animateAboutUs() {
     const section = document.querySelector("#about-us");
     if (!section) return;
 
-    const items = section.querySelectorAll(".about-us__item");
+    const items = Array.from(section.querySelectorAll(".about-us__item"));
     const cta = section.querySelector(".about-us__cta");
 
     if (!items.length || !cta) return;
-
     if (prefersReducedMotion()) return;
 
-    // ✅ Normal animation flow
     const breakpoint = getCurrentBreakpoint();
 
-    const scrollTriggerSettings = {
-        trigger: section,
-        start: breakpoint === "mobile" ? "top 75%" : "25% 85%",
-        end: breakpoint === "mobile" ? "center 40%" : "center center",
-        toggleActions: "play none none reverse",
-        scrub: 1,
-        markers: false
-    };
-
     const tl = gsap.timeline({
-        scrollTrigger: scrollTriggerSettings
+        scrollTrigger: {
+            trigger: section,
+            start: breakpoint === "mobile" ? "top 75%" : "25% 85%",
+            end: breakpoint === "mobile" ? "center 40%" : "center center",
+            toggleActions: "play none none reverse",
+            markers: false
+        }
     });
 
-    const itemArray = Array.from(items);
-    if (breakpoint === "desktop") {
-        gsap.utils.shuffle(itemArray);
-    }
+    // if (breakpoint === "desktop") gsap.utils.shuffle(items);
 
-    itemArray.forEach((item, index) => {
-        const icon = item.querySelector(".about-us__item__icon");
-        const title = item.querySelector(".about-us__item__title");
-        const text = item.querySelector(".about-us__item__text");
-
-        const itemTL = gsap.timeline();
-
-        itemTL.from(item, {
-            backgroundColor: "rgba(255, 255, 255, 0)",
-            boxShadow: "0 1px 10px 0 rgba(0, 0, 0, 0)",
-            duration: 0.6,
-            ease: "power1.out"
-        });
-
-        itemTL.from(icon, {
-            y: breakpoint === "mobile" ? -50 : -80,
-            autoAlpha: 0,
-            duration: breakpoint === "mobile" ? 0.6 : 0.8,
-            ease: breakpoint === "desktop" ? "bounce.out" : "power3.out"
-        }, "-=0.4");
-
-        itemTL.from(title, {
-            scale: 0,
-            autoAlpha: 0,
-            duration: 0.6,
-            ease: "back.out(1.7)"
-        }, "-=0.4");
-
-        itemTL.from(text, {
-            y: 30,
-            autoAlpha: 0,
-            duration: 0.6,
-            ease: "power2.out"
-        }, "-=0.3");
-
-        tl.add(itemTL, index * 0.4);
+    
+    tl.from(items, {
+        autoAlpha: 0,
+        y: 24,
+        scale: 0.85,
+        duration: 0.45,
+        ease: "power2.out",
+        stagger: 0.2,
+        clearProps: "transform"
     });
+
+    const icons = items.map(i => i.querySelector(".about-us__item__icon")).filter(Boolean);
+    const titles = items.map(i => i.querySelector(".about-us__item__title")).filter(Boolean);
+    const texts = items.map(i => i.querySelector(".about-us__item__text")).filter(Boolean);
+
+    tl.from(icons, {
+        y: breakpoint === "mobile" ? -16 : -22,
+        autoAlpha: 0,
+        duration: 0.35,
+        ease: "power2.out",
+        stagger: 0.12
+    }, "-=0.35");
+
+    tl.from(titles, {
+        y: 10,
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        stagger: 0.12
+    }, "-=0.30");
+
+    tl.from(texts, {
+        y: 10,
+        autoAlpha: 0,
+        duration: 0.3,
+        ease: "power2.out",
+        stagger: 0.12
+    }, "-=0.55");
 
     tl.from(cta, {
-        y: 80,
+        y: 24,
         autoAlpha: 0,
-        duration: 0.8,
-        ease: "power3.out"
-    }, "-=0.3");
+        duration: 0.4,
+        ease: "power2.out"
+    }, "-=0.15");
 }
