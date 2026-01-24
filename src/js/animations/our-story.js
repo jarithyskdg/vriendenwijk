@@ -26,30 +26,30 @@ export function animateOurStory() {
             start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
             end: "center center",
             toggleActions: "play none none reverse",
-            scrub: 1,
+            // scrub: 1,
             markers: false
         }
     });
 
     tl.from(logo, {
-        y: -30,
+        y: -50,
         autoAlpha: 0,
         duration: 0.6,
         ease: "power2.out"
     });
 
     tl.from(title, {
-        y: 30,
+        y: -50,
         autoAlpha: 0,
         duration: 0.6,
         ease: "power2.out"
-    }, "-=0.3");
+    }, "-=0.35");
 
     paragraphs.forEach((p, i) => {
         tl.from(p, {
-            x: i % 2 === 0 ? -50 : 50,
+            x: i % 2 === 0 ? -100 : 100,
             autoAlpha: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: "power2.out"
         }, "-=0.4");
     });
