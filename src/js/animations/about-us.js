@@ -40,7 +40,7 @@ export function animateAboutUs() {
     const titles = items.map(i => i.querySelector(".about-us__item__title")).filter(Boolean);
     const textEls = items.map(i => i.querySelector(".about-us__item__text")).filter(Boolean);
 
-    // Split texts into lines (masked)
+    // Split texts into lines
     const textSplits = textEls.map(el => {
         const split = new SplitText(el, {
             type: "lines",
@@ -51,12 +51,12 @@ export function animateAboutUs() {
         return split;
     });
 
-    // Set all lines to hidden start state (for every card)
+    // Set all lines to hidden start state
     textSplits.forEach(split => {
         gsap.set(split.lines, { yPercent: 120, autoAlpha: 1 });
     });
 
-    // 1) Cards (together)
+    // Cards
     tl.from(items, {
         autoAlpha: 0,
         y: 24,
@@ -66,7 +66,7 @@ export function animateAboutUs() {
         clearProps: "transform"
     });
 
-    // 2) Icons (together)
+    // Icons
     tl.from(icons, {
         y: breakpoint === "mobile" ? -16 : -22,
         autoAlpha: 0,
@@ -74,7 +74,7 @@ export function animateAboutUs() {
         ease: "power2.out"
     }, ">-0.1");
 
-    // 3) Titles (together)
+    // Titles
     tl.from(titles, {
         y: 10,
         autoAlpha: 0,
@@ -82,7 +82,7 @@ export function animateAboutUs() {
         ease: "power2.out"
     }, ">-0.1");
 
-    // 4) Texts: all cards start together, each text has staggered lines
+    // Texts: cards start together, text has staggered lines
     tl.addLabel("textStart", ">-0.05");
 
     textSplits.forEach((split) => {
@@ -91,14 +91,14 @@ export function animateAboutUs() {
             {
                 yPercent: 0,
                 duration: 0.45,
-                ease: "power2.out",
+                ease: "expo.out",
                 stagger: 0.06
             },
             "textStart"
         );
     });
 
-    // 5) CTA
+    // CTA
     tl.from(cta, {
         y: 24,
         autoAlpha: 0,
@@ -106,7 +106,7 @@ export function animateAboutUs() {
         ease: "power2.out"
     }, ">-0.05");
 
-    // Accent flash (tweak timing as desired)
+    // Accent flash
     tl.addLabel("accentFlash", ">");
 
     items.forEach((item) => {
