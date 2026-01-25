@@ -16,8 +16,8 @@ export default async function initDetailPage() {
 
     await renderDetail();
 
-    initSlider();
     animateDetail();
+    initSlider();
     detailContentSwitcher();
     magneticButtonEffect();
 }
