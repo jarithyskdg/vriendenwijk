@@ -11,6 +11,10 @@ export function animateFacilities() {
     if (!section) return;
 
     // const slider = section.querySelector(".faciliteiten__slider .slider");
+    const content = section.querySelector(".faciliteiten__content");
+    
+    if (!content) return;
+
     const title = section.querySelector(".faciliteiten__content__title");
     const firstParagraph = section.querySelectorAll(".faciliteiten__content__text--first");
     const lastParagraph = section.querySelectorAll(".faciliteiten__content__text--last");
@@ -25,41 +29,34 @@ export function animateFacilities() {
 
     const tl = gsap.timeline({
         scrollTrigger: {
-            trigger: section,
+            trigger: content,
             start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
             end: breakpoint === "mobile" ? "center 40%" : "center center",
             toggleActions: "play none none reverse",
-            scrub: 1,
+            // scrub: 1,
             markers: false
         }
     });
-
-    // tl.from(slider, {
-    //     x: -100,
-    //     opacity: 0,
-    //     duration: 1,
-    //     ease: "power3.out"
-    // });
 
     tl.from(title, {
         y: 50,
         opacity: 0,
         duration: 0.8,
         ease: "power3.out"
-    }, "-=0.6");
+    });
 
     tl.from(firstParagraph, {
         y: 30,
         opacity: 0,
         duration: 0.6,
         ease: "power2.out",
-        stagger: 0.2
+        // stagger: 0.2
     }, "-=0.5");
 
     tl.from(listItems, {
         x: 50,
         opacity: 0,
-        duration: 0.5,
+        duration: 0.6,
         ease: "power2.out",
         stagger: 0.15
     }, "-=0.4");
@@ -69,8 +66,8 @@ export function animateFacilities() {
         opacity: 0,
         duration: 0.6,
         ease: "power2.out",
-        stagger: 0.2
-    }, "-=0.5");
+        // stagger: 0.2
+    }, "-=0.4");
 
     tl.from(cta, {
         scale: 0.9,
