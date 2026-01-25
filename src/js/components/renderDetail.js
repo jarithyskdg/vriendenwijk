@@ -12,6 +12,8 @@ function getDetailIdFromUrl() {
 }
 
 function findCardById(data, id) {
+    if (!id) return null;
+
     for (const region of Object.values(data)) {
         for (const card of region.cards ?? []) {
             if (card.id === id) return card;
@@ -27,33 +29,41 @@ export async function renderDetail() {
     try {
         const id = getDetailIdFromUrl();
 
-        // If someone visits detail.html directly without an id
-        if (!id) {
-            console.warn("No id provided in URL (detail.html?id=...)");
-            return;
-        }
-
         const res = await fetch("/src/data/vriendenwijken.json");
         if (!res.ok) throw new Error("Failed to load vriendenwijken.json");
         const data = await res.json();
 
+        const defaults = data.defaultDetail ?? {};
+
         const card = findCardById(data, id);
-        if (!card) {
-            console.warn(`No card found for id="${id}"`);
-            return;
+
+        if (id && !card) {
+            console.warn(`No card found for id="${id}", falling back to defaultDetail`);
         }
 
+        if (!id) {
+            console.warn("No id provided in URL (detail.html?id=...), using defaultDetail");
+        }
+
+        // Merge: card overrides defaults
+        const model = {
+            title: card?.title ?? defaults.title ?? "Vriendenwijk",
+            description: card?.description ?? defaults.description ?? "",
+            mapEmbedUrl: card?.mapEmbedUrl ?? defaults.mapEmbedUrl ?? "",
+            detailsInfoValues: card?.detailsInfoValues ?? defaults.detailsInfoValues ?? ["4", "... - ... m²", "... m²", "... m²", "6", "... m²"],
+        };
+
         // 1) Page <title> + H1 title
-        document.title = card.title;
+        document.title = model.title;
 
         const titleEl = document.querySelector(".detail__content__title");
-        if (titleEl) titleEl.textContent = card.title;
+        if (titleEl) titleEl.textContent = model.title;
 
         // 2) Description section (dynamic)
         const descriptionEl = document.querySelector("#description");
         if (descriptionEl) {
             const description =
-                card.description ??
+                model.description ||
                 "Een woonvorm waarbij privacy en gemeenschap in balans worden gebracht. Iedere inwoner heeft een eigen volledig uitgeruste privé woonplek en deelt daarnaast heel wat faciliteiten met elkaar. Op deze manier wordt een gemeenschap gecreëerd. Bij Vriendenwijk ligt vriendschap aan het ontstaan.";
 
             descriptionEl.innerHTML = `<p>${description}</p>`;
@@ -86,20 +96,18 @@ export async function renderDetail() {
             );
         }
 
-        // 4) Details info cards (same values for now)
+        // 4) Details info cards
         const detailInfoPs = document.querySelectorAll(".card--details__info p");
         if (detailInfoPs.length) {
-            const values = ["4", "... - ... m²", "... m²", "... m²", "6", "... m²"];
-
             detailInfoPs.forEach((p, i) => {
-                p.innerHTML = values[i] ?? p.innerHTML;
+                p.innerHTML = model.detailsInfoValues[i] ?? p.innerHTML;
             });
         }
 
-        // 5) Location iframe
+        // 5) Location iframe (fallback: keep whatever is in HTML if model has no URL)
         const iframe = document.querySelector("#location iframe");
-        if (iframe && card.mapEmbedUrl) {
-            iframe.src = card.mapEmbedUrl;
+        if (iframe && model.mapEmbedUrl) {
+            iframe.src = model.mapEmbedUrl;
         }
     } finally {
         // Always end loading state (even if id/card is missing or fetch fails)
