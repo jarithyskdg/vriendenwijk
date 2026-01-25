@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger, Flip);
 let flipCtx;
 
 export function initGalleryFlip() {
-    const galleryElement = document.querySelector("#gallery-8");
+    const galleryElement = document.querySelector("#gallery");
     if (!galleryElement) return;
 
     const galleryItems = galleryElement.querySelectorAll(".gallery__item");
