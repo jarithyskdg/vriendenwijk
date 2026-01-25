@@ -19,7 +19,10 @@ export async function renderCards() {
                 clone.querySelector(".card__img").src = card.image;
                 clone.querySelector(".card__img").alt = card.alt;
                 clone.querySelector(".detail-link-title").textContent = card.title;
-                clone.querySelector(".card__link").href = card.link;
+
+                // CHANGED: link to detail page with id param
+                clone.querySelector(".card__link").href = `detail.html?id=${encodeURIComponent(card.id)}`;
+
                 clone.querySelector(".card__address").innerHTML = `<strong>Adres:</strong> ${card.address}`;
 
                 const featuresList = clone.querySelector(".card__features");
@@ -32,8 +35,7 @@ export async function renderCards() {
                 container.appendChild(clone);
             });
         });
-
-    } catch (error) {
-        console.error("Error rendering cards:", error);
+    } catch (err) {
+        console.error(err);
     }
 }

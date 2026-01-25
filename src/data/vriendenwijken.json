@@ -1,162 +1,246 @@
 {
+  "defaultDetail": {
+    "title": "Mijn Vriendenwijk",
+    "description": "Een woonvorm waarbij privacy en gemeenschap in balans worden gebracht. Iedere inwoner heeft een eigen volledig uitgeruste privé woonplek en deelt daarnaast heel wat faciliteiten met elkaar. Op deze manier wordt een gemeenschap gecreëerd. Bij Vriendenwijk ligt vriendschap aan het ontstaan.",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2498.307746946365!2d4.400610977536385!3d51.231826930796295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3f65adf1960ef%3A0x32b2e622160ca177!2sRijnkaai%2031%2C%202000%20Antwerpen!5e0!3m2!1snl!2sbe!4v1763824739571!5m2!1snl!2sbe",
+    "detailsInfoValues": [
+      "4",
+      "... - ... m²",
+      "... m²",
+      "... m²",
+      "6",
+      "... m²"
+    ]
+  },
+  
   "antwerpen": {
     "title": "Antwerpen",
     "cards": [
       {
+        "id": "de-meir",
         "title": "De Meir",
         "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Antwerpen 1",
         "address": "Keyserlei 19",
-        "features": ["goede ligging", "winkelgelegenheden", "openbaar vervoer"],
-        "link": "detail.html"
+        "features": [
+          "goede ligging",
+          "winkelgelegenheden",
+          "openbaar vervoer"
+        ]
       },
       {
+        "id": "het-eilandje",
         "title": "Het Eilandje",
         "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Antwerpen 2",
         "address": "Rijnkaai 31",
-        "features": ["waterzicht", "horeca", "tramverbinding"],
-        "link": "detail.html"
+        "features": [
+          "waterzicht",
+          "horeca",
+          "tramverbinding"
+        ]
       },
       {
+        "id": "zuid",
         "title": "Zuid",
         "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Antwerpen 3",
         "address": "Amerikalei 102",
-        "features": ["cultureel", "groene lanen", "fietsverbindingen"],
-        "link": "detail.html"
+        "features": [
+          "cultureel",
+          "groene lanen",
+          "fietsverbindingen"
+        ]
       },
       {
+        "id": "berchem",
         "title": "Berchem",
         "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Antwerpen 4",
         "address": "Statiestraat 44",
-        "features": ["station nabij", "winkels", "park"],
-        "link": "detail.html"
+        "features": [
+          "station nabij",
+          "winkels",
+          "park"
+        ]
       },
       {
+        "id": "borgerhout",
         "title": "Borgerhout",
         "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Antwerpen 5",
         "address": "Turnhoutsebaan 210",
-        "features": ["diverse buurt", "markten", "OV"],
-        "link": "detail.html"
+        "features": [
+          "diverse buurt",
+          "markten",
+          "OV"
+        ]
       },
       {
+        "id": "wilrijk",
         "title": "Wilrijk",
         "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Antwerpen 6",
         "address": "Bist 12",
-        "features": ["rustig", "groen", "familievriendelijk"],
-        "link": "detail.html"
+        "features": [
+          "rustig",
+          "groen",
+          "familievriendelijk"
+        ]
       }
     ]
   },
-
   "leuven": {
     "title": "Leuven",
     "cards": [
       {
+        "id": "heverlee",
         "title": "Heverlee",
         "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Leuven 1",
         "address": "Naamsesteenweg 120",
-        "features": ["campus", "groene omgeving", "fietswegen"],
-        "link": "detail.html"
+        "features": [
+          "campus",
+          "groene omgeving",
+          "fietswegen"
+        ]
       },
       {
+        "id": "kessel-lo",
         "title": "Kessel-Lo",
         "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Leuven 2",
         "address": "Diestsesteenweg 88",
-        "features": ["station", "park Belle Vue", "winkels"],
-        "link": "detail.html"
+        "features": [
+          "station",
+          "park Belle Vue",
+          "winkels"
+        ]
       },
       {
+        "id": "leuven-binnenstad",
         "title": "Binnenstad",
         "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Leuven 3",
         "address": "Bondgenotenlaan 54",
-        "features": ["historisch", "horeca", "OV"],
-        "link": "detail.html"
+        "features": [
+          "historisch",
+          "horeca",
+          "OV"
+        ]
       },
       {
+        "id": "wilsele",
         "title": "Wilsele",
         "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Leuven 4",
         "address": "Aarschotsesteenweg 310",
-        "features": ["rustig", "kanaal", "fietsroute"],
-        "link": "detail.html"
+        "features": [
+          "rustig",
+          "kanaal",
+          "fietsroute"
+        ]
       },
       {
+        "id": "wijgmaal",
         "title": "Wijgmaal",
         "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Leuven 5",
         "address": "Remylaan 6",
-        "features": ["dorpsgevoel", "trein", "groen"],
-        "link": "detail.html"
+        "features": [
+          "dorpsgevoel",
+          "trein",
+          "groen"
+        ]
       },
       {
+        "id": "korbeek-lo",
         "title": "Korbeek-Lo",
         "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Leuven 6",
         "address": "Tiensesteenweg 210",
-        "features": ["residentieel", "stil", "nabij centrum"],
-        "link": "detail.html"
+        "features": [
+          "residentieel",
+          "stil",
+          "nabij centrum"
+        ]
       }
     ]
   },
-
   "mechelen": {
     "title": "Mechelen",
     "cards": [
       {
+        "id": "mechelen-binnenstad",
         "title": "Binnenstad",
         "image": "/src/img/wijk-1.jpg",
         "alt": "Vriendenwijk Mechelen 1",
         "address": "Ijzerenleen 45",
-        "features": ["historisch", "winkels", "horeca"],
-        "link": "detail.html"
+        "features": [
+          "historisch",
+          "winkels",
+          "horeca"
+        ]
       },
       {
+        "id": "nekkerspoel",
         "title": "Nekkerspoel",
         "image": "/src/img/wijk-2.jpg",
         "alt": "Vriendenwijk Mechelen 2",
         "address": "Hanswijkvaart 18",
-        "features": ["station", "OV", "nabij centrum"],
-        "link": "detail.html"
+        "features": [
+          "station",
+          "OV",
+          "nabij centrum"
+        ]
       },
       {
+        "id": "muizen",
         "title": "Muizen",
         "image": "/src/img/wijk-3.jpg",
         "alt": "Vriendenwijk Mechelen 3",
         "address": "Leuvensesteenweg 390",
-        "features": ["dorpskern", "groen", "rustig"],
-        "link": "detail.html"
+        "features": [
+          "dorpskern",
+          "groen",
+          "rustig"
+        ]
       },
       {
+        "id": "hombeek",
         "title": "Hombeek",
         "image": "/src/img/wijk-4.jpg",
         "alt": "Vriendenwijk Mechelen 4",
         "address": "Dorpsstraat 62",
-        "features": ["familievriendelijk", "school", "park"],
-        "link": "detail.html"
+        "features": [
+          "familievriendelijk",
+          "school",
+          "park"
+        ]
       },
       {
+        "id": "battel",
         "title": "Battel",
         "image": "/src/img/wijk-5.jpg",
         "alt": "Vriendenwijk Mechelen 5",
         "address": "Battelsesteenweg 140",
-        "features": ["kanaal", "fietspad", "rust"],
-        "link": "detail.html"
+        "features": [
+          "kanaal",
+          "fietspad",
+          "rust"
+        ]
       },
       {
+        "id": "leest",
         "title": "Leest",
         "image": "/src/img/wijk-6.jpg",
         "alt": "Vriendenwijk Mechelen 6",
         "address": "Dorp 9",
-        "features": ["landelijk", "stil", "gemeenschapsgevoel"],
-        "link": "detail.html"
+        "features": [
+          "landelijk",
+          "stil",
+          "gemeenschapsgevoel"
+        ]
       }
     ]
   }

@@ -15,10 +15,10 @@
     <noscript>
         <link rel="stylesheet" href="/rsc/css/detail.scss">
     </noscript>
-    <title>[Vriendenwijk naam]</title>
+    <title>Vriendenwijk</title>
 </head>
 
-<body data-page="detail">
+<body data-page="detail" class="is-loading-detail">
     <svg class="cursor-trail"></svg>
 
     <div class="menu-overlay" aria-hidden="true"></div>
@@ -83,6 +83,41 @@
                         Terug
                     </span>
                 </a>
+
+                <!-- Skeleton shown while JSON loads -->
+                <div class="detail-skeleton" aria-hidden="true">
+                    <div class="detail-skeleton__grid">
+                        <div class="detail-skeleton__slider"></div>
+
+                        <div class="detail-skeleton__content">
+                            <div class="detail-skeleton__title"></div>
+
+                            <div class="detail-skeleton__buttons">
+                                <div class="detail-skeleton__pill"></div>
+                                <div class="detail-skeleton__pill"></div>
+                                <div class="detail-skeleton__pill"></div>
+                            </div>
+
+                            <div class="detail-skeleton__paragraph">
+                                <div class="line w-100"></div>
+                                <div class="line w-90"></div>
+                                <div class="line w-95"></div>
+                                <div class="line w-70"></div>
+                            </div>
+
+                            <div class="detail-skeleton__cards">
+                                <div class="detail-skeleton__card"></div>
+                                <div class="detail-skeleton__card"></div>
+                                <div class="detail-skeleton__card"></div>
+                                <div class="detail-skeleton__card"></div>
+                                <div class="detail-skeleton__card"></div>
+                                <div class="detail-skeleton__card"></div>
+                            </div>
+
+                            <div class="detail-skeleton__map"></div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="detail__container container">
                     <div class="detail__slider">

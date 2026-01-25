@@ -149,3 +149,124 @@
         }
     }
 }
+
+/* Loading state toggle */
+body.is-loading-detail .detail__container {
+  display: none;
+}
+
+body:not(.is-loading-detail) .detail-skeleton {
+  display: none;
+}
+
+/* Skeleton layout */
+.detail-skeleton {
+  width: 100%;
+}
+
+.detail-skeleton__grid {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+
+  /* roughly matches your layout: slider left-ish and content right-ish */
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .detail-skeleton__grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.detail-skeleton__slider,
+.detail-skeleton__title,
+.detail-skeleton__pill,
+.detail-skeleton__card,
+.detail-skeleton__map,
+.detail-skeleton__paragraph .line {
+  border-radius: 12px;
+  background: $lightGrey;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer */
+.detail-skeleton__slider::after,
+.detail-skeleton__title::after,
+.detail-skeleton__pill::after,
+.detail-skeleton__card::after,
+.detail-skeleton__map::after,
+.detail-skeleton__paragraph .line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    rgba(233, 230, 223, 0) 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    rgba(233, 230, 223, 0) 100%
+  );
+  animation: skeleton-shimmer 1.2s infinite;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Sizes */
+.detail-skeleton__slider {
+  height: 420px;
+}
+
+.detail-skeleton__content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.detail-skeleton__title {
+  height: 42px;
+  width: 70%;
+}
+
+.detail-skeleton__buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.detail-skeleton__pill {
+  height: 40px;
+  width: 140px;
+  border-radius: 999px;
+}
+
+.detail-skeleton__paragraph .line {
+  height: 14px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.detail-skeleton__paragraph .w-100 { width: 100%; }
+.detail-skeleton__paragraph .w-95  { width: 95%; }
+.detail-skeleton__paragraph .w-90  { width: 90%; }
+.detail-skeleton__paragraph .w-70  { width: 70%; }
+
+.detail-skeleton__cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.detail-skeleton__card {
+  height: 92px;
+}
+
+.detail-skeleton__map {
+  height: 260px;
+}
