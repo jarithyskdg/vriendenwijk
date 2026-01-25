@@ -26,11 +26,11 @@ export async function animateCohousing() {
     const tl = gsap.timeline({
         scrollTrigger: {
             trigger: section,
-            start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
+            start: breakpoint === "mobile" ? "top 75%" : "top center",
             end: "center center",
             toggleActions: "play none none reverse",
-            scrub: 1,
-            markers: false
+            // scrub: 1,
+            markers: true
         }
     });
 
@@ -38,7 +38,7 @@ export async function animateCohousing() {
         y: 50,
         rotation: "random(-80, 80)",
         autoAlpha: 0,
-        duration: 2,
+        duration: 0.8,
         ease: "power3.out",
         stagger: 0.1
     });
@@ -46,15 +46,15 @@ export async function animateCohousing() {
     tl.from(splitText.lines, {
         y: 100,
         autoAlpha: 0,
-        duration: 3,
+        duration: 0.8,
         ease: "power3.out",
-        stagger: 1
-    }, "+=0.3");
+        stagger: 0.15
+    }, "-=0.3");
 
     tl.from(cta, {
         scale: 0.8,
         autoAlpha: 0,
-        duration: 2,
+        duration: 0.8,
         ease: "power3.out",
     }, "-=0.3");
 }
