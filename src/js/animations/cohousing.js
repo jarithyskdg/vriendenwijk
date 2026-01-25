@@ -30,7 +30,7 @@ export async function animateCohousing() {
             end: "center center",
             toggleActions: "play none none reverse",
             // scrub: 1,
-            markers: true
+            // markers: true
         }
     });
 
