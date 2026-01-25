@@ -125,12 +125,7 @@ export function animateAboutUs() {
         tl.to(
             split.chars,
             {
-                stagger: {
-                    each: 0.02,
-                    onStart() {
-                        gsap.set(this.targets()[0], { color: gsap.utils.wrap(colors, this.index) });
-                    }
-                },
+                stagger: 0.02,
                 keyframes: [
                     { color: (i) => gsap.utils.wrap(colors, i), duration: 0.12, ease: "none" },
                     { color: "#000000", duration: 0.2, ease: "none" }
