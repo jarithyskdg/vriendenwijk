@@ -7,12 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function animateFacilities() {
     const section = document.querySelector("#faciliteiten");
+    const gallery = document.querySelector("#gallery");
 
     if (!section) return;
 
     // const slider = section.querySelector(".faciliteiten__slider .slider");
     const content = section.querySelector(".faciliteiten__content");
-    
+
     if (!content) return;
 
     const title = section.querySelector(".faciliteiten__content__title");
@@ -24,12 +25,12 @@ export function animateFacilities() {
     if (!title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
 
     if (prefersReducedMotion()) return;
-    
+
     const breakpoint = getCurrentBreakpoint();
 
     const tl = gsap.timeline({
         scrollTrigger: {
-            trigger: content,
+            trigger: gallery,
             start: breakpoint === "mobile" ? "top 75%" : "20% 85%",
             end: breakpoint === "mobile" ? "center 40%" : "center center",
             toggleActions: "play none none reverse",
@@ -49,8 +50,7 @@ export function animateFacilities() {
         y: 30,
         opacity: 0,
         duration: 0.6,
-        ease: "power2.out",
-        // stagger: 0.2
+        ease: "power2.out"
     }, "-=0.5");
 
     tl.from(listItems, {
@@ -65,8 +65,7 @@ export function animateFacilities() {
         y: 30,
         opacity: 0,
         duration: 0.6,
-        ease: "power2.out",
-        // stagger: 0.2
+        ease: "power2.out"
     }, "-=0.4");
 
     tl.from(cta, {

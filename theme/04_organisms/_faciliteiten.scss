@@ -28,11 +28,12 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                margin: auto;
+                gap: 64px;
             }
 
             &__title {
                 width: fit-content;
-                margin-bottom: 32px;
             }
 
             &__body {
@@ -40,7 +41,6 @@
                 display: flex;
                 flex-direction: column;
                 gap: 32px;
-                margin-bottom: 48px;
                 @include text--md;
 
                 .faciliteiten__list {
@@ -84,13 +84,8 @@
                     align-items: center;
                 }
 
-                &__title {
-                    margin-bottom: 64px;
-                }
-
                 &__body {
                     width: 85%;
-                    margin-bottom: 64px;
                 }
             }
         }

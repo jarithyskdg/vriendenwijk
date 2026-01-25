@@ -1,3 +1,5 @@
+@use "../00_common/mixins" as *;
+
 .gallery-wrapper {
     position: relative;
     width: 100%;
@@ -76,5 +78,41 @@
             grid-template-rows: repeat(4, 49.5vh);
             gap: 1vh;
         }
+    }
+}
+
+/* Overlay panel for facilities content */
+#faciliteiten {
+    .faciliteiten__content {
+        position: absolute;
+        left: 5vw;
+        right: 5vw;
+        z-index: 5;
+
+        max-width: 90vw;
+        margin: 0 auto;
+
+        background: rgba(230, 230, 230, 0.95);
+
+        /* Hidden by default; revealed by GSAP at the end */
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(16px);
+
+        @include respond-to(tablet) {
+            max-width: 85vw;
+        }
+
+        @media screen and (min-width: 1200px) {
+            max-width: 60vw;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #faciliteiten .faciliteiten__content {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
     }
 }
