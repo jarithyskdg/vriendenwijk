@@ -33,7 +33,7 @@ export function animateQuote() {
         y: 0,
         scaleX: 1,
         scaleY: 1,
-        duration: 1.5,
-        ease: "elastic(1, 0.35)"
+        duration: 0.8,
+        ease: "expo.out"
     });
 }
