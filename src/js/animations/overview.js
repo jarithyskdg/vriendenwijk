@@ -49,16 +49,16 @@ export function animateOverviewSections() {
     if (!sections.length) return;
 
     sections.forEach((divider, index) => {
-
         const isFirst = index === 0;
 
         const [lineLeft, lineRight] = divider.querySelectorAll(".divider__line");
         const title = divider.querySelector(".divider__title");
 
-        // CARD SECTION = divider's immediate next sibling
-        const cardSection = divider.nextElementSibling?.classList.contains("overview__cards")
-            ? divider.nextElementSibling
-            : null;
+        // CHANGED: find the next sibling with .overview__cards (skip divider-skeleton etc.)
+        let cardSection = divider.nextElementSibling;
+        while (cardSection && !cardSection.classList.contains("overview__cards")) {
+            cardSection = cardSection.nextElementSibling;
+        }
 
         // CARDS
         const cards = cardSection
@@ -99,12 +99,10 @@ export function animateOverviewSections() {
             }
         });
 
-        // Delay only on first section
         if (isFirst) {
             tl.to({}, { duration: 0.5 });
         }
 
-        // Divider title
         tl.from(title, {
             autoAlpha: 0,
             y: 10,
@@ -112,7 +110,6 @@ export function animateOverviewSections() {
             ease: "power1.out"
         });
 
-        // Divider lines outward
         tl.to([lineLeft, lineRight], {
             scaleX: 1,
             autoAlpha: 1,
@@ -120,7 +117,6 @@ export function animateOverviewSections() {
             ease: "power1.out"
         }, "-=0.1");
 
-        // Cards
         if (cards.length) {
             tl.to(cards, {
                 autoAlpha: 1,
@@ -131,7 +127,6 @@ export function animateOverviewSections() {
             });
         }
 
-        // Show more link
         if (showMore) {
             tl.to(showMore, {
                 autoAlpha: 1,
