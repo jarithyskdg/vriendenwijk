@@ -1,4 +1,5 @@
 import { startLoadingTimer, finishLoading } from "@/js/helpers/loadingTransition.js";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export async function renderCards() {
     const template = document.querySelector("#overview-card-template");
@@ -20,11 +21,8 @@ export async function renderCards() {
             const container = document.getElementById(`cards-${regionKey}`);
             if (!container || !regionData?.cards) return;
 
-            // Keep existing skeletons for now (so they can fade out).
-            // Just remove any previous real cards if this can run multiple times.
             container.querySelectorAll(".card--overview").forEach(el => el.remove());
 
-            // Build cards in a fragment
             const frag = document.createDocumentFragment();
 
             regionData.cards.forEach(card => {
@@ -52,7 +50,6 @@ export async function renderCards() {
             container.appendChild(frag);
         });
 
-        // Wait for images so layout doesn't shift during the fade
         await Promise.all(
             createdImgs.map(img =>
                 img.complete
@@ -64,17 +61,25 @@ export async function renderCards() {
             )
         );
 
-        // Remove loading class with minimum duration (enables CSS cross-fade)
-        finishLoading("is-loading-overview", 350);
+        // Wait until loading class is actually removed (so layout reflects final visibility)
+        await finishLoading("is-loading-overview", 350);
 
-        // After the fade-out completes, remove skeleton nodes from DOM (cleanup)
-        window.setTimeout(() => {
-            document.querySelectorAll(".overview-skeleton__card, .divider-skeleton").forEach(el => el.remove());
-        }, Math.max(350, skeletonFadeMs) + 50);
+        // Wait for the fade to complete, then remove skeleton nodes
+        await new Promise(resolve => {
+            window.setTimeout(() => {
+                document
+                    .querySelectorAll(".overview-skeleton__header, .overview-skeleton__card, .divider-skeleton")
+                    .forEach(el => el.remove());
+                resolve();
+            }, skeletonFadeMs + 50);
+        });
+
+        // Now that DOM/layout is final, refresh ScrollTrigger measurements
+        ScrollTrigger.refresh();
 
     } catch (err) {
         console.error(err);
-        // If it fails, at least stop loading so user isn't stuck
-        finishLoading("is-loading-overview", 350);
+        await finishLoading("is-loading-overview", 350);
+        ScrollTrigger.refresh();
     }
 }

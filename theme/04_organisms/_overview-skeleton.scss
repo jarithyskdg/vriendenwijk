@@ -12,6 +12,7 @@ $fade-ease: ease;
 /* Base states:
    overview.html starts with body.is-loading-overview
 */
+.overview-skeleton__header,
 .overview-skeleton__card,
 .divider-skeleton {
     opacity: 1;
@@ -19,6 +20,11 @@ $fade-ease: ease;
     transition: opacity $fade-duration $fade-ease, visibility $fade-duration $fade-ease;
 }
 
+/* IMPORTANT:
+   Don't hide .overview__header itself because the skeleton header lives inside it.
+   Only hide the REAL title and the rest of the real content.
+*/
+.overview__title,
 .card--overview,
 .divider,
 a.link {
@@ -27,9 +33,25 @@ a.link {
     transition: opacity $fade-duration $fade-ease, visibility $fade-duration $fade-ease;
 }
 
+/* ------------------------------------------
+   GSAP gate: prevent flash before gsap.set() runs
+------------------------------------------ */
+body.is-overview-animating {
+
+    .overview__title,
+    .card--overview,
+    .divider,
+    a.link {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+    }
+}
+
 /* While loading: keep real content non-interactive */
 body.is-loading-overview {
 
+    .overview__title,
     .card--overview,
     .divider,
     a.link {
@@ -40,6 +62,7 @@ body.is-loading-overview {
 /* When loading is done */
 body:not(.is-loading-overview) {
 
+    .overview-skeleton__header,
     .overview-skeleton__card,
     .divider-skeleton {
         opacity: 0;
@@ -47,6 +70,7 @@ body:not(.is-loading-overview) {
         pointer-events: none;
     }
 
+    .overview__title,
     .card--overview,
     .divider,
     a.link {
@@ -54,6 +78,19 @@ body:not(.is-loading-overview) {
         visibility: visible;
         pointer-events: auto;
     }
+}
+
+/* ------------------------------------------
+   Skeleton header (matches the overview title area)
+------------------------------------------ */
+.overview-skeleton__header {
+    width: min(520px, 85%);
+    height: 54px;
+    border-radius: 14px;
+    background: skeleton.$skeleton-bg;
+    margin: 0 auto 48px;
+    /* matches .overview__header spacing */
+    @include skeleton.skeleton-shimmer;
 }
 
 /* ------------------------------------------

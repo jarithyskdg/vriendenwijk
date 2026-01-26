@@ -7,7 +7,10 @@ export function finishLoading(className, minMs = 350) {
     const elapsed = Date.now() - startedAt;
     const remaining = Math.max(0, minMs - elapsed);
 
-    window.setTimeout(() => {
-        document.body.classList.remove(className);
-    }, remaining);
+    return new Promise(resolve => {
+        window.setTimeout(() => {
+            document.body.classList.remove(className);
+            resolve();
+        }, remaining);
+    });
 }
