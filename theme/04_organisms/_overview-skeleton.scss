@@ -1,22 +1,58 @@
 @use "../00_common/_skeleton.scss" as skeleton;
 
 /* ------------------------------------------
-   Loading state toggles
+   Loading state toggles (animated)
+   - Avoid display:none (not animatable)
+   - Cross-fade skeleton and content
 ------------------------------------------ */
+
+$fade-duration: 280ms;
+$fade-ease: ease;
+
+/* Base states:
+   overview.html starts with body.is-loading-overview
+*/
+.overview-skeleton__card,
+.divider-skeleton {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity $fade-duration $fade-ease, visibility $fade-duration $fade-ease;
+}
+
+.card--overview,
+.divider,
+a.link {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $fade-duration $fade-ease, visibility $fade-duration $fade-ease;
+}
+
+/* While loading: keep real content non-interactive */
 body.is-loading-overview {
 
     .card--overview,
     .divider,
     a.link {
-        display: none;
+        pointer-events: none;
     }
 }
 
+/* When loading is done */
 body:not(.is-loading-overview) {
 
     .overview-skeleton__card,
     .divider-skeleton {
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .card--overview,
+    .divider,
+    a.link {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 }
 
@@ -26,7 +62,6 @@ body:not(.is-loading-overview) {
 .overview-skeleton__card {
     width: 100%;
     min-height: 400px;
-    /* matches .card--overview min-height */
     border-radius: 14px;
     background: skeleton.$skeleton-bg;
 
@@ -42,7 +77,6 @@ body:not(.is-loading-overview) {
     border-radius: 14px;
     background: skeleton.$skeleton-bg;
 
-    /* match your divider spacing */
     margin: 32px 0 48px 0;
 
     @include skeleton.skeleton-shimmer;

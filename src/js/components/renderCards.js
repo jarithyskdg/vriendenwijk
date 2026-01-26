@@ -1,9 +1,11 @@
+import { startLoadingTimer, finishLoading } from "@/js/helpers/loadingTransition.js";
+
 export async function renderCards() {
     const template = document.querySelector("#overview-card-template");
     if (!template) return;
 
-    // start loading state (safe even if already in HTML)
     document.body.classList.add("is-loading-overview");
+    startLoadingTimer();
 
     try {
         const response = await fetch("/src/data/vriendenwijken.json");
@@ -11,16 +13,19 @@ export async function renderCards() {
 
         const data = await response.json();
 
-        // collect created <img> so we can wait for them
         const createdImgs = [];
+        const skeletonFadeMs = 280; // keep in sync with _overview-skeleton.scss
 
         Object.entries(data).forEach(([regionKey, regionData]) => {
-            // If you later add e.g. defaultDetail at top-level, it won't have a cards container.
             const container = document.getElementById(`cards-${regionKey}`);
             if (!container || !regionData?.cards) return;
 
-            // remove skeleton content
-            container.innerHTML = "";
+            // Keep existing skeletons for now (so they can fade out).
+            // Just remove any previous real cards if this can run multiple times.
+            container.querySelectorAll(".card--overview").forEach(el => el.remove());
+
+            // Build cards in a fragment
+            const frag = document.createDocumentFragment();
 
             regionData.cards.forEach(card => {
                 const clone = template.content.cloneNode(true);
@@ -41,11 +46,13 @@ export async function renderCards() {
                     featuresList.appendChild(li);
                 });
 
-                container.appendChild(clone);
+                frag.appendChild(clone);
             });
+
+            container.appendChild(frag);
         });
 
-        // OPTIONAL: wait for all card images to load before showing the real cards
+        // Wait for images so layout doesn't shift during the fade
         await Promise.all(
             createdImgs.map(img =>
                 img.complete
@@ -56,9 +63,18 @@ export async function renderCards() {
                     })
             )
         );
+
+        // Remove loading class with minimum duration (enables CSS cross-fade)
+        finishLoading("is-loading-overview", 350);
+
+        // After the fade-out completes, remove skeleton nodes from DOM (cleanup)
+        window.setTimeout(() => {
+            document.querySelectorAll(".overview-skeleton__card, .divider-skeleton").forEach(el => el.remove());
+        }, Math.max(350, skeletonFadeMs) + 50);
+
     } catch (err) {
         console.error(err);
-    } finally {
-        document.body.classList.remove("is-loading-overview");
+        // If it fails, at least stop loading so user isn't stuck
+        finishLoading("is-loading-overview", 350);
     }
 }
