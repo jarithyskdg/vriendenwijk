@@ -1,5 +1,8 @@
 @use "./_variables.scss" as *;
 
+/* shared base color */
+$skeleton-bg: $grey !default;
+
 /* Shared skeleton shimmer animation */
 @keyframes skeleton-shimmer {
     100% {
@@ -23,7 +26,13 @@
                 rgba(233, 230, 223, 0) 100%);
         animation: skeleton-shimmer 1.2s infinite;
     }
-}
 
-/* shared base color */
-$skeleton-bg: $grey !default;
+    /* Accessibility: disable shimmer when reduced motion is preferred */
+    @media (prefers-reduced-motion: reduce) {
+        &::after {
+            animation: none !important;
+            /* Optional: also remove the shimmer overlay entirely */
+            /* content: none; */
+        }
+    }
+}
