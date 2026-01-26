@@ -1,0 +1,29 @@
+@use "./_variables.scss" as *;
+
+/* Shared skeleton shimmer animation */
+@keyframes skeleton-shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Mixin so each skeleton block can opt-in */
+@mixin skeleton-shimmer {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg,
+                rgba(233, 230, 223, 0) 0%,
+                rgba(255, 255, 255, 0.55) 50%,
+                rgba(233, 230, 223, 0) 100%);
+        animation: skeleton-shimmer 1.2s infinite;
+    }
+}
+
+/* shared base color */
+$skeleton-bg: $lightGrey !default;

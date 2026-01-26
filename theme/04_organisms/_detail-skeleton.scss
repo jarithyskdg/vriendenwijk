@@ -1,0 +1,107 @@
+@use "../00_common/_skeleton.scss" as skeleton;
+
+/* Loading state toggle */
+body.is-loading-detail .detail__container {
+    display: none;
+}
+
+body:not(.is-loading-detail) .detail-skeleton {
+    display: none;
+}
+
+/* Skeleton layout */
+.detail-skeleton {
+    width: 100%;
+}
+
+.detail-skeleton__grid {
+    width: 100%;
+    display: grid;
+    gap: 24px;
+
+    /* roughly matches layout: slider left-ish and content right-ish */
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+    .detail-skeleton__grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.detail-skeleton__slider,
+.detail-skeleton__title,
+.detail-skeleton__pill,
+.detail-skeleton__card,
+.detail-skeleton__map,
+.detail-skeleton__paragraph .line {
+    border-radius: 12px;
+    background: skeleton.$skeleton-bg;
+
+    @include skeleton.skeleton-shimmer;
+}
+
+/* Sizes */
+.detail-skeleton__slider {
+    height: 420px;
+}
+
+.detail-skeleton__content {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.detail-skeleton__title {
+    height: 42px;
+    width: 70%;
+}
+
+.detail-skeleton__buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.detail-skeleton__pill {
+    height: 40px;
+    width: 140px;
+    border-radius: 999px;
+}
+
+.detail-skeleton__paragraph .line {
+    height: 14px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.detail-skeleton__paragraph .w-100 {
+    width: 100%;
+}
+
+.detail-skeleton__paragraph .w-95 {
+    width: 95%;
+}
+
+.detail-skeleton__paragraph .w-90 {
+    width: 90%;
+}
+
+.detail-skeleton__paragraph .w-70 {
+    width: 70%;
+}
+
+.detail-skeleton__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.detail-skeleton__card {
+    height: 92px;
+}
+
+.detail-skeleton__map {
+    height: 260px;
+}

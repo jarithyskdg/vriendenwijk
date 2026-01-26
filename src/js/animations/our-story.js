@@ -13,7 +13,7 @@ export function animateOurStory() {
     const logo = section.querySelector(".logo--small");
     const title = section.querySelector(".our-story__title");
     const paragraphs = Array.from(section.querySelectorAll(".our-story__content p"));
-    const cols = Array.from(section.querySelectorAll(".our-story__content__col"));
+    const cols = Array.from(section.querySelectorAll(".our-story__col"));
 
     if (!logo || !title || !paragraphs.length) return;
     if (prefersReducedMotion()) return;

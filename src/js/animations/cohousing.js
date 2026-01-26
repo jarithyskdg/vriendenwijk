@@ -11,8 +11,8 @@ export async function animateCohousing() {
     if (prefersReducedMotion()) return;
 
     const section = document.querySelector("#cohousing");
-    const title = document.querySelector(".cohousing__content__title");
-    const text = document.querySelector(".cohousing__content__text");
+    const title = document.querySelector(".cohousing__title");
+    const text = document.querySelector(".cohousing__text");
     const cta = document.querySelector(".cohousing__cta");
 
     if (!section || !title || !text || !cta) return;
@@ -49,12 +49,12 @@ export async function animateCohousing() {
         duration: 0.8,
         ease: "power3.out",
         stagger: 0.15
-    }, "-=0.3");
+    }, "-=0.4");
 
     tl.from(cta, {
         scale: 0.8,
         autoAlpha: 0,
         duration: 0.8,
         ease: "power3.out",
-    }, "-=0.3");
+    }, "-=0.4");
 }

@@ -41,6 +41,12 @@
         transition: color 50ms ease-in-out;
     }
 
+    // New: generic text element for button variants that need a simple label
+    &__text {
+        position: relative;
+        z-index: 2;
+    }
+
     &--primary {
         background-color: $teal;
 
@@ -79,7 +85,7 @@
         }
     }
 
-    &--darkGreen {
+    &--dark-green {
         background-color: $darkGreen;
 
         .button__label {
@@ -209,7 +215,7 @@
             z-index: 2; // above bubble
         }
 
-        .text {
+        .button__text {
             padding: 0 8px;
         }
     }

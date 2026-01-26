@@ -23,7 +23,7 @@ export function scrollToSection(target) {
 
     // Reduced motion → instant jump, no animation
     if (reducedMotion) {
-        if (target === "#home") {
+        if (target === "#hero") {
             window.scrollTo(0, 0);
         } else {
             targetElement.scrollIntoView();
@@ -36,7 +36,7 @@ export function scrollToSection(target) {
     ScrollTrigger.refresh();
 
     setTimeout(() => {
-        if (target === "#home") {
+        if (target === "#hero") {
             if (smoother && breakpoint === "desktop") {
                 smoother.scrollTo(0, true);
             } else {

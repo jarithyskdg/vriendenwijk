@@ -5,8 +5,8 @@ import { prefersReducedMotion } from "../helpers/reducedMotion";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
-export function animateHome() {
-    const section = document.querySelector(".home"); // Assuming .home is the container for this section
+export function animateHero() {
+    const section = document.querySelector("#hero");
     if (!section) return;
 
     if (prefersReducedMotion()) return;
@@ -18,20 +18,20 @@ export function animateHome() {
             end: "bottom center",
             toggleActions: "play reverse restart reverse",
             scrub: false,
-            markers: false // Set true if you want to debug
+            markers: false
         }
     });
 
-    tl.from(".home__logo", {
+    tl.from(".hero__logo", {
         y: -265,
         duration: 0.7,
         ease: "power1.out"
     });
 
     document.fonts.ready.then(() => {
-        const split = SplitText.create(".home__subtitle", {
+        const split = SplitText.create(".hero__subtitle", {
             type: "words",
-            wordsClass: "home-subtitle-word"
+            wordsClass: "hero-subtitle-word"
         });
 
         tl.from(split.words, {
@@ -43,7 +43,7 @@ export function animateHome() {
             autoAlpha: 0
         });
 
-        tl.from(".scroll-arrow", {
+        tl.from(".hero__scroll-arrow", {
             y: -50,
             autoAlpha: 0,
             duration: 0.7,

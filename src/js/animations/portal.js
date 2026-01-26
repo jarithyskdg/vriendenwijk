@@ -10,7 +10,7 @@ export function animatePortal() {
 
     if (!section) return;
 
-    const title = section?.querySelector(".portal__content__title h2");
+    const title = section?.querySelector(".portal__title h2");
     const button = section?.querySelector(".portal__cta .button");
 
     if (!title || !button) return;

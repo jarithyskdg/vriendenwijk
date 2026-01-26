@@ -3,15 +3,19 @@
 @use "../00_common/mixins" as *;
 
 .about-us {
+    // Color accents for js animation
+    --about-us-accent-base: #{$black};
+    --about-us-accent-1: #{$slate};
+    --about-us-accent-2: #{$darkGreen};
+    --about-us-accent-3: #{$green};
+
     width: 100%;
     min-height: 100vh;
     padding: 10% 0;
-    // background-image: url("@/img/about-us-background-mobile-dark.jpg");
-    // background-size: cover;
-    // background-position: center;
     background: $slate;
-    background: linear-gradient(45deg,rgba(108, 132, 128, 1) 25%, rgba(186, 200, 177, 1) 100%);
-// background: radial-gradient(circle,rgba(108, 132, 128, 1) 0%, rgba(108, 132, 128, 1) 80%, rgba(186, 200, 177, 1) 100%);
+    background: linear-gradient(45deg,
+            rgba(108, 132, 128, 1) 25%,
+            rgba(186, 200, 177, 1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,70 +27,66 @@
         justify-content: center;
         align-items: center;
         text-align: center;
+    }
 
-        .about-us__items {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 32px;
+    &__items {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+    }
 
-            .about-us__item {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                text-align: center;
-                gap: 10px;
+    &__item {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
 
-                &__icon {
-                    width: 30px;
-                    height: auto;
-                }
+    &__icon {
+        width: 30px;
+        height: auto;
+    }
 
-                &__title {
-                    @include text--xl;
-                    font-weight: bold;
-                    line-height: initial;
-                }
+    &__title {
+        @include text--xl;
+        font-weight: bold;
+        line-height: initial;
+    }
 
-                &__text {
-                    @include text--md;
-                }
-            }
-        }
+    &__text {
+        @include text--md;
     }
 
     &__cta {
         margin-top: 48px;
     }
 
-    // Tablet styles
+    /* Tablet styles */
     @include respond-to(tablet) {
-        // background-image: url("@/img/about-us-background-dark.jpg");
         height: auto;
         padding: 80px 0;
 
-        &__container {
-            .about-us__items {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: stretch;
-                row-gap: 48px;
-                column-gap: 48px;
+        &__items {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: stretch;
+            row-gap: 48px;
+            column-gap: 48px;
+        }
 
-                .about-us__item {
-                    width: calc(50% - 24px);
-                    // height: 100%;
+        &__item {
+            width: calc(50% - 24px);
+        }
 
-                    &__icon {
-                        width: 36px;
-                    }
-                }
-            }
+        &__icon {
+            width: 36px;
         }
 
         &__cta {
@@ -94,25 +94,23 @@
         }
     }
 
-    // Desktop styles
+    /* Desktop styles */
     @media screen and (min-width: 1200px) {
-        // background-image: url("@/img/about-us-background-dark.jpg");
-
         &__container {
             width: 80%;
+        }
 
-            .about-us__items {
-                flex-wrap: nowrap;
-                gap: 86px;
+        &__items {
+            flex-wrap: nowrap;
+            gap: 86px;
+        }
 
-                .about-us__item {
-                    width: calc(25% - 24px);
+        &__item {
+            width: calc(25% - 24px);
+        }
 
-                    &__icon {
-                        width: 40px;
-                    }
-                }
-            }
+        &__icon {
+            width: 40px;
         }
     }
 }

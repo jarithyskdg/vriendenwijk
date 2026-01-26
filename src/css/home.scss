@@ -12,7 +12,7 @@
 
 
 //04_organisms
-@use "/theme/04_organisms/_home.scss";
+@use "/theme/04_organisms/_hero.scss";
 @use "/theme/04_organisms/_cohousing.scss";
 @use "/theme/04_organisms/transition-arms";
 @use "/theme/04_organisms/_about-us.scss";
@@ -23,6 +23,7 @@
 @use "/theme/04_organisms/_quote.scss";
 @use "/theme/04_organisms/_slider.scss";
 @use "/theme/04_organisms/_gallery.scss";
+@use "/theme/04_organisms/_faciliteiten-overlay.scss";
 
 //05_layouts
 

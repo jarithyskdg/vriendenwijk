@@ -34,7 +34,6 @@ export async function renderDetail() {
         const data = await res.json();
 
         const defaults = data.defaultDetail ?? {};
-
         const card = findCardById(data, id);
 
         if (id && !card) {
@@ -56,7 +55,7 @@ export async function renderDetail() {
         // 1) Page <title> + H1 title
         document.title = model.title;
 
-        const titleEl = document.querySelector(".detail__content__title");
+        const titleEl = document.querySelector(".detail__title");
         if (titleEl) titleEl.textContent = model.title;
 
         // 2) Description section (dynamic)
@@ -97,7 +96,7 @@ export async function renderDetail() {
         }
 
         // 4) Details info cards
-        const detailInfoPs = document.querySelectorAll(".card--details__info p");
+        const detailInfoPs = document.querySelectorAll(".card--details .card__info p");
         if (detailInfoPs.length) {
             detailInfoPs.forEach((p, i) => {
                 p.innerHTML = model.detailsInfoValues[i] ?? p.innerHTML;

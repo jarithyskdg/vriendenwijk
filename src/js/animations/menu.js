@@ -11,9 +11,10 @@ export function initMenuSlideToggle() {
     const menuToggle = document.querySelector(".header__menu-toggle");
     const menu = document.querySelector(".header__menu");
     const overlay = document.querySelector(".menu-overlay");
-    const menuLinks = menu.querySelectorAll(".header__menu__item, .header__menu__items__divider span");
 
     if (!menuToggle || !menu || !overlay) return;
+
+    const menuLinks = menu.querySelectorAll(".header__menu-item, .header__menu-divider span");
 
     menu.setAttribute("id", "header-menu");
     menu.setAttribute("role", "menu");
@@ -38,11 +39,11 @@ export function initMenuSlideToggle() {
 
     gsap.set(menu, { width: getCurrentMenuWidth() });
 
-    //reduced motion version
+    // reduced motion version
     if (prefersReducedMotion()) {
         function openMenu() {
             menuToggle.setAttribute("aria-expanded", "true");
-            bodyWrapper.setAttribute("aria-hidden", "true");
+            bodyWrapper?.setAttribute("aria-hidden", "true");
             menu.removeAttribute("aria-hidden");
 
             gsap.set(overlay, { autoAlpha: 1, pointerEvents: "auto" });
@@ -61,7 +62,7 @@ export function initMenuSlideToggle() {
 
         function closeMenu() {
             menuToggle.setAttribute("aria-expanded", "false");
-            bodyWrapper.removeAttribute("aria-hidden");
+            bodyWrapper?.removeAttribute("aria-hidden");
             menu.setAttribute("aria-hidden", "true");
 
             gsap.set(overlay, { autoAlpha: 0, pointerEvents: "none" });
@@ -91,11 +92,11 @@ export function initMenuSlideToggle() {
         return;
     }
 
-    //normal animated version
+    // normal animated version
     const menuTl = gsap.timeline({
         paused: true,
         onReverseComplete: () => {
-            gsap.set(menuLinks, { autoAlpha: 0 }); // Hide links after menu closes
+            gsap.set(menuLinks, { autoAlpha: 0 });
         }
     });
 
@@ -136,7 +137,7 @@ export function initMenuSlideToggle() {
 
     function openMenu() {
         menuToggle.setAttribute("aria-expanded", "true");
-        bodyWrapper.setAttribute("aria-hidden", "true");
+        bodyWrapper?.setAttribute("aria-hidden", "true");
         menu.removeAttribute("aria-hidden");
 
         menuTl.play();
@@ -148,7 +149,7 @@ export function initMenuSlideToggle() {
 
     function closeMenu() {
         menuToggle.setAttribute("aria-expanded", "false");
-        bodyWrapper.removeAttribute("aria-hidden");
+        bodyWrapper?.removeAttribute("aria-hidden");
         menu.setAttribute("aria-hidden", "true");
 
         linksIn.kill();
@@ -165,24 +166,18 @@ export function initMenuSlideToggle() {
     }
 
     function handleEscapeKey(event) {
-        if (event.key === "Escape") {
-            closeMenu();
-        }
+        if (event.key === "Escape") closeMenu();
     }
 
     overlay.addEventListener("click", () => {
-        if (isOpen) {
-            closeMenu();
-        }
+        if (isOpen) closeMenu();
     });
 
     menuToggle.addEventListener("click", toggleMenu);
 
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
-            if (isOpen) {
-                closeMenu();
-            }
+            if (isOpen) closeMenu();
         });
     });
 }
@@ -190,7 +185,7 @@ export function initMenuSlideToggle() {
 export function menuItemHoverEffect() {
     if (prefersReducedMotion() || window.matchMedia("(hover: hover) and (pointer: fine)").matches === false) return;
 
-    const links = document.querySelectorAll(".header__menu__item");
+    const links = document.querySelectorAll(".header__menu-item");
 
     links.forEach(link => {
         const tl = gsap.timeline({ paused: true });
@@ -202,9 +197,6 @@ export function menuItemHoverEffect() {
         });
 
         link.addEventListener("mouseenter", () => tl.play());
-
         link.addEventListener("mouseleave", () => tl.reverse());
     });
 }
-
-

@@ -9,7 +9,7 @@ export function animateInsights() {
     const section = document.querySelector("#insights");
     if (!section) return;
 
-    const title = section.querySelector(".insights__content__title h2");
+    const title = section.querySelector(".insights__title h2");
     const cards = section.querySelectorAll(".card--insights");
     const cta = section.querySelector(".insights__cta .button");
 

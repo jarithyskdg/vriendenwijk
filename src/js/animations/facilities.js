@@ -13,14 +13,13 @@ export function animateFacilities() {
 
     // const slider = section.querySelector(".faciliteiten__slider .slider");
     const content = section.querySelector(".faciliteiten__content");
-
     if (!content) return;
 
-    const title = section.querySelector(".faciliteiten__content__title");
-    const firstParagraph = section.querySelectorAll(".faciliteiten__content__text--first");
-    const lastParagraph = section.querySelectorAll(".faciliteiten__content__text--last");
+    const title = section.querySelector(".faciliteiten__title");
+    const firstParagraph = section.querySelectorAll(".faciliteiten__text--first");
+    const lastParagraph = section.querySelectorAll(".faciliteiten__text--last");
     const listItems = section.querySelectorAll(".faciliteiten__list__item");
-    const cta = section.querySelector(".faciliteiten__content__cta");
+    const cta = section.querySelector(".faciliteiten__cta");
 
     if (!title || !firstParagraph.length || !lastParagraph.length || !listItems.length || !cta) return;
 

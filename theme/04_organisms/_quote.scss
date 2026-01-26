@@ -10,11 +10,7 @@
     justify-content: center;
     align-items: center;
     background: #6C8480;
-    background: linear-gradient(45deg,rgba(108, 132, 128, 1) 25%, rgba(186, 200, 177, 1) 100%);
-    // background-image: url("@/img/quote-background.svg");
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
+    background: linear-gradient(45deg, rgba(108, 132, 128, 1) 25%, rgba(186, 200, 177, 1) 100%);
 
     &__container {
         position: relative;
@@ -28,57 +24,55 @@
         align-items: space-between;
         text-align: center;
         background-color: $white;
+    }
 
-        .quote__content {
-            width: 100%;
+    &__text {
+        width: 100%;
 
-            &__text {
-                p {
-                    @include heading-h2;
+        p {
+            @include heading-h2;
 
-                    .quote-char {
-                        @include heading-h2;
-                    }
-                }
+            .quote-char {
+                @include heading-h2;
             }
         }
+    }
 
-        .quote__mark {
-            display: flex;
+    &__mark {
+        display: flex;
 
-            &__img {
-                width: 64px;
-            }
-
-            &--top {
-                justify-content: flex-start;
-                margin-top: -24px;
-            }
-
-            &--bottom {
-                justify-content: flex-end;
-                margin-bottom: -24px;
-            }
+        &--top {
+            justify-content: flex-start;
+            margin-top: -24px;
         }
+
+        &--bottom {
+            justify-content: flex-end;
+            margin-bottom: -24px;
+        }
+    }
+
+    &__mark-img {
+        width: 64px;
     }
 
     @include respond-to(tablet) {
         &__container {
             padding: 0 64px;
             min-height: 70vh;
+        }
 
-            .quote__mark {
-                &__img {
-                    width: 86px;
-                }
+        &__mark-img {
+            width: 86px;
+        }
 
-                &--top {
-                    margin-top: -32px;
-                }
+        &__mark {
+            &--top {
+                margin-top: -32px;
+            }
 
-                &--bottom {
-                    margin-bottom: -32px;
-                }
+            &--bottom {
+                margin-bottom: -32px;
             }
         }
     }

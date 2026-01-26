@@ -3,6 +3,8 @@
 @use "../00_common/mixins" as *;
 
 .card {
+
+    /* ---------- Color modifiers ---------- */
     &--purple {
         background-color: $purple;
     }
@@ -15,6 +17,35 @@
         background-color: $blue;
     }
 
+    /* ---------- Shared elements (reused by multiple variants) ---------- */
+    &__img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &__content {
+        @include text--md;
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    &__info {
+        @include text--xl;
+        font-weight: bold;
+        line-height: initial;
+    }
+
+    &__name {
+        @include text--sm;
+        font-weight: normal;
+    }
+
+    /* ---------- Variant: About us ---------- */
     &--about-us {
         position: relative;
         background-color: rgba(255, 255, 255, 0.7);
@@ -23,29 +54,7 @@
         padding: 24px;
     }
 
-    &--practical {
-        background-color: $teal;
-        border: 1px solid $green;
-        border-radius: 6px;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        text-align: center;
-
-        &__info {
-            @include text--xl;
-            font-weight: bold;
-        }
-
-        &__name {
-            @include text--sm;
-            font-weight: normal;
-        }
-    }
-
+    /* ---------- Variant: Insights ---------- */
     &--insights {
         width: 90%;
         min-height: 400px;
@@ -54,12 +63,9 @@
         flex-direction: column;
         align-items: center;
         gap: 32px;
-
-        &__content {
-            @include text--md;
-        }
     }
 
+    /* ---------- Variant: Overview ---------- */
     &--overview {
         width: 100%;
         min-height: 400px;
@@ -72,10 +78,7 @@
         margin: auto;
 
         .card__img {
-            width: 100%;
-            height: auto;
             max-height: 175px;
-            object-fit: cover;
             border-radius: 14px 14px 0 0;
             margin-bottom: 24px;
         }
@@ -88,62 +91,57 @@
             align-items: flex-start;
             gap: 16px;
             padding: 0 16px 16px;
-            @include text--md;
+        }
 
-            .card__title {
-                display: flex;
-                align-items: center;
-                gap: 12px;
+        .card__title {
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
 
-                a {
-                    text-decoration: none;
-                    color: inherit;
-                }
+            .detail-link-arrow {
+                opacity: 0;
+            }
 
-                .detail-link-arrow {
+            h4.detail-link-title {
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0.075em;
+                    background-color: black;
                     opacity: 0;
+                    transform: scale(0);
+                    transform-origin: left;
+                    transition: opacity 300ms, transform 300ms;
                 }
 
-                h4.detail-link-title {
+                &:hover {
+                    cursor: pointer;
 
                     &::after {
-                        content: '';
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 0.075em;
-                        background-color: black;
-                        opacity: 0;
-                        transform: scale(0);
-                        transform-origin: left;
-                        transition: opacity 300ms, transform 300ms;
-                    }
-
-                    &:hover {
-                        cursor: pointer;
-
-                        &::after {
-                            opacity: 1;
-                            transform: scale(1);
-                        }
+                        opacity: 1;
+                        transform: scale(1);
                     }
                 }
             }
+        }
 
-            .card__description {
-                ul {
+        .card__description {
+            ul {
+                margin-left: 16px;
+
+                li {
+                    list-style-type: disc;
                     margin-left: 16px;
-
-                    li {
-                        list-style-type: disc;
-                        margin-left: 16px;
-                    }
                 }
             }
         }
     }
 
+    /* ---------- Variant: Details ---------- */
     &--details {
         background-color: $teal;
         border: 1px solid $darkGreen;
@@ -156,19 +154,8 @@
         gap: 10px;
         text-align: center;
 
-        &__info {
-            @include text--xl;
-            font-weight: bold;
-            line-height: initial;
-        }
-
-        &__name {
-            @include text--sm;
-            font-weight: normal;
-        }
-
         @include respond-to(tablet) {
-            &__info {
+            .card__info {
                 @include text--xl;
                 font-weight: bold;
             }

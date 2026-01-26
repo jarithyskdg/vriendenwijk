@@ -1,0 +1,89 @@
+@use "../00_common/variables" as *;
+@use "../00_common/mixins" as *;
+
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background: $teal;
+    background: radial-gradient(circle,
+            rgba(186, 200, 177, 1) 0%,
+            rgba(186, 200, 177, 1) 50%,
+            rgba(123, 150, 105, 1) 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        width: 70%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 35vh;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        text-align: center;
+
+        .logo {
+            width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__subtitle {
+        display: inline-block;
+
+        span {
+            display: inline-block;
+        }
+
+        .hero-subtitle-word {
+            font-family: $ff-heading;
+        }
+    }
+
+    &__scroll-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 128px;
+        cursor: pointer;
+    }
+
+    @include respond-to(tablet) {
+        &__container {
+            width: 60%;
+            padding-top: 30vh;
+        }
+
+        &__content {
+            gap: 16px;
+
+            .logo img {
+                width: 90%;
+            }
+        }
+    }
+
+    @include respond-to(desktop) {
+        &__container {
+            width: 50%;
+            padding-top: 25vh;
+        }
+
+        &__content {
+            gap: 20px;
+        }
+    }
+}

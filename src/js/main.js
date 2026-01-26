@@ -1,6 +1,8 @@
 //Import main SCSS so Vite compiles it automatically
 import "@/css/style.scss"; // Vite will handle Sass → CSS automatically
 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 //helper functions
 import { waitForFonts } from "@/js/helpers/fonts.js";
 import { getMenuWidth } from "@/js/helpers/breakpoints.js";

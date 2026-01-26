@@ -1,0 +1,49 @@
+@use "../00_common/_skeleton.scss" as skeleton;
+
+/* ------------------------------------------
+   Loading state toggles
+------------------------------------------ */
+body.is-loading-overview {
+
+    .card--overview,
+    .divider,
+    a.link {
+        display: none;
+    }
+}
+
+body:not(.is-loading-overview) {
+
+    .overview-skeleton__card,
+    .divider-skeleton {
+        display: none;
+    }
+}
+
+/* ------------------------------------------
+   Skeleton cards (direct children of .overview__cards)
+------------------------------------------ */
+.overview-skeleton__card {
+    width: 100%;
+    min-height: 400px;
+    /* matches .card--overview min-height */
+    border-radius: 14px;
+    background: skeleton.$skeleton-bg;
+
+    @include skeleton.skeleton-shimmer;
+}
+
+/* ------------------------------------------
+   Skeleton divider bar (simple)
+------------------------------------------ */
+.divider-skeleton {
+    width: 100%;
+    height: 40px;
+    border-radius: 14px;
+    background: skeleton.$skeleton-bg;
+
+    /* match your divider spacing */
+    margin: 32px 0 48px 0;
+
+    @include skeleton.skeleton-shimmer;
+}

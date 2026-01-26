@@ -18,7 +18,18 @@ export function animateAboutUs() {
 
     const breakpoint = getCurrentBreakpoint();
 
-    const colors = ["#6C8480", "#404E3B", "#7B9669"];
+    // Read animation colors from CSS variables (defined on .about-us)
+    const styles = getComputedStyle(section);
+
+    const baseColor =
+        styles.getPropertyValue("--about-us-accent-base").trim() || "#000000";
+
+    const colors = [
+        styles.getPropertyValue("--about-us-accent-1").trim(),
+        styles.getPropertyValue("--about-us-accent-2").trim(),
+        styles.getPropertyValue("--about-us-accent-3").trim()
+    ].filter(Boolean);
+
     const splits = [];
 
     const tl = gsap.timeline({
@@ -30,15 +41,15 @@ export function animateAboutUs() {
             markers: false,
             onLeaveBack: () => {
                 section.querySelectorAll(".about-us-accent").forEach(ch => {
-                    ch.style.color = "#000000";
+                    ch.style.color = baseColor;
                 });
             }
         }
     });
 
-    const icons = items.map(i => i.querySelector(".about-us__item__icon")).filter(Boolean);
-    const titles = items.map(i => i.querySelector(".about-us__item__title")).filter(Boolean);
-    const textEls = items.map(i => i.querySelector(".about-us__item__text")).filter(Boolean);
+    const icons = items.map(i => i.querySelector(".about-us__icon")).filter(Boolean);
+    const titles = items.map(i => i.querySelector(".about-us__title")).filter(Boolean);
+    const textEls = items.map(i => i.querySelector(".about-us__text")).filter(Boolean);
 
     // Split texts into lines
     const textSplits = textEls.map(el => {
@@ -120,7 +131,7 @@ export function animateAboutUs() {
         });
         splits.push(split);
 
-        gsap.set(split.chars, { color: "#000000" });
+        gsap.set(split.chars, { color: baseColor });
 
         tl.to(
             split.chars,
@@ -128,7 +139,7 @@ export function animateAboutUs() {
                 stagger: 0.02,
                 keyframes: [
                     { color: (i) => gsap.utils.wrap(colors, i), duration: 0.12, ease: "none" },
-                    { color: "#000000", duration: 0.2, ease: "none" }
+                    { color: baseColor, duration: 0.2, ease: "none" }
                 ]
             },
             "accentFlash"

@@ -3,7 +3,7 @@
 @use "../01_fundaments/_headings" as *;
 @use "../00_common/mixins" as *;
 
-footer.footer {
+.footer {
     width: 100%;
     min-height: 75vh;
     display: flex;
@@ -11,150 +11,144 @@ footer.footer {
     align-items: flex-start;
     background-color: $teal;
 
-    .footer__container {
+    &__container {
         width: 80%;
         padding: 15% 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
 
-        .footer__content {
-            width: 100%;
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &__logo {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 48px;
+    }
+
+    &__body {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    &__col--left {
+        .contact-info {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-start;
+            gap: 32px;
+            margin-bottom: 64px;
 
-            .footer__logo {
-                width: 100%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                margin-bottom: 48px;
+            &__title h2 {
+                font-weight: bold;
+                color: $darkGreen;
             }
 
-            &__body {
-                width: 100%;
+            &__details {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-start;
+                gap: 24px;
+                color: $darkGreen;
+                @include text--md;
 
-                &--left {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
+                a {
+                    @include text--md;
+                    color: $darkGreen;
+                    text-decoration: underline;
 
-                    .contact-info {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        align-items: flex-start;
-                        gap: 32px;
-                        margin-bottom: 64px;
-
-                        &__title {
-                            h2 {
-                                font-weight: bold;
-                                color: $darkGreen;
-                            }
-                        }
-
-                        &__details {
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: flex-start;
-                            align-items: flex-start;
-                            gap: 24px;
-                            color: $darkGreen;
-                            @include text--md;
-
-                            a {
-                                @include text--md;
-                                color: $darkGreen;
-                                text-decoration: underline;
-
-                                &:hover {
-                                    font-weight: bold;
-                                    cursor: pointer;
-                                }
-                            }
-                        }
-                    }
-
-                    .socials {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: flex-start;
-                        gap: 24px;
-
-                        &__title {
-                            h2 {
-                                font-weight: bold;
-                                color: $darkGreen;
-                            }
-                        }
-
-                        &__links {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            gap: 24px;
-
-                            a {
-                                &:hover {
-                                    cursor: pointer;
-                                }
-                            }
-                        }
+                    &:hover {
+                        font-weight: bold;
+                        cursor: pointer;
                     }
                 }
+            }
+        }
 
-                &--right {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    margin-bottom: 64px;
+        .socials {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 24px;
 
-                    .footer__links {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: flex-start;
-                        align-items: flex-start;
-                        gap: 24px;
+            &__title h2 {
+                font-weight: bold;
+                color: $darkGreen;
+            }
 
-                        a {
-                            @include heading-h3;
-                            color: $darkGreen;
-                            position: relative;
+            &__links {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
 
-                            &::after {
-                                content: '';
-                                position: absolute;
-                                bottom: 0;
-                                left: 0;
-                                width: 100%;
-                                height: 0.075em;
-                                background-color: $darkGreen;
-                                opacity: 0;
-                                transform: scale(0);
-                                transform-origin: center;
-                                transition: opacity 300ms, transform 300ms;
-                            }
+                a {
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
 
-                            &:hover {
-                                cursor: pointer;
+    &__col--right {
+        margin-bottom: 64px;
 
-                                &::after {
-                                    opacity: 1;
-                                    transform: scale(1);
-                                }
-                            }
-                        }
+        .footer__links {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 24px;
+
+            a {
+                @include heading-h3;
+                color: $darkGreen;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 0.075em;
+                    background-color: $darkGreen;
+                    opacity: 0;
+                    transform: scale(0);
+                    transform-origin: center;
+                    transition: opacity 300ms, transform 300ms;
+                }
+
+                &:hover {
+                    cursor: pointer;
+
+                    &::after {
+                        opacity: 1;
+                        transform: scale(1);
                     }
                 }
             }
@@ -164,60 +158,58 @@ footer.footer {
     @include respond-to(tablet) {
         min-height: 65vh;
 
-        .footer__container {
+        &__container {
             width: 85%;
             padding: 10% 0;
+        }
 
-            .footer__content {
-                .footer__logo {
-                    justify-content: center;
-                    margin-bottom: 96px;
+        &__logo {
+            justify-content: center;
+            margin-bottom: 96px;
+        }
+
+        &__body {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        &__col--left {
+            width: 40%;
+            margin-bottom: 0;
+
+            .contact-info {
+                width: 100%;
+
+                &__details {
+                    gap: 16px;
                 }
+            }
 
-                &__body {
-                    flex-direction: row-reverse;
-                    justify-content: space-between;
-                    align-items: flex-start;
+            .socials {
+                width: 100%;
+            }
+        }
 
-                    &--left {
-                        width: 40%;
-                        margin-bottom: 0;
+        &__col--right {
+            width: 30%;
+            margin-bottom: 0;
 
-                        .contact-info {
-                            width: 100%;
-
-                            &__details {
-                                gap: 16px;
-                            }
-                        }
-
-                        .socials {
-                            width: 100%;
-                        }
-                    }
-
-                    &--right {
-                        width: 30%;
-                        margin-bottom: 0;
-
-                        .footer__links {
-                            gap: 24px;
-                        }
-                    }
-                }
+            .footer__links {
+                gap: 24px;
             }
         }
     }
 
     @media screen and (min-width: 1200px) {
-        .footer__container {
+        &__container {
             width: 70%;
             padding: 8% 0;
         }
     }
 
     @media screen and (min-width: 1600px) {
-        .footer__container {
+        &__container {
             width: 60%;
         }
     }

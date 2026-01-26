@@ -4,269 +4,145 @@
 @use "../01_fundaments/_typography" as *;
 
 .detail {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    margin-top: 80px;
-    background-color: $beige;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	margin-top: 80px;
+	background-color: $beige;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	overflow: hidden;
 
-    &__container {
-        position: relative;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+	&__container {
+		position: relative;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 
-        .detail__slider {
-            width: 100%;
-            height: auto;
-            max-height: 100vh;
-            margin-bottom: 32px;
-        }
+	&__slider {
+		width: 100%;
+		height: auto;
+		max-height: 100vh;
+		margin-bottom: 32px;
+	}
 
-        .detail__content {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 64px;
+	&__content {
+		width: 80%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+		margin-bottom: 64px;
+	}
 
-            &__title {
-                @include heading-h2;
-                text-align: center;
-                font-weight: bold;
-            }
+	&__title {
+		@include heading-h2;
+		text-align: center;
+		font-weight: bold;
+	}
 
-            &__buttons {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 16px;
-            }
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 16px;
+	}
 
-            &__body {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 24px;
+	&__body {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 24px;
+	}
 
-                &__description {
-                    @include text--md;
-                }
+	&__section {
+		width: 100%;
+	}
 
-                &__details {
-                    width: 100%;
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-auto-rows: 1fr;
-                    gap: 24px;
-                }
+	&__description {
+		@include text--md;
+	}
 
-                &__location {
-                    width: 110%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border: 1px solid $green;
-                    border-radius: 8px;
-                    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.25);
+	&__details {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: 1fr;
+		gap: 24px;
+	}
 
-                    iframe {
-                        width: 100%;
-                        height: 450px;
-                        border: 0;
-                        border-radius: 8px;
-                    }
-                }
+	&__location {
+		width: 110%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px solid $green;
+		border-radius: 8px;
+		box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.25);
 
-                .hidden {
-                    display: none;
-                }
-            }
-        }
-    }
+		iframe {
+			width: 100%;
+			height: 450px;
+			border: 0;
+			border-radius: 8px;
+		}
+	}
 
-    // Tablet styles
-    @include respond-to(tablet) {
-        &__container {
-            .detail__slider {
-                width: 100%;
-                height: 50vh;
-            }
-        }
-    }
+	// Tablet styles
+	@include respond-to(tablet) {
+		&__slider {
+			width: 100%;
+			height: 50vh;
+		}
+	}
 
-    @media screen and (min-width: 1200px) {
-        align-items: center;
+	// Desktop styles
+	@media screen and (min-width: 1200px) {
+		align-items: center;
 
-        &__container {
-            height: 70vh;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: center;
+		&__container {
+			height: 70vh;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+		}
 
-            .detail__slider {
-                width: 45%;
-                height: 100%;
-                max-height: 100vh;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+		&__slider {
+			width: 45%;
+			height: 100%;
+			max-height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 
-            .detail__content {
-                justify-content: flex-start;
-                width: 55%;
-                height: 100%;
-                padding: 32px 5% 0;
-                gap: 64px;
-                margin-bottom: initial;
+		&__content {
+			justify-content: flex-start;
+			width: 55%;
+			height: 100%;
+			padding: 32px 5% 0;
+			gap: 64px;
+			margin-bottom: initial;
+		}
 
-                &__body {
-                    &__description {
-                        padding: 0 5%;
-                    }
+		&__description {
+			padding: 0 5%;
+		}
 
-                    &__details {
-                        grid-template-columns: repeat(3, 1fr);
-                        gap: 32px;
-                    }
+		&__details {
+			grid-template-columns: repeat(3, 1fr);
+			gap: 32px;
+		}
 
-                    &__location {
-                        width: 100%;
-                    }
-                }
-            }
-        }
-    }
-}
-
-/* Loading state toggle */
-body.is-loading-detail .detail__container {
-  display: none;
-}
-
-body:not(.is-loading-detail) .detail-skeleton {
-  display: none;
-}
-
-/* Skeleton layout */
-.detail-skeleton {
-  width: 100%;
-}
-
-.detail-skeleton__grid {
-  width: 100%;
-  display: grid;
-  gap: 24px;
-
-  /* roughly matches your layout: slider left-ish and content right-ish */
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 900px) {
-  .detail-skeleton__grid {
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-  }
-}
-
-.detail-skeleton__slider,
-.detail-skeleton__title,
-.detail-skeleton__pill,
-.detail-skeleton__card,
-.detail-skeleton__map,
-.detail-skeleton__paragraph .line {
-  border-radius: 12px;
-  background: $lightGrey;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Shimmer */
-.detail-skeleton__slider::after,
-.detail-skeleton__title::after,
-.detail-skeleton__pill::after,
-.detail-skeleton__card::after,
-.detail-skeleton__map::after,
-.detail-skeleton__paragraph .line::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    rgba(233, 230, 223, 0) 0%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(233, 230, 223, 0) 100%
-  );
-  animation: skeleton-shimmer 1.2s infinite;
-}
-
-@keyframes skeleton-shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Sizes */
-.detail-skeleton__slider {
-  height: 420px;
-}
-
-.detail-skeleton__content {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.detail-skeleton__title {
-  height: 42px;
-  width: 70%;
-}
-
-.detail-skeleton__buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.detail-skeleton__pill {
-  height: 40px;
-  width: 140px;
-  border-radius: 999px;
-}
-
-.detail-skeleton__paragraph .line {
-  height: 14px;
-  border-radius: 8px;
-  margin-top: 10px;
-}
-
-.detail-skeleton__paragraph .w-100 { width: 100%; }
-.detail-skeleton__paragraph .w-95  { width: 95%; }
-.detail-skeleton__paragraph .w-90  { width: 90%; }
-.detail-skeleton__paragraph .w-70  { width: 70%; }
-
-.detail-skeleton__cards {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.detail-skeleton__card {
-  height: 92px;
-}
-
-.detail-skeleton__map {
-  height: 260px;
+		&__location {
+			width: 100%;
+		}
+	}
 }

@@ -3,7 +3,7 @@
 
 // animation imports
 import { animateScrollIndicator } from "@/js/animations/scrollIndicator.js";
-import { animateHome } from "@/js/animations/home.js";
+import { animateHero } from "@/js/animations/hero.js";
 import { initScrollToLinks } from "@/js/animations/scrollTo.js";
 import { initClickConfetti } from "@/js/animations/confettiOnClick.js";
 import { magneticButtonEffect } from "@/js/animations/animateButtons.js";
@@ -28,7 +28,7 @@ export default function initHomePage() {
     initScrollToLinks();
     initClickConfetti();
     magneticButtonEffect();
-    animateHome();
+    animateHero();
     initGalleryFlip();
     initSlider();
     animateCohousing();
