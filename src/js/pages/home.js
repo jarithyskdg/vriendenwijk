@@ -5,7 +5,6 @@
 import { animateScrollIndicator } from "@/js/animations/scrollIndicator.js";
 import { animateHero } from "@/js/animations/hero.js";
 import { initScrollToLinks } from "@/js/animations/scrollTo.js";
-import { initClickConfetti } from "@/js/animations/confettiOnClick.js";
 import { magneticButtonEffect } from "@/js/animations/animateButtons.js";
 import { initSlider } from "@/js/animations/slider.js";
 import { initGalleryFlip } from "../animations/gallery";
@@ -26,7 +25,6 @@ export default function initHomePage() {
     setupPinnedSections();
     animateScrollIndicator();
     initScrollToLinks();
-    initClickConfetti();
     magneticButtonEffect();
     animateHero();
     initGalleryFlip();
