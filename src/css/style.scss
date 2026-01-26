@@ -1,3 +1,31 @@
-@use "/theme/00_common/variables";
+//00_common
+@use "/theme/00_common/_variables.scss";
+@use "/theme/00_common/_mixins.scss";
+@use "/theme/00_common/_utilities.scss";
+@use "/theme/00_common/_skeleton.scss";
 
-/* Remaining contents of style.scss */
+//01_fundaments
+@use "/theme/01_fundaments/_headings.scss";
+@use "/theme/01_fundaments/_typography.scss";
+@use "/theme/01_fundaments/_cursor-trail.scss";
+@use "/theme/01_fundaments/_links.scss";
+@use "/theme/01_fundaments/_menu-overlay.scss";
+
+//02_atoms
+@use "/theme/02_atoms/_logo.scss";
+@use "/theme/02_atoms/_dot.scss";
+
+//03_molecules
+@use "/theme/03_molecules/_buttons.scss";
+@use "/theme/03_molecules/_cards.scss";
+
+
+//04_organisms
+@use "/theme/04_organisms/_header.scss";
+@use "/theme/04_organisms/_footer.scss";
+
+//05_layouts
+@use "/theme/05_layouts/_section.scss";
+
+//06_pages
+@use "/theme/06_pages/_general.scss";
