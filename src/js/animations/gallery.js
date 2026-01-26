@@ -83,7 +83,7 @@ export function initGalleryFlip() {
                     y: 0,
                     pointerEvents: "auto",
                     duration: 0.15
-                }, ">=-0.15");
+                }, ">=-0.50");
             }
 
             return () => {
