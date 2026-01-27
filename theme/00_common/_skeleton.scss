@@ -31,8 +31,6 @@ $skeleton-bg: $grey !default;
     @media (prefers-reduced-motion: reduce) {
         &::after {
             animation: none !important;
-            /* Optional: also remove the shimmer overlay entirely */
-            /* content: none; */
         }
     }
 }

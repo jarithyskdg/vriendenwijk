@@ -1,6 +1,6 @@
 import { startLoadingTimer, finishLoading } from "@/js/helpers/loadingTransition.js";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-/* If these helpers already exist in your file, keep using yours */
 function getDetailIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -21,8 +21,15 @@ function findCardById(data, id) {
     return null;
 }
 
+function isValidSliderImage(img) {
+    if (!img) return false;
+    if (typeof img === "string") return img.trim().length > 0;
+    if (typeof img === "object") return typeof img.src === "string" && img.src.trim().length > 0;
+    return false;
+}
+
 export async function renderDetail() {
-    // Ensure we start in loading state (safe even if it's already set in HTML)
+    startLoadingTimer();
     document.body.classList.add("is-loading-detail");
 
     try {
@@ -39,7 +46,7 @@ export async function renderDetail() {
             title: card?.title ?? defaults.title ?? "Vriendenwijk",
             description: card?.description ?? defaults.description ?? "",
             mapEmbedUrl: card?.mapEmbedUrl ?? defaults.mapEmbedUrl ?? "",
-            // add other fields you use in the DOM here if needed
+            sliderImages: card?.sliderImages ?? defaults.sliderImages ?? [],
         };
 
         // ---- populate DOM ----
@@ -55,10 +62,34 @@ export async function renderDetail() {
         const iframe = container.querySelector("#location iframe");
         if (iframe && model.mapEmbedUrl) iframe.src = model.mapEmbedUrl;
 
+        // ---- populate slider images (from JSON) ----
+        const slider = container.querySelector(".slider");
+        if (slider && Array.isArray(model.sliderImages) && model.sliderImages.some(isValidSliderImage)) {
+            slider.innerHTML = "";
+
+            model.sliderImages
+                .filter(isValidSliderImage)
+                .forEach((img, idx) => {
+                    const src = typeof img === "string" ? img : img.src;
+                    const alt = typeof img === "string" ? "" : (img.alt ?? "");
+
+                    const el = document.createElement("img");
+                    el.className = `slider__item item-${idx + 1}`;
+                    el.src = src;
+                    el.alt = alt;
+                    slider.appendChild(el);
+                });
+        }
+
+        // Remove loading class with fade timing
+        await finishLoading("is-loading-detail", 350);
+
+        // Now that layout is final, refresh ScrollTrigger measurements
+        ScrollTrigger.refresh();
+
     } catch (err) {
         console.error(err);
-    } finally {
-        // original behavior: remove loading immediately (no fade)
-        document.body.classList.remove("is-loading-detail");
+        await finishLoading("is-loading-detail", 350);
+        ScrollTrigger.refresh();
     }
 }

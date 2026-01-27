@@ -12,7 +12,6 @@
       "... m²"
     ]
   },
-  
   "antwerpen": {
     "title": "Antwerpen",
     "cards": [
@@ -26,6 +25,28 @@
           "goede ligging",
           "winkelgelegenheden",
           "openbaar vervoer"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -38,6 +59,28 @@
           "waterzicht",
           "horeca",
           "tramverbinding"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -50,6 +93,28 @@
           "cultureel",
           "groene lanen",
           "fietsverbindingen"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -62,6 +127,28 @@
           "station nabij",
           "winkels",
           "park"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -74,6 +161,28 @@
           "diverse buurt",
           "markten",
           "OV"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -86,6 +195,28 @@
           "rustig",
           "groen",
           "familievriendelijk"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       }
     ]
@@ -103,6 +234,28 @@
           "campus",
           "groene omgeving",
           "fietswegen"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -115,6 +268,28 @@
           "station",
           "park Belle Vue",
           "winkels"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -127,6 +302,28 @@
           "historisch",
           "horeca",
           "OV"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -139,6 +336,28 @@
           "rustig",
           "kanaal",
           "fietsroute"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -151,6 +370,28 @@
           "dorpsgevoel",
           "trein",
           "groen"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -163,6 +404,28 @@
           "residentieel",
           "stil",
           "nabij centrum"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       }
     ]
@@ -180,6 +443,28 @@
           "historisch",
           "winkels",
           "horeca"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -192,6 +477,28 @@
           "station",
           "OV",
           "nabij centrum"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -204,6 +511,28 @@
           "dorpskern",
           "groen",
           "rustig"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -216,6 +545,28 @@
           "familievriendelijk",
           "school",
           "park"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -228,6 +579,28 @@
           "kanaal",
           "fietspad",
           "rust"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       },
       {
@@ -240,6 +613,28 @@
           "landelijk",
           "stil",
           "gemeenschapsgevoel"
+        ],
+        "sliderImages": [
+          {
+            "src": "/src/img/laundry-room.jpg",
+            "alt": "Laundry room"
+          },
+          {
+            "src": "/src/img/parking.jpg",
+            "alt": "Parking"
+          },
+          {
+            "src": "/src/img/living-room.jpg",
+            "alt": "Living room"
+          },
+          {
+            "src": "/src/img/coworking.jpg",
+            "alt": "Coworking space"
+          },
+          {
+            "src": "/src/img/gym.jpg",
+            "alt": "Gym"
+          }
         ]
       }
     ]

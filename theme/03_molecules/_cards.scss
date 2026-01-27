@@ -4,7 +4,7 @@
 
 .card {
 
-    /* ---------- Color modifiers ---------- */
+    // Color modifiers
     &--purple {
         background-color: $purple;
     }
@@ -17,7 +17,7 @@
         background-color: $blue;
     }
 
-    /* ---------- Shared elements (reused by multiple variants) ---------- */
+    // Shared elements
     &__img {
         width: 100%;
         height: auto;
@@ -45,7 +45,7 @@
         font-weight: normal;
     }
 
-    /* ---------- Variant: About us ---------- */
+    // Variant: About us
     &--about-us {
         position: relative;
         background-color: rgba(255, 255, 255, 0.7);
@@ -54,7 +54,7 @@
         padding: 24px;
     }
 
-    /* ---------- Variant: Insights ---------- */
+    // Variant: Insights
     &--insights {
         width: 90%;
         min-height: 400px;
@@ -65,7 +65,7 @@
         gap: 32px;
     }
 
-    /* ---------- Variant: Overview ---------- */
+    // Variant: Overview
     &--overview {
         width: 100%;
         min-height: 400px;
@@ -141,7 +141,7 @@
         }
     }
 
-    /* ---------- Variant: Details ---------- */
+    // Variant: Details
     &--details {
         background-color: $teal;
         border: 1px solid $darkGreen;
