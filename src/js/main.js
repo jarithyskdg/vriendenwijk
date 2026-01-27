@@ -20,7 +20,12 @@ import { animateFooter, animateFooterLinks } from "@/js/animations/footer.js";
 document.addEventListener("DOMContentLoaded", async () => {
     // helper functions
     await waitForFonts();
-    
+
+    const bodyWrapper = document.querySelector("#smooth-wrapper");
+    if (bodyWrapper?.getAttribute("aria-hidden") === "true") {
+        bodyWrapper.removeAttribute("aria-hidden");
+    }
+
     getMenuWidth();
     setProgrammaticScroll();
     isProgrammaticScroll();
